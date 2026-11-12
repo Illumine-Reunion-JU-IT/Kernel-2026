@@ -65,3 +65,38 @@ npm run dev
 npm run lint
 npm run build
 ```
+
+## Environment configuration
+
+The application works locally without private environment variables.
+
+For production deployment, set:
+
+- `NEXT_PUBLIC_SITE_URL`: the canonical public website URL, including `https://`.
+
+Until a deployment domain is assigned, the application uses `http://localhost:3000` as its metadata URL fallback.
+
+## Content management
+
+Event and website content is maintained in the JSON files under `data/`:
+
+- `site.json` — event identity, dates, venue and contact information
+- `events.json` — event listings
+- `speakers.json` — speaker profiles
+- `sponsors.json` — sponsor information
+- `core-committee.json` — committee profiles
+- `faq.json` — frequently asked questions
+- `gallery.json` — gallery entries
+
+The corresponding TypeScript interfaces are in `types/index.ts`. Content loading and validation are handled by `lib/content.ts`.
+
+Replace `TBD` values and placeholder images only with information approved by the organising team. Empty content arrays are supported.
+
+## Continuous integration
+
+GitHub Actions runs the following checks on pushes to the working branch and pull requests to `main`:
+
+1. Install dependencies with `npm ci`
+2. Run TypeScript validation
+3. Run ESLint
+4. Build the production application

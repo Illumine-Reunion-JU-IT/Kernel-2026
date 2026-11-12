@@ -1,1 +1,8 @@
-// Placeholder: created by GitHub issue #1.
+const config = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+};
+
+export default config;
