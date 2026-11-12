@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "sponsor-placeholder-001",
+    "name": "TBD: Sponsor name",
+    "category": "TBD: Sponsor category",
+    "logoPath": "/images/placeholder.svg",
+    "logoAlt": "Sponsor logo placeholder",
+    "url": null,
+    "isPlaceholder": true,
+    "organiserNote": "Replace only after the sponsorship is officially confirmed."
+  }
+]
