@@ -1,16 +1,1 @@
-{
-  "eventName": "KERNEL",
-  "edition": "1.0",
-  "department": "Department of Information Technology",
-  "university": "Jadavpur University",
-  "eventDates": "TBD: official event dates from organiser",
-  "venue": "TBD: confirmed event venue",
-  "contactEmail": "TBD: official contact email from organiser",
-  "registrationUrl": null,
-  "socialLinks": {
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
-  }
-}
+{}

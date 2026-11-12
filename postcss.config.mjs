@@ -1,8 +1,1 @@
-const config = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {}
-  }
-};
-
-export default config;
+// Placeholder: created by GitHub issue #1.

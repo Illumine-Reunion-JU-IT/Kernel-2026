@@ -1,15 +1,1 @@
-[
-  {
-    "id": "event-placeholder-001",
-    "title": "TBD: Official event title",
-    "slug": "event-placeholder-001",
-    "summary": "TBD: Official event description to be supplied by the organising team.",
-    "date": "TBD: official event date and time",
-    "venue": "TBD: confirmed event venue",
-    "imagePath": "/images/placeholder.svg",
-    "imageAlt": "KERNEL event image placeholder",
-    "registrationUrl": null,
-    "isPlaceholder": true,
-    "organiserNote": "Replace all TBD fields with verified information from the official event brochure."
-  }
-]
+[]

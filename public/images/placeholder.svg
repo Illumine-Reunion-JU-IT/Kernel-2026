@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-  <rect width="800" height="500" fill="#123729"/>
-  <path d="M0 400 L250 150 L430 330 L570 210 L800 430 V500 H0Z" fill="#183F30"/>
-  <circle cx="400" cy="220" r="75" fill="none" stroke="#B77CFF" stroke-width="3"/>
-  <text x="400" y="235" text-anchor="middle" fill="#EEE5D0" font-family="monospace" font-size="42">K.</text>
-  <text x="400" y="440" text-anchor="middle" fill="#B6B39F" font-family="monospace" font-size="16">REPLACE WITH APPROVED IMAGE</text>
-</svg>
