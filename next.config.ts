@@ -1,1 +1,7 @@
-// Placeholder: created by GitHub issue #1.
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+};
+
+export default nextConfig;

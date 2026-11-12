@@ -1,1 +1,4 @@
-// Placeholder: created by GitHub issue #7.
+// Placeholder: created by GitHub issue #5.
+export default function EventsPage() {
+  return null;
+}
