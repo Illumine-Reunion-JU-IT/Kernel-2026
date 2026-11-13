@@ -1,0 +1,37 @@
+[
+  {
+    "id": "faq-001",
+    "question": "What is KERNEL?",
+    "answer": "KERNEL is the annual college event of Jadavpur University: a meeting point of ideas, innovation, competition and culture, run by the Department of Information Technology.",
+    "isPlaceholder": false,
+    "organiserNote": "Based on the KERNEL 2026 brochure. Review before publication."
+  },
+  {
+    "id": "faq-002",
+    "question": "When and where does it happen?",
+    "answer": "Official dates and venue are still to be announced. This page will update as soon as the organising team confirms them.",
+    "isPlaceholder": false,
+    "organiserNote": "Based on the KERNEL 2026 brochure. Review before publication."
+  },
+  {
+    "id": "faq-003",
+    "question": "Do I need a GPU for Data Nilaam?",
+    "answer": "No. Data Nilaam is laptop only and does not require a GPU.",
+    "isPlaceholder": false,
+    "organiserNote": "Based on the KERNEL 2026 brochure. Review before publication."
+  },
+  {
+    "id": "faq-004",
+    "question": "How big can my team be?",
+    "answer": "It depends on the event. Hojohboroloh takes teams of 1 to 3, while Data Nilaam and Hack Sangram take teams of 2 to 4.",
+    "isPlaceholder": false,
+    "organiserNote": "Based on the KERNEL 2026 brochure. Review before publication."
+  },
+  {
+    "id": "faq-005",
+    "question": "Is Mogoj Dholai held online?",
+    "answer": "Yes. Mogoj Dholai is an ICPC-style contest with 5 to 7 problems of mixed difficulty under a strict time limit, and it runs online.",
+    "isPlaceholder": false,
+    "organiserNote": "Based on the KERNEL 2026 brochure. Review before publication."
+  }
+]

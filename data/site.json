@@ -1,0 +1,39 @@
+{
+  "eventName": "KERNEL",
+  "tagline": "The event that powers ideas",
+  "heroImage": "/images/hero/kernel-hero.jpg",
+  "heroImageAlt": "KERNEL poster: a fractured statue head cut by a tall red bar, with Jadavpur University's IT building and a packed programming hall.",
+  "videoUrl": "/videos/kernel-aftermovie.mp4",
+  "stats": [
+    {
+      "value": "10K+",
+      "label": "Participants"
+    },
+    {
+      "value": "50+",
+      "label": "Events"
+    },
+    {
+      "value": "20K+",
+      "label": "Footfalls"
+    },
+    {
+      "value": "1.5M",
+      "label": "Instagram views, last 90 days"
+    }
+  ],
+  "edition": "1.0",
+  "department": "Department of Information Technology",
+  "university": "Jadavpur University",
+  "eventDates": "TBD: official event dates from organiser",
+  "venue": "TBD: confirmed event venue",
+  "contactEmail": "TBD: official contact email from organiser",
+  "registrationUrl": null,
+  "socialLinks": {
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "videoPoster": "/images/hero/video-poster.jpg"
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "speaker-placeholder-001",
+    "name": "TBD: Speaker name",
+    "role": "TBD: Official speaker designation",
+    "organisation": "TBD: Speaker organisation",
+    "imagePath": "/images/placeholder.svg",
+    "imageAlt": "Speaker image placeholder",
+    "url": null,
+    "isPlaceholder": true,
+    "organiserNote": "Replace with an approved speaker profile and image. No speaker identity is assumed."
+  }
+]

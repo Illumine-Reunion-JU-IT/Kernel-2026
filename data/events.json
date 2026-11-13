@@ -1,0 +1,159 @@
+[
+  {
+    "id": "event-001",
+    "title": "Mogoj Dholai",
+    "slug": "mogoj-dholai",
+    "category": "Competitive programming",
+    "tagline": "Our traditional CP flagship",
+    "summary": "Our traditional CP flagship event, designed to test the analytical limits, algorithmic thinking and data structure mastery of the participants.",
+    "facts": [
+      {
+        "label": "Format",
+        "value": "ICPC-style, online"
+      },
+      {
+        "label": "Problems",
+        "value": "5 to 7, mixed difficulty"
+      },
+      {
+        "label": "Duration",
+        "value": "Strict time limit"
+      }
+    ],
+    "date": "TBD: official event date and time",
+    "venue": "TBD: confirmed event venue",
+    "imagePath": "/images/placeholder.svg",
+    "imageAlt": "Mogoj Dholai event artwork placeholder",
+    "registrationUrl": null,
+    "isPlaceholder": false,
+    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+  },
+  {
+    "id": "event-002",
+    "title": "Hojohboroloh",
+    "slug": "hojohboroloh",
+    "category": "Software challenge",
+    "tagline": "The fun software challenge",
+    "summary": "A creative software challenge to build quirky, unusual and entertaining software rather than practical problem-solving tools.",
+    "facts": [
+      {
+        "label": "Team size",
+        "value": "1 to 3 members"
+      },
+      {
+        "label": "Format",
+        "value": "Any tech stack, working prototype"
+      },
+      {
+        "label": "Duration",
+        "value": "4 hours"
+      },
+      {
+        "label": "Winner",
+        "value": "Participant voting"
+      }
+    ],
+    "date": "TBD: official event date and time",
+    "venue": "TBD: confirmed event venue",
+    "imagePath": "/images/placeholder.svg",
+    "imageAlt": "Hojohboroloh event artwork placeholder",
+    "registrationUrl": null,
+    "isPlaceholder": false,
+    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+  },
+  {
+    "id": "event-003",
+    "title": "Data Nilaam",
+    "slug": "data-nilaam",
+    "category": "Machine learning",
+    "tagline": "Build the bank, buy the data",
+    "summary": "A machine learning challenge where you run NovoCredit, a digital lender, and decide which of four credit cards to offer to maximise profit, with the twist that good data isn't free.",
+    "facts": [
+      {
+        "label": "Team size",
+        "value": "2 to 4 members"
+      },
+      {
+        "label": "Format",
+        "value": "ML and data strategy"
+      },
+      {
+        "label": "Duration",
+        "value": "4 hours"
+      },
+      {
+        "label": "Requirement",
+        "value": "Laptop only, no GPU"
+      }
+    ],
+    "date": "TBD: official event date and time",
+    "venue": "TBD: confirmed event venue",
+    "imagePath": "/images/placeholder.svg",
+    "imageAlt": "Data Nilaam event artwork placeholder",
+    "registrationUrl": null,
+    "isPlaceholder": false,
+    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+  },
+  {
+    "id": "event-004",
+    "title": "Speaker Session",
+    "slug": "speaker-session",
+    "category": "Industry talks",
+    "tagline": "Industry talks and insights",
+    "summary": "An engaging session featuring industry experts, researchers and alumni, sharing real-world experiences, emerging technologies and insights into the future of computing and innovation.",
+    "facts": [
+      {
+        "label": "Speakers",
+        "value": "Industry experts, researchers, alumni"
+      },
+      {
+        "label": "Format",
+        "value": "Talk with interactive Q&A"
+      },
+      {
+        "label": "Entry",
+        "value": "Open to all"
+      }
+    ],
+    "date": "TBD: official event date and time",
+    "venue": "TBD: confirmed event venue",
+    "imagePath": "/images/placeholder.svg",
+    "imageAlt": "Speaker Session event artwork placeholder",
+    "registrationUrl": null,
+    "isPlaceholder": false,
+    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+  },
+  {
+    "id": "event-005",
+    "title": "Hack Sangram",
+    "slug": "hack-sangram",
+    "category": "Hackathon",
+    "tagline": "The 12-hour hackathon",
+    "summary": "A high-octane 12-hour build sprint where teams turn raw ideas into working prototypes from scratch under a single-day deadline, with full freedom of tech stack and problem domain.",
+    "facts": [
+      {
+        "label": "Team size",
+        "value": "2 to 4 members"
+      },
+      {
+        "label": "Duration",
+        "value": "12 hours"
+      },
+      {
+        "label": "Format",
+        "value": "Build and present a working solution"
+      },
+      {
+        "label": "Focus",
+        "value": "Innovation and impact"
+      }
+    ],
+    "date": "TBD: official event date and time",
+    "venue": "TBD: confirmed event venue",
+    "imagePath": "/images/placeholder.svg",
+    "imageAlt": "Hack Sangram event artwork placeholder",
+    "registrationUrl": null,
+    "isPlaceholder": false,
+    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+  }
+]

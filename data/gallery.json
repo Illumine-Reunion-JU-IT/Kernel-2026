@@ -1,0 +1,12 @@
+[
+  {
+    "id": "gallery-placeholder-001",
+    "title": "TBD: Gallery image title",
+    "imagePath": "/images/placeholder.svg",
+    "altText": "KERNEL gallery image placeholder",
+    "caption": "TBD: Official image caption",
+    "url": null,
+    "isPlaceholder": true,
+    "organiserNote": "Replace with an approved event photograph and accurate caption."
+  }
+]
