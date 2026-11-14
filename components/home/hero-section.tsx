@@ -74,30 +74,74 @@ export function HeroSection() {
       const vel = ScrollTrigger.create({ trigger: el, start: "top top", end: "bottom top", onUpdate: (s) => { const v = s.getVelocity(); if (Math.abs(v) > 900) kick(gsap.utils.clamp(-30, 30, v / 90)); } });
       cleanups.push(() => vel.kill());
 
-      // 3. Pinned scroll: tear apart, then the red column floods the screen.
+      // 3. Pinned scroll: break apart, join fully back together, then smoothly transition into the red flood.
       const floodEl = flood.current, bar = barRef.current;
       const paint = (f: number) => {
         if (!floodEl || !bar) return;
         const r = bar.getBoundingClientRect(), vw = window.innerWidth, vh = window.innerHeight;
-        const L = r.left * (1 - f), T = r.top * (1 - f), R = (vw - r.right) * (1 - f), B = (vh - r.bottom) * (1 - f);
+        // Apply smooth sine easing for fluid expansion
+        const smoothF = f <= 0 ? 0 : f >= 1 ? 1 : Math.sin((f * Math.PI) / 2);
+        const L = Math.max(0, r.left * (1 - smoothF));
+        const T = Math.max(0, r.top * (1 - smoothF));
+        const R = Math.max(0, (vw - r.right) * (1 - smoothF));
+        const B = Math.max(0, (vh - r.bottom) * (1 - smoothF));
         floodEl.style.clipPath = `inset(${T}px ${R}px ${B}px ${L}px)`;
-        floodEl.style.opacity = String(Math.min(1, f * 14));
+        floodEl.style.opacity = String(Math.min(1, smoothF * 3.5));
       };
+
       const tl = gsap.timeline({
         defaults: { ease: "none" },
         scrollTrigger: {
-          trigger: el, start: "top top", end: "+=260%", scrub: 0.7, pin: true, anticipatePin: 1,
-          onUpdate: (self) => paint(gsap.utils.clamp(0, 1, (self.progress - 0.45) / 0.4)),
-          onLeave: () => paint(1), onLeaveBack: () => paint(0)
-        }
+          trigger: el,
+          start: "top top",
+          end: "+=260%",
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const rawProgress = self.progress;
+            // Transition red flood smoothly from 0.48 to 0.90
+            const floodProgress = gsap.utils.clamp(0, 1, (rawProgress - 0.48) / 0.42);
+            paint(floodProgress);
+          },
+          onLeave: () => paint(1),
+          onLeaveBack: () => paint(0),
+        },
       });
+
       tl.to("[data-copy]", { yPercent: -30, opacity: 0, ease: "power2.in", duration: 0.2 }, 0)
         .to("[data-bgtext]", { xPercent: -40, duration: 1 }, 0)
-        .to(st, { scale: 1.55, transformOrigin: "50% 42%", duration: 0.85, ease: "power1.in" }, 0.05)
-        // First a small glitch shift that keeps the poster readable...
-        .to(slices, { x: (i) => (i % 2 ? 1 : -1) * (1.2 + (i % 4) * 1.1) + "vw", duration: 0.3, ease: "power2.out" }, 0.05)
-        // ...then the slices fly off while the red column floods the screen.
-        .to(slices, { x: (i) => (i % 2 ? 1 : -1) * (55 + (i % 4) * 14) + "vw", duration: 0.45, ease: "power2.in", stagger: { each: 0.012, from: "center" } }, 0.42)
+        .to(st, { scale: 1.4, transformOrigin: "50% 42%", duration: 0.85, ease: "power1.inOut" }, 0.05)
+        // Step A: The image slices break apart as scroll begins...
+        .to(
+          slices,
+          {
+            x: (i) => (i % 2 ? 1 : -1) * (2.2 + (i % 4) * 1.2) + "vw",
+            duration: 0.22,
+            ease: "power2.out",
+          },
+          0.05
+        )
+        // Step B: Slices lock back together FULLY with zero gap/offset before transitioning!
+        .to(
+          slices,
+          {
+            x: 0,
+            duration: 0.24,
+            ease: "power2.inOut",
+          },
+          0.27
+        )
+        // Step C: From the fully joined image, red expansion seamlessly covers the viewport
+        .to(
+          slices,
+          {
+            opacity: 0.3,
+            duration: 0.35,
+            ease: "power2.in",
+          },
+          0.56
+        )
         .to("[data-hint]", { opacity: 0, duration: 0.08 }, 0.03);
       return () => cleanups.forEach((fn) => fn());
     });
