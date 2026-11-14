@@ -876,23 +876,6 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
           />
         </div>
 
-        {/* Floating auto-scroll indicator & controller */}
-        <div className="pointer-events-auto absolute bottom-4 left-6 z-40 hidden lg:flex items-center gap-2.5 rounded-full border border-sand/20 bg-void/85 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-widest text-sand backdrop-blur-md">
-          <span className={cn("h-2 w-2 rounded-full", isPaused ? "bg-sand/40" : "bg-signal animate-pulse")} />
-          <span>
-            {isPaused ? "Auto-play paused" : `Auto-scroll (${active + 1}/${events.length})`}
-          </span>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsPaused((p) => !p);
-            }}
-            className="ml-1 text-signal hover:text-white font-bold transition-colors cursor-pointer"
-          >
-            [{isPaused ? "RESUME" : "PAUSE"}]
-          </button>
-        </div>
 
         {events.map((ev, i) => (
           <Blade

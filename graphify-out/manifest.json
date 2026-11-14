@@ -18,9 +18,9 @@
     "semantic_hash": "f9f87fb7f3b5d96561bb287ca4964185"
   },
   "app/core-committee/page.tsx": {
-    "mtime": 1794671210.0015984,
-    "seen": 1794671280.6641731,
-    "ast_hash": "2008de3bae027ebeb0f6448142445c22",
+    "mtime": 1794694300.568026,
+    "seen": 1794697493.509137,
+    "ast_hash": "2ea04c61fc918d54b92b28811bcd035b",
     "semantic_hash": ""
   },
   "app/events/[slug]/page.tsx": {
@@ -54,9 +54,9 @@
     "semantic_hash": "df25438ba3713ee8d3e569259cb13de3"
   },
   "app/page.tsx": {
-    "mtime": 1794659776.9626994,
-    "seen": 1794661066.745504,
-    "ast_hash": "192d44efa4e458293c28cd946093fb41",
+    "mtime": 1794694300.5685306,
+    "seen": 1794697493.509142,
+    "ast_hash": "7980bae8701eb7cf3a704e5b055193b6",
     "semantic_hash": ""
   },
   "app/privacy/page.tsx": {
@@ -264,10 +264,10 @@
     "semantic_hash": ""
   },
   "components/home/hero-section.tsx": {
-    "mtime": 1794593744.8826075,
-    "seen": 1794594283.856427,
-    "ast_hash": "109ebd9da575e0e9710a513ea599f33b",
-    "semantic_hash": "109ebd9da575e0e9710a513ea599f33b"
+    "mtime": 1794694300.5696738,
+    "seen": 1794697493.509166,
+    "ast_hash": "7c2a2a6d0acb3ed22462c8d72a6ba9a4",
+    "semantic_hash": ""
   },
   "components/home/marquee.tsx": {
     "mtime": 1794593744.882722,
@@ -288,9 +288,9 @@
     "semantic_hash": ""
   },
   "components/home/sponsors-preview.tsx": {
-    "mtime": 1794667021.05153,
-    "seen": 1794667788.68844,
-    "ast_hash": "aa157afc66130dd5839330d6a7f0f52e",
+    "mtime": 1794694300.5700808,
+    "seen": 1794697493.5091681,
+    "ast_hash": "63d0f56912fa179ea4bb45a943db88ef",
     "semantic_hash": ""
   },
   "components/home/video-section.tsx": {
@@ -300,22 +300,22 @@
     "semantic_hash": ""
   },
   "components/home/what-is.tsx": {
-    "mtime": 1794667048.7360005,
-    "seen": 1794667788.688447,
-    "ast_hash": "30c81b6141cee41905e624ad9c8dbd3b",
+    "mtime": 1794694300.5705047,
+    "seen": 1794697493.5091689,
+    "ast_hash": "4b8a7049a27ad2484bfca4fe3b242ecc",
     "semantic_hash": ""
   },
   "components/navigation/footer.tsx": {
-    "mtime": 1794663834.6368444,
-    "seen": 1794664088.73507,
-    "ast_hash": "0605d3a9a57b7033e560bbce964f8f4d",
+    "mtime": 1794694300.5708127,
+    "seen": 1794697493.5091689,
+    "ast_hash": "17e2aab53a258d2bf511844b3c5908ca",
     "semantic_hash": ""
   },
   "components/navigation/mobile-menu.tsx": {
-    "mtime": 1794659782.0755396,
-    "seen": 1794661066.745533,
-    "ast_hash": "d188e0b5de4be38612d212e436f2211d",
-    "semantic_hash": "d188e0b5de4be38612d212e436f2211d"
+    "mtime": 1794694300.571086,
+    "seen": 1794697493.5091698,
+    "ast_hash": "fbc50f351cd51aef0fb16ca6aca0f7f2",
+    "semantic_hash": ""
   },
   "components/navigation/nav-links.ts": {
     "mtime": 1794659821.5005755,
@@ -324,9 +324,9 @@
     "semantic_hash": ""
   },
   "components/navigation/navbar.tsx": {
-    "mtime": 1794659782.075865,
-    "seen": 1794661066.745534,
-    "ast_hash": "45b6dcbd5beec06a3f95bd82e3b31938",
+    "mtime": 1794694300.5712516,
+    "seen": 1794697493.509171,
+    "ast_hash": "462ade8cf9546ebd571704d6a8e8075b",
     "semantic_hash": ""
   },
   "components/seo/json-ld.tsx": {
@@ -426,10 +426,10 @@
     "semantic_hash": "8a80554c91d9fca8acb82f023de02f11"
   },
   "data/core-committee.json": {
-    "mtime": 1794593744.88584,
-    "seen": 1794594283.856439,
-    "ast_hash": "6a9763c41f112e0c341f0c8cca916c67",
-    "semantic_hash": "6a9763c41f112e0c341f0c8cca916c67"
+    "mtime": 1794697020.1862276,
+    "seen": 1794697493.5091789,
+    "ast_hash": "c5626220bf7afb6240509c67cc1e7650",
+    "semantic_hash": ""
   },
   "data/events.json": {
     "mtime": 1794666313.051524,
@@ -510,10 +510,10 @@
     "semantic_hash": "f213936b69d7ea5a1f0d3735979d888f"
   },
   "package.json": {
-    "mtime": 1794593744.8901472,
-    "seen": 1794594283.8564448,
-    "ast_hash": "7ac0fba725ef68075b6652bc7b10c10f",
-    "semantic_hash": "7ac0fba725ef68075b6652bc7b10c10f"
+    "mtime": 1794694300.5727398,
+    "seen": 1794697493.5091882,
+    "ast_hash": "a0ac2e9af225ab84e7ad604f48efd07c",
+    "semantic_hash": ""
   },
   "postcss.config.mjs": {
     "mtime": 1794593744.8902311,
@@ -600,10 +600,10 @@
     "semantic_hash": "e1e9b926f851334efb06890dd4c7dd5f"
   },
   "public/images/brand/ju-logo.png": {
-    "mtime": 1794593744.8909001,
-    "seen": 1794594648.704743,
-    "ast_hash": "94a7fa46c483f9e40ed7a9d5d5f6bd80",
-    "semantic_hash": "94a7fa46c483f9e40ed7a9d5d5f6bd80"
+    "mtime": 1794694300.573743,
+    "seen": 1794697493.509202,
+    "ast_hash": "73498f284716cc6426ba661fc1b267cc",
+    "semantic_hash": ""
   },
   "public/images/brand/kernel-logo.png": {
     "mtime": 1794593744.8911653,
@@ -624,9 +624,9 @@
     "semantic_hash": "e3c5ca2d777096dfee5caf7cace51bc6"
   },
   "components/events/accordion-stage.tsx": {
-    "mtime": 1794670140.719661,
-    "seen": 1794670668.928957,
-    "ast_hash": "8cebf2d1a48998ffd41ecd19a0efe773",
+    "mtime": 1794694776.3903008,
+    "seen": 1794697493.50916,
+    "ast_hash": "5acf3e63b88463523400569db6330225",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -1097,10 +1097,298 @@
     "ast_hash": "97db653a3de7c905b84781e930245652",
     "semantic_hash": ""
   },
+  "components/core-committee/committee-enhanced.tsx": {
+    "mtime": 1794694300.5686553,
+    "seen": 1794697493.5091531,
+    "ast_hash": "3a7ece3c3fdc214dba9f380d319288ff",
+    "semantic_hash": ""
+  },
+  "components/core-committee/committee-hero.tsx": {
+    "mtime": 1794694300.5687392,
+    "seen": 1794697493.509155,
+    "ast_hash": "2736b78effe95f12c1dd26c1eca01bad",
+    "semantic_hash": ""
+  },
+  "components/core-committee/committee-showcase.tsx": {
+    "mtime": 1794697359.801252,
+    "seen": 1794697493.509155,
+    "ast_hash": "3fd6e2186a6d4ef9ed821f840733ad9e",
+    "semantic_hash": ""
+  },
+  "scripts/process-committee.js": {
+    "mtime": 1794694300.6476245,
+    "seen": 1794697493.5091891,
+    "ast_hash": "1d43efa26875a501df42f8980559794d",
+    "semantic_hash": ""
+  },
+  "public/images/borders/custom-frame.svg": {
+    "mtime": 1794694300.573127,
+    "seen": 1794697493.509202,
+    "ast_hash": "5e709cd2ced6a0709c49b22386f8dc54",
+    "semantic_hash": ""
+  },
+  "public/images/brand/ju-logo.jpg": {
+    "mtime": 1794694300.573333,
+    "seen": 1794697493.509202,
+    "ast_hash": "73498f284716cc6426ba661fc1b267cc",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/ansh-kumar-singh-poster.png": {
+    "mtime": 1794694300.57911,
+    "seen": 1794697493.509204,
+    "ast_hash": "3d3a33fc160c6fadff5f5cfab9ccc48f",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/ansh-kumar-singh.jpg": {
+    "mtime": 1794694300.5794506,
+    "seen": 1794697493.509204,
+    "ast_hash": "dfea502c97bc76786a6f620bc9f4f7a7",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/anuska-nath-poster.png": {
+    "mtime": 1794694300.5838675,
+    "seen": 1794697493.509205,
+    "ast_hash": "f2f446f72c8ed6f0001adebf9b07ba29",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/anuska-nath.jpg": {
+    "mtime": 1794694300.5864415,
+    "seen": 1794697493.509205,
+    "ast_hash": "d8dbe48e5074d7a515154f97ab31fac3",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/aritra-mondal-poster.png": {
+    "mtime": 1794694300.58996,
+    "seen": 1794697493.509205,
+    "ast_hash": "dc198da6abd58bf617dc14dfe6426097",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/aritra-mondal.jpg": {
+    "mtime": 1794696978.2580917,
+    "seen": 1794697493.509206,
+    "ast_hash": "00a9a7f34d6e5e865f48213e573d982b",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/aritra-mondal.png": {
+    "mtime": 1794696978.2457418,
+    "seen": 1794697493.509206,
+    "ast_hash": "fc930be1c2a5101da2f1c2aafbebd811",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/aritra_mondal.png": {
+    "mtime": 1794696788.0047061,
+    "seen": 1794697493.509206,
+    "ast_hash": "fc930be1c2a5101da2f1c2aafbebd811",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/debarun-patra-poster.png": {
+    "mtime": 1794694300.593461,
+    "seen": 1794697493.509207,
+    "ast_hash": "867e488cfee8fc117a011b62f568ce71",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/debarun-patra.jpg": {
+    "mtime": 1794696978.2611148,
+    "seen": 1794697493.509207,
+    "ast_hash": "27715634169331943cf975905956d8a7",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/debarun-patra.png": {
+    "mtime": 1794696978.2585006,
+    "seen": 1794697493.509208,
+    "ast_hash": "85e09f58eafc55c317e6dfe4667e1412",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/debarun_patra.png": {
+    "mtime": 1794696785.2901247,
+    "seen": 1794697493.509208,
+    "ast_hash": "85e09f58eafc55c317e6dfe4667e1412",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/iman-rout-poster.png": {
+    "mtime": 1794694300.5990582,
+    "seen": 1794697493.5092092,
+    "ast_hash": "a6ae1a97e36f8c85dd8fc67468a042d9",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/iman-rout.jpg": {
+    "mtime": 1794696978.2641137,
+    "seen": 1794697493.5092092,
+    "ast_hash": "53cf36c612634f4458effe3f45d76dac",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/iman-rout.png": {
+    "mtime": 1794696978.26152,
+    "seen": 1794697493.5092092,
+    "ast_hash": "89cef2850d7def1c84e500dd8a7b1010",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/iman_rout.png": {
+    "mtime": 1794696792.496319,
+    "seen": 1794697493.50921,
+    "ast_hash": "89cef2850d7def1c84e500dd8a7b1010",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rahul-pandey-poster.png": {
+    "mtime": 1794694300.6044366,
+    "seen": 1794697493.50921,
+    "ast_hash": "0ed9283e99c40f49ca3ee0d1da6f7b95",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rahul-pandey.jpg": {
+    "mtime": 1794696978.266781,
+    "seen": 1794697493.5092108,
+    "ast_hash": "5b63a44c848472f0d7aa75c0c4c4d44d",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rahul-pandey.png": {
+    "mtime": 1794696978.2644444,
+    "seen": 1794697493.5092108,
+    "ast_hash": "85f7731fca90c9556ee299fd830a4677",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rahul_pandey.png": {
+    "mtime": 1794696782.6618214,
+    "seen": 1794697493.509212,
+    "ast_hash": "85f7731fca90c9556ee299fd830a4677",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/reetabrata-mandal-poster.png": {
+    "mtime": 1794694300.6106043,
+    "seen": 1794697493.509212,
+    "ast_hash": "16eb4cd2f51b8039864d4282300633f2",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/reetabrata-mandal.jpg": {
+    "mtime": 1794696978.269556,
+    "seen": 1794697493.509212,
+    "ast_hash": "4289141caabfae28796c4efb0e25c247",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/reetabrata-mandal.png": {
+    "mtime": 1794696978.2671092,
+    "seen": 1794697493.509213,
+    "ast_hash": "6e7ddd80b58f9337d304a9d6d1267f90",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/reetabrata_mondal.png": {
+    "mtime": 1794696779.4016793,
+    "seen": 1794697493.509213,
+    "ast_hash": "6e7ddd80b58f9337d304a9d6d1267f90",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rishav-chowdhury-poster.png": {
+    "mtime": 1794694300.6165836,
+    "seen": 1794697493.509214,
+    "ast_hash": "dc287cecff9bff82ffdb6b8a3dafc586",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rishav-chowdhury.jpg": {
+    "mtime": 1794695444.4070773,
+    "seen": 1794697493.509214,
+    "ast_hash": "a61d84e360baeae1700939f2d6c0120a",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rishav-chowdhury.png": {
+    "mtime": 1794695444.387702,
+    "seen": 1794697493.5092149,
+    "ast_hash": "0c3657a5f3f8cd2b74d2414e81739b5e",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/rishav_chowdhury.png": {
+    "mtime": 1794695444.388121,
+    "seen": 1794697493.5092149,
+    "ast_hash": "0c3657a5f3f8cd2b74d2414e81739b5e",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/saptarshi-sau-poster.png": {
+    "mtime": 1794694300.6238115,
+    "seen": 1794697493.5092149,
+    "ast_hash": "29be721d857c0e3daa7a5e7961083111",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/saptarshi-sau.jpg": {
+    "mtime": 1794694300.6257286,
+    "seen": 1794697493.509216,
+    "ast_hash": "b14338f56b374b0567355754a5c9949d",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/sourav-dutta-poster.png": {
+    "mtime": 1794694300.6296358,
+    "seen": 1794697493.509216,
+    "ast_hash": "616a28e8b87163b6b4ffa000a2db0055",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/sourav-dutta.jpg": {
+    "mtime": 1794694300.6309807,
+    "seen": 1794697493.509216,
+    "ast_hash": "2c166b06f3a259fa9c2a03377e770ede",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/syed-hasan-farhan-poster.png": {
+    "mtime": 1794694300.6345441,
+    "seen": 1794697493.509217,
+    "ast_hash": "c6235b0b3eb4b637a541f0be486156d5",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/syed-hasan-farhan.jpg": {
+    "mtime": 1794694300.6358566,
+    "seen": 1794697493.509217,
+    "ast_hash": "467313dd918de726dc0d1b0118b11d60",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/tanishq-majumder-poster.png": {
+    "mtime": 1794694300.638856,
+    "seen": 1794697493.509218,
+    "ast_hash": "3c612fb2b9b09c78d394c21da58e32ee",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/tanishq-majumder.jpg": {
+    "mtime": 1794696978.272117,
+    "seen": 1794697493.509218,
+    "ast_hash": "1266259eb88541ba39792817ec589f69",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/tanishq-majumder.png": {
+    "mtime": 1794696978.269924,
+    "seen": 1794697493.509218,
+    "ast_hash": "ed1b153d88e005a45ebb577fe83d5af3",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/tanishq_majumder.png": {
+    "mtime": 1794695765.4340148,
+    "seen": 1794697493.5092192,
+    "ast_hash": "ed1b153d88e005a45ebb577fe83d5af3",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/yasir-ahmad-poster.png": {
+    "mtime": 1794694300.6440415,
+    "seen": 1794697493.5092192,
+    "ast_hash": "54dfc0fee31e957839b4672b9fb07462",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/yasir-ahmad.jpg": {
+    "mtime": 1794696978.275261,
+    "seen": 1794697493.5092201,
+    "ast_hash": "96a85027f3f3b8c7d143f54200f23d32",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/yasir-ahmad.png": {
+    "mtime": 1794696978.2725854,
+    "seen": 1794697493.5092201,
+    "ast_hash": "5bbbf65ee278ced9ad0a2d325c21a050",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/yasir_ahmad.png": {
+    "mtime": 1794696789.6289144,
+    "seen": 1794697493.5092201,
+    "ast_hash": "5bbbf65ee278ced9ad0a2d325c21a050",
+    "semantic_hash": ""
+  },
   "package-lock.json": {
-    "mtime": 1794594718.2702453,
-    "seen": 1794653495.328487,
-    "ast_hash": "fb3b38e610f1e02147499c93f40d2dab",
+    "mtime": 1794694306.6890101,
+    "seen": 1794697493.509249,
+    "ast_hash": "9335797b4f81ce9e43f64c2284bc5cc2",
     "semantic_hash": ""
   }
 }
