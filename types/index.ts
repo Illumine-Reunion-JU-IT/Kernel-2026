@@ -96,6 +96,9 @@ export interface FAQItem {
 
 export interface GalleryItem {
   id: string;
+  clubId: string;
+  clubName: string;
+  eventName: string;
   title: string;
   imagePath: string;
   altText: string;
