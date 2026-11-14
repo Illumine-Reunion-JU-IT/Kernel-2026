@@ -119,6 +119,8 @@ Event and website content is maintained in the JSON files under `data/`:
 
 The corresponding TypeScript interfaces are in `types/index.ts`. Content loading and validation are handled by `lib/content.ts`.
 
+The `/gallery` page groups 15 approved, locally optimized photos per club. Each `gallery.json` item needs a `clubId`, `clubName`, and `eventName`; keep each club's full Drive folder link and display copy in `data/gallery-clubs.ts`. The tabbed archive presents the 45 selected frames as three five-frame reels per club, so visitors can browse the collection without scrolling through a long photo wall. The homepage teaser reuses selected gallery entries.
+
 Replace `TBD` values and placeholder images only with information approved by the organising team. Empty content arrays are supported.
 
 ## Continuous integration

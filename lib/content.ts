@@ -261,6 +261,9 @@ export const gallery = validateCollection<GalleryItem>(
   galleryJson,
   [
     "id",
+    "clubId",
+    "clubName",
+    "eventName",
     "title",
     "imagePath",
     "altText",
