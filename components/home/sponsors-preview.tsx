@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { sponsors, publicOnly } from "@/lib/content";
-import { Button } from "@/components/ui/button";
 import { CROPS, cropStyle } from "@/lib/poster";
 import type { Sponsor } from "@/types";
 
@@ -50,7 +49,6 @@ export function SponsorsPreview() {
           <p className="mb-6 font-mono text-xs text-sand-dim"><span className="slashes" />Backed by</p>
           <h2 id="sponsors-title" className="display text-[clamp(2.8rem,7vw,6.4rem)]">Built with <span className="text-signal">our partners</span></h2>
           <p className="mt-6 max-w-md text-sand-dim">Brands joining KERNEL appear here, tier by tier. Want yours in front of a highly talented student community?</p>
-          <div className="mt-8"><Button href="/sponsors">Partner with KERNEL</Button></div>
         </div>
 
         <div className="mt-20 space-y-12 md:ml-[10vw]">

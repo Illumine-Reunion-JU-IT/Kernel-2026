@@ -21,6 +21,7 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-display)", "Impact", "sans-serif"],
         condensed: ["var(--font-condensed)", "Impact", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"]
       },

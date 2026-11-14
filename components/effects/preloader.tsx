@@ -18,7 +18,15 @@ export function Preloader() {
     if (!el || window.location.pathname !== "/") return;
     let seen = false;
     try { seen = sessionStorage.getItem("kernel-boot") === "1"; } catch { /* storage blocked */ }
-    if (seen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let hasAnchor = false;
+    try {
+      hasAnchor = Boolean(sessionStorage.getItem("kernel_nav_anchor") || window.location.hash);
+    } catch { /* storage blocked */ }
+
+    if (seen || hasAnchor || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      try { sessionStorage.setItem("kernel-boot", "1"); } catch {}
+      return;
+    }
     try { sessionStorage.setItem("kernel-boot", "1"); } catch { /* storage blocked */ }
 
     window.__booting = true;

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { speakers, publicOnly } from "@/lib/content";
-import { Button } from "@/components/ui/button";
 import { CROPS, cropStyle } from "@/lib/poster";
 
 const SLOTS = 4;
@@ -67,7 +66,6 @@ export function SpeakersPreview() {
             </li>
           ))}
         </ul>
-        <div className="mt-16"><Button href="/speakers">Speakers page</Button></div>
       </div>
     </section>
   );

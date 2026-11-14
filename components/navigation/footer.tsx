@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { navLinks, legalLinks } from "./nav-links";
 import { siteContent } from "@/lib/content";
@@ -7,15 +8,34 @@ import { isConfirmed } from "@/lib/utils";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { JuLogo, KernelLogo } from "@/components/brand/logos";
 import { CROPS, cropStyle } from "@/lib/poster";
+import { scrollToElement } from "@/lib/scroll";
+import { ContactSection } from "@/components/contact-section";
 
 /**
  * Footer = the poster's red column turned into a mega menu. Every route is a giant row that
  * flips to black on hover; the statue rises out of the bottom edge as you arrive.
  */
 export function Footer() {
+  const router = useRouter();
   const root = useRef<HTMLElement>(null);
   const { socialLinks, contactEmail } = siteContent;
   const socials = (Object.entries(socialLinks) as [string, string | null][]).filter(([, url]) => Boolean(url));
+
+  const handleFooterLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.includes("#")) {
+      e.preventDefault();
+      const [targetPath, hash] = href.split("#");
+      const targetEl = hash ? document.getElementById(hash) : null;
+      if (targetEl) {
+        scrollToElement(targetEl, 72, 1.2);
+      } else if (hash) {
+        try {
+          sessionStorage.setItem("kernel_scroll_target", hash);
+        } catch {}
+        router.push(targetPath || "/");
+      }
+    }
+  };
 
   useEffect(() => {
     registerGsap();
@@ -36,7 +56,9 @@ export function Footer() {
   };
 
   return (
-    <footer ref={root} className="relative overflow-hidden bg-signal pt-[max(6rem,11vw)] text-void [clip-path:polygon(0_5vw,100%_0,100%_100%,0_100%)]">
+    <div className="relative">
+      <ContactSection />
+      <footer ref={root} className="relative overflow-hidden bg-signal pt-[max(6rem,11vw)] text-void [clip-path:polygon(0_5vw,100%_0,100%_100%,0_100%)]">
       <div aria-hidden className="halftone-dark absolute inset-0" />
       <div data-f-statue aria-hidden className="pointer-events-none absolute -bottom-[4%] -right-[6vw] w-[46vw] min-w-56 mix-blend-screen grayscale opacity-60" style={cropStyle(CROPS.statue)} />
 
@@ -53,7 +75,13 @@ export function Footer() {
           <ul className="border-b-2 border-void">
             {navLinks.slice(1).map((l, i) => (
               <li key={l.href} className="overflow-hidden border-t-2 border-void">
-                <Link data-f-row href={l.href} className="group relative flex items-baseline gap-4 overflow-hidden py-3 md:gap-8 md:py-4">
+                <Link
+                  data-f-row
+                  href={l.href}
+                  scroll={!l.href.includes("#")}
+                  onClick={(e) => handleFooterLinkClick(e, l.href)}
+                  className="group relative flex items-baseline gap-4 overflow-hidden py-3 md:gap-8 md:py-4"
+                >
                   <span aria-hidden className="absolute inset-0 -translate-x-full bg-void transition-transform duration-500 ease-snap group-hover:translate-x-0 group-focus-visible:translate-x-0" />
                   <span className="relative text-sm font-bold md:text-base"><span className="group-hover:text-signal group-focus-visible:text-signal">0{i + 1}</span></span>
                   <span className="display relative text-[clamp(2.2rem,9.5vw,8rem)] transition-colors duration-300 group-hover:text-sand group-focus-visible:text-sand group-hover:translate-x-4 group-focus-visible:translate-x-4 [transition-property:color,translate]">{l.label}</span>
@@ -80,10 +108,11 @@ export function Footer() {
         </div>
       </div>
 
-      <p aria-hidden className="display relative select-none whitespace-nowrap pt-10 text-center text-[24vw] leading-[0.76] text-void">KERNEL</p>
+      <p aria-hidden className="display relative select-none whitespace-nowrap pt-10 text-center text-[clamp(3.5rem,15.5vw,18rem)] leading-[0.76] tracking-tight text-void">KERNEL</p>
       <div className="relative border-t-2 border-void py-5">
         <p className="container text-xs font-bold tracking-wider">KERNEL {siteContent.edition} / 2026. More than just an event.</p>
       </div>
     </footer>
+  </div>
   );
 }

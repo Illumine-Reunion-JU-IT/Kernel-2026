@@ -1,16 +1,18 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { gsap } from "@/lib/gsap";
 import { navLinks } from "./nav-links";
 import { siteContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { KernelLogo } from "@/components/brand/logos";
+import { scrollToElement } from "@/lib/scroll";
 
 /** Full-screen menu: focus-trapped, Esc to close, closes after navigation, labelled for screen readers. */
 export function MobileMenu() {
   const pathname = usePathname();
+  const router = useRouter();
   /* The menu is open only on the page where it was opened, so navigating closes it with no effect needed. */
   const [openPath, setOpenPath] = useState<string | null>(null);
   const open = openPath === pathname;
@@ -80,7 +82,25 @@ export function MobileMenu() {
                 <Link
                   data-item
                   href={link.href}
-                  onClick={close}
+                  scroll={!link.href.includes("#")}
+                  onClick={(e) => {
+                    close();
+                    if (link.href.includes("#")) {
+                      e.preventDefault();
+                      const [targetPath, hash] = link.href.split("#");
+                      const targetEl = hash ? document.getElementById(hash) : null;
+                      if (targetEl && (hash === "contact" || pathname === (targetPath || "/"))) {
+                        setTimeout(() => {
+                          scrollToElement(targetEl, 72, 1.2);
+                        }, 200);
+                      } else if (hash) {
+                        try {
+                          sessionStorage.setItem("kernel_scroll_target", hash);
+                        } catch {}
+                        router.push(targetPath || "/");
+                      }
+                    }
+                  }}
                   aria-current={pathname === link.href ? "page" : undefined}
                   className="display flex items-baseline gap-3 py-1 text-[clamp(2rem,10vw,3.4rem)] mix-blend-difference"
                 >

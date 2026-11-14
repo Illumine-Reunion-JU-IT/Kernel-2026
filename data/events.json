@@ -7,59 +7,39 @@
     "tagline": "Our traditional CP flagship",
     "summary": "Our traditional CP flagship event, designed to test the analytical limits, algorithmic thinking and data structure mastery of the participants.",
     "facts": [
-      {
-        "label": "Format",
-        "value": "ICPC-style, online"
-      },
-      {
-        "label": "Problems",
-        "value": "5 to 7, mixed difficulty"
-      },
-      {
-        "label": "Duration",
-        "value": "Strict time limit"
-      }
+      { "label": "Team Size", "value": "1 to 3 Members" },
+      { "label": "Duration", "value": "2H 00M" },
+      { "label": "Format", "value": "ICPC-Style Online" },
+      { "label": "Prize Pool", "value": "₹6,000" }
     ],
     "date": "TBD: official event date and time",
     "venue": "TBD: confirmed event venue",
-    "imagePath": "/images/placeholder.svg",
-    "imageAlt": "Mogoj Dholai event artwork placeholder",
+    "imagePath": "/images/events/mogoj-dholai.jpg",
+    "imageAlt": "Mogoj Dholai poster: a neo-expressionist black figure with binary tree diagrams and complexity notations on a coral-red background",
     "registrationUrl": null,
     "isPlaceholder": false,
-    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Ankit Kundu 6295529281, Rahul Pandey 8961716604. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-002",
-    "title": "Hojohboroloh",
-    "slug": "hojohboroloh",
+    "title": "Hojohborolo",
+    "slug": "hojohborolo",
     "category": "Software challenge",
     "tagline": "The fun software challenge",
     "summary": "A creative software challenge to build quirky, unusual and entertaining software rather than practical problem-solving tools.",
     "facts": [
-      {
-        "label": "Team size",
-        "value": "1 to 3 members"
-      },
-      {
-        "label": "Format",
-        "value": "Any tech stack, working prototype"
-      },
-      {
-        "label": "Duration",
-        "value": "4 hours"
-      },
-      {
-        "label": "Winner",
-        "value": "Participant voting"
-      }
+      { "label": "Team Size", "value": "1 to 4 Members" },
+      { "label": "Duration", "value": "4 Hours" },
+      { "label": "Format", "value": "Any Tech Stack" },
+      { "label": "Prize Pool", "value": "₹6,000" }
     ],
     "date": "TBD: official event date and time",
     "venue": "TBD: confirmed event venue",
-    "imagePath": "/images/placeholder.svg",
-    "imageAlt": "Hojohboroloh event artwork placeholder",
+    "imagePath": "/images/events/hojohborolo.jpg",
+    "imageAlt": "Hojohborolo poster: an ink-drawn crow typing on a mechanical keyboard against a golden-yellow wave background with Bengali title হযবরল",
     "registrationUrl": null,
     "isPlaceholder": false,
-    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Swarnendu Bannerjee 9564027954, Ansh Kumar Singh 97756073. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-003",
@@ -69,59 +49,39 @@
     "tagline": "Build the bank, buy the data",
     "summary": "A machine learning challenge where you run NovoCredit, a digital lender, and decide which of four credit cards to offer to maximise profit, with the twist that good data isn't free.",
     "facts": [
-      {
-        "label": "Team size",
-        "value": "2 to 4 members"
-      },
-      {
-        "label": "Format",
-        "value": "ML and data strategy"
-      },
-      {
-        "label": "Duration",
-        "value": "4 hours"
-      },
-      {
-        "label": "Requirement",
-        "value": "Laptop only, no GPU"
-      }
+      { "label": "Team Size", "value": "2 to 4 Members" },
+      { "label": "Duration", "value": "6 Hours" },
+      { "label": "Format", "value": "ML & Data Strategy" },
+      { "label": "Prize Pool", "value": "₹6,000" }
     ],
     "date": "TBD: official event date and time",
     "venue": "TBD: confirmed event venue",
-    "imagePath": "/images/placeholder.svg",
-    "imageAlt": "Data Nilaam event artwork placeholder",
+    "imagePath": "/images/events/data-nilaam.jpg",
+    "imageAlt": "Data Nilaam poster: electric cobalt-blue background with a white auction gavel, binary rings 0100101, and hot-pink geometric shapes, with Devanagari title नीलाम",
     "registrationUrl": null,
     "isPlaceholder": false,
-    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Rishav Chowdhury 8276991374, Debarun Patra 8582922525. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-004",
     "title": "Speaker Session",
     "slug": "speaker-session",
     "category": "Industry talks",
-    "tagline": "Industry talks and insights",
+    "tagline": "Voices from the field",
     "summary": "An engaging session featuring industry experts, researchers and alumni, sharing real-world experiences, emerging technologies and insights into the future of computing and innovation.",
     "facts": [
-      {
-        "label": "Speakers",
-        "value": "Industry experts, researchers, alumni"
-      },
-      {
-        "label": "Format",
-        "value": "Talk with interactive Q&A"
-      },
-      {
-        "label": "Entry",
-        "value": "Open to all"
-      }
+      { "label": "Format", "value": "Talk with interactive Q&A" },
+      { "label": "Speakers", "value": "Industry Experts & Alumni" },
+      { "label": "Entry", "value": "Open to All" },
+      { "label": "Venue", "value": "Jadavpur University" }
     ],
     "date": "TBD: official event date and time",
     "venue": "TBD: confirmed event venue",
-    "imagePath": "/images/placeholder.svg",
-    "imageAlt": "Speaker Session event artwork placeholder",
+    "imagePath": "/images/events/speaker-session.jpg",
+    "imageAlt": "Speaker Session poster: a glitching classical sculpture head overlaid with red pixel artefacts against Jadavpur University campus, with microphone and OPEN TO ALL starburst badge",
     "registrationUrl": null,
     "isPlaceholder": false,
-    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+    "organiserNote": "Poster confirmed. No prize pool — open to all. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-005",
@@ -131,29 +91,17 @@
     "tagline": "The 12-hour hackathon",
     "summary": "A high-octane 12-hour build sprint where teams turn raw ideas into working prototypes from scratch under a single-day deadline, with full freedom of tech stack and problem domain.",
     "facts": [
-      {
-        "label": "Team size",
-        "value": "2 to 4 members"
-      },
-      {
-        "label": "Duration",
-        "value": "12 hours"
-      },
-      {
-        "label": "Format",
-        "value": "Build and present a working solution"
-      },
-      {
-        "label": "Focus",
-        "value": "Innovation and impact"
-      }
+      { "label": "Team Size", "value": "2 to 4 Members" },
+      { "label": "Duration", "value": "12 Hours" },
+      { "label": "Format", "value": "Build Working Prototype" },
+      { "label": "Prize Pool", "value": "₹20,000" }
     ],
     "date": "TBD: official event date and time",
     "venue": "TBD: confirmed event venue",
-    "imagePath": "/images/placeholder.svg",
-    "imageAlt": "Hack Sangram event artwork placeholder",
+    "imagePath": "/images/events/hack-sangram.jpg",
+    "imageAlt": "Hack Sangram poster: a split black-and-white classical bust with the ₹20,000 censor bar across the eyes and CONQUER typography on deep crimson",
     "registrationUrl": null,
     "isPlaceholder": false,
-    "organiserNote": "Description and format come from the KERNEL 2026 brochure. Replace date, venue and registration URL once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Kaustav Mandal 8918221701, Prama Roy 8293331677. Flagship hackathon with ₹20,000 prize. Replace date, venue and registrationUrl once confirmed."
   }
 ]

@@ -1,19 +1,62 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import eventsJson from "@/data/events.json";
+import { EventOrbitalStage, type KernelEvent } from "@/components/event-orbital-stage";
 
-export default function Page() {
+const events = eventsJson as KernelEvent[];
+
+/** Extract coordinator names cleanly from organiserNote when present */
+function extractCoordinators(note?: string): string[] {
+  if (!note) return [];
+  const match = note.match(/Contacts:\s*([^.]+)/i);
+  if (!match) return [];
+  return match[1]
+    .split(",")
+    .map((entry) => entry.replace(/\d+/g, "").trim())
+    .filter(Boolean);
+}
+
+export function generateStaticParams() {
+  return events.map((event) => ({ slug: event.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const event = events.find((e) => e.slug === slug);
+  if (!event) return { title: "Event Not Found | KERNEL" };
+
+  return {
+    title: `${event.title} | KERNEL '26`,
+    description: event.summary,
+  };
+}
+
+export default async function EventSlugPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const idx = events.findIndex((e) => e.slug === slug);
+  if (idx === -1) notFound();
+
+  const event = events[idx];
+  const prevEvent = idx > 0 ? events[idx - 1] : null;
+  const nextEvent = idx < events.length - 1 ? events[idx + 1] : null;
+  const indexNumber = String(idx + 1).padStart(2, "0");
+  const coordinators = extractCoordinators(event.organiserNote);
+
   return (
-    <main className="container flex min-h-screen flex-col items-start justify-center">
-      <p className="font-mono text-sm tracking-widest text-purple-400">
-        KERNEL 1.0
-      </p>
-      <h1 className="mt-5 text-5xl font-bold">Event Details</h1>
-      <p className="mt-4 max-w-xl text-gray-400">
-        This section is being prepared by the organising team.
-        Official information will be published here.
-      </p>
-      <Link href="/" className="mt-8 text-purple-400 hover:underline">
-        ← Back to home
-      </Link>
-    </main>
+    <EventOrbitalStage
+      event={event}
+      indexNumber={indexNumber}
+      prevEvent={prevEvent ? { slug: prevEvent.slug, title: prevEvent.title } : null}
+      nextEvent={nextEvent ? { slug: nextEvent.slug, title: nextEvent.title } : null}
+      coordinators={coordinators}
+    />
   );
 }

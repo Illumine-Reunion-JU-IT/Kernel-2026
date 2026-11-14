@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Archivo, Space_Mono } from "next/font/google";
+import { Anton, Archivo, Instrument_Serif, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/navigation/footer";
@@ -20,6 +20,13 @@ const display = Archivo({
 const body = Archivo({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const condensed = Anton({ subsets: ["latin"], weight: "400", variable: "--font-condensed", display: "swap" });
 const mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-mono", display: "swap" });
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
@@ -35,7 +42,7 @@ export const viewport: Viewport = { themeColor: "#050308" };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable} ${condensed.variable} ${mono.variable}`}>
+      <body className={`${display.variable} ${body.variable} ${condensed.variable} ${mono.variable} ${serif.variable}`}>
         <a
           href="#main"
           className="fixed left-4 top-4 z-[100] -translate-y-20 bg-sand px-4 py-2 font-mono text-sm font-bold text-void focus:translate-y-0"

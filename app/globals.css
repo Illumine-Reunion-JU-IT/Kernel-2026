@@ -115,7 +115,8 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
   transition: transform 0.5s var(--ease-snap);
 }
 .kbtn:hover::before, .kbtn:focus-visible::before { transform: translateY(0); }
-.kbtn-primary { background: var(--signal); color: var(--void); --wipe: var(--sand); }
+.kbtn-primary { background: var(--signal); color: #ffffff; --wipe: #ab0505; }
+.kbtn-primary:hover, .kbtn-primary:focus-visible { color: #ffffff; }
 .kbtn-secondary { color: var(--sand); box-shadow: inset 0 0 0 1.5px var(--sand); --wipe: var(--volt); }
 .kbtn-secondary:hover, .kbtn-secondary:focus-visible { color: var(--void); }
 .kbtn-text { padding: 0.4rem 0; clip-path: none; color: var(--sand); }
@@ -139,10 +140,12 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
 .shard-a { clip-path: polygon(0 0, 100% 0, 100% 90%, 88% 100%, 0 100%); }
 .shard-b { clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 7%); }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes vinyl-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes acoustic-pulse { 0% { transform: scale(0.3); opacity: 0.95; } 100% { transform: scale(1.65); opacity: 0; } }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* Disabled primary (e.g. "Registration opens soon") stays readable on dark and on red */
-.kbtn-primary[aria-disabled="true"] { background: transparent; color: var(--sand); box-shadow: inset 0 0 0 1.5px rgba(233, 223, 197, 0.45); opacity: 0.9; }
+/* Disabled primary stays red filled with crisp white text */
+.kbtn-primary[aria-disabled="true"] { background: var(--signal); color: #ffffff; box-shadow: none; opacity: 0.95; }
 
 /* Global film grain: one fixed layer ties every section together */
 body::after {
@@ -200,4 +203,148 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .gallery-frame-enter { animation: none; }
   .coverflow-card, .coverflow-arrow, .gallery-lightbox-image { transition: none !important; }
+}
+
+/* ── Events Accordion Stage ───────────────────────────────────────────
+   5-blade kinetic diagonal split-screen.
+   NOTE: display is intentionally NOT set here — Tailwind's `hidden lg:flex`
+   on the element controls visibility. Setting display here would override
+   Tailwind's `.hidden { display: none }` and break mobile hiding. */
+.events-stage {
+  height: calc(100svh - var(--nav-h));
+  min-height: 520px;
+  overflow: hidden;
+  /* clip the sharp diagonal ends so blades don't overflow the viewport */
+  clip-path: inset(0);
+}
+
+.events-stage .blade {
+  will-change: flex-basis;
+  transform-origin: bottom left;
+}
+
+/* Reduced-motion: instant switch, no skew */
+@media (prefers-reduced-motion: reduce) {
+  .events-stage .blade {
+    transform: none !important;
+    transition: flex-basis 0.01ms !important;
+  }
+  .events-stage .blade > div {
+    transform: none !important;
+  }
+}
+
+/* ── Blade Glitch Burst (runs ~400ms on blade switch) ──────────── */
+@keyframes blade-slice-burst {
+  0% {
+    opacity: 1;
+    transform: translate3d(var(--g-x, 48px), 0, 0) scaleX(1.08);
+    filter: contrast(1.7) saturate(2.2) brightness(1.2);
+  }
+  20% {
+    opacity: 1;
+    transform: translate3d(calc(var(--g-x, 48px) * -0.9), 0, 0) scaleY(1.04);
+    filter: hue-rotate(-25deg) contrast(1.8) invert(0.08);
+  }
+  40% {
+    opacity: 0.95;
+    transform: translate3d(calc(var(--g-x, 48px) * 0.65), 0, 0);
+    filter: hue-rotate(30deg) saturate(2.0);
+  }
+  65% {
+    opacity: 0.8;
+    transform: translate3d(calc(var(--g-x, 48px) * -0.4), 0, 0);
+    filter: contrast(1.4);
+  }
+  85% {
+    opacity: 0.45;
+    transform: translate3d(calc(var(--g-x, 48px) * 0.15), 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes blade-rgb-shear {
+  0% {
+    opacity: 0.95;
+    transform: translate3d(-32px, 0, 0) skewX(-4deg);
+    filter: drop-shadow(6px 0 0 rgba(228, 9, 8, 0.85));
+  }
+  25% {
+    opacity: 0.9;
+    transform: translate3d(36px, 0, 0) skewX(4deg);
+    filter: drop-shadow(-6px 0 0 rgba(0, 240, 255, 0.85));
+  }
+  50% {
+    opacity: 0.75;
+    transform: translate3d(-20px, 0, 0) skewX(-2deg);
+  }
+  75% {
+    opacity: 0.5;
+    transform: translate3d(10px, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes blade-title-jitter {
+  0%   { transform: translate3d(-16px, 0, 0); text-shadow: 6px 0 var(--signal), -6px 0 var(--volt); }
+  25%  { transform: translate3d(14px, -2px, 0);  text-shadow: -8px 0 var(--signal), 8px 0 #00f0ff; }
+  50%  { transform: translate3d(-10px, 1px, 0); text-shadow: 5px 0 var(--volt), -5px 0 #00f0ff; }
+  75%  { transform: translate3d(6px, 0, 0); text-shadow: -4px 0 var(--signal); }
+  100% { transform: translate3d(0, 0, 0);    text-shadow: none; }
+}
+
+@keyframes blade-scanline-sweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+.blade-glitch-slice {
+  animation: blade-slice-burst 380ms steps(5, end) var(--g-delay, 0ms) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.blade-glitch-rgb {
+  animation: blade-rgb-shear 360ms steps(4, end) forwards;
+  will-change: transform, opacity;
+}
+
+.blade-title-glitch {
+  animation: blade-title-jitter 340ms steps(4, end) forwards;
+}
+
+.blade-scanline {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(228, 9, 8, 0.35) 30%,
+    rgba(0, 240, 255, 0.6) 50%,
+    rgba(154, 77, 255, 0.35) 70%,
+    transparent 100%
+  );
+  animation: blade-scanline-sweep 380ms cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blade-glitch-slice,
+  .blade-glitch-rgb,
+  .blade-title-glitch,
+  .blade-scanline {
+    animation: none !important;
+    display: none;
+  }
 }

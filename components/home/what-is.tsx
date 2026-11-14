@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { siteContent } from "@/lib/content";
-import { Button } from "@/components/ui/button";
 
 const KernelCore = dynamic(() => import("@/components/effects/kernel-core").then((m) => m.KernelCore), { ssr: false });
 
@@ -72,7 +71,7 @@ export function WhatIs() {
   }, []);
 
   return (
-    <section ref={root} id="about" aria-labelledby="what-title">
+    <section ref={root} id="what-is" aria-labelledby="what-title">
       {/* Continues straight from the red flood that ends the hero */}
       <div data-slab className="relative overflow-hidden bg-signal pb-[max(7rem,14vw)] pt-20 text-void [clip-path:polygon(0_0,100%_0,100%_100%,0_calc(100%-6vw))] md:pt-28">
         <div aria-hidden className="absolute inset-y-0 right-[8%] w-[2px] bg-void/25" />
@@ -88,7 +87,7 @@ export function WhatIs() {
       </div>
 
       {/* Pinned: four layers around the core */}
-      <div ref={pin} className="relative -mt-[6vw] h-[100svh] min-h-[640px] overflow-hidden bg-void">
+      <div ref={pin} id="about" data-anchor="four-layers" className="relative -mt-[6vw] h-[100svh] min-h-[640px] overflow-hidden bg-void scroll-mt-20">
         <div aria-hidden className="halftone absolute -right-10 top-0 h-2/3 w-[55vw] rotate-180 opacity-40" />
         <div className="container grid h-full items-center gap-4 pt-16 md:grid-cols-2 md:gap-10 md:pt-0">
           <div data-orbit className="relative mx-auto aspect-square w-[min(80vw,40svh)] md:w-[min(46vw,78svh)]">
@@ -127,7 +126,11 @@ export function WhatIs() {
             <div className="mt-2 flex gap-2" aria-hidden>
               {LAYERS.map((l) => (<span key={l.k} data-pbar className="h-1 w-12 origin-left bg-sand/30 md:w-16" />))}
             </div>
-            <div className="mt-8 hidden md:block"><Button href="/about" variant="secondary">About KERNEL</Button></div>
+            <div className="mt-8 hidden md:block">
+              <span className="inline-flex items-center justify-center px-7 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-sand [clip-path:var(--shard)] shadow-[inset_0_0_0_1.5px_var(--sand)] select-none">
+                About KERNEL
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -140,7 +143,11 @@ export function WhatIs() {
           </div>
         ))}
       </dl>
-      <div className="container pb-section md:hidden"><Button href="/about" variant="secondary">About KERNEL</Button></div>
+      <div className="container pb-section md:hidden">
+        <span className="inline-flex items-center justify-center px-7 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-sand [clip-path:var(--shard)] shadow-[inset_0_0_0_1.5px_var(--sand)] select-none">
+          About KERNEL
+        </span>
+      </div>
     </section>
   );
 }
