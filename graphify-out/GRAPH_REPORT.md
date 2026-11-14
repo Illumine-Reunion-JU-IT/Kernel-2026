@@ -1,7 +1,7 @@
 # Graph Report - Kernel-2026  (2026-11-14)
 
 ## Corpus Check
-- 106 files · ~33,643 words
+- 106 files · ~33,514 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 8, .example 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bcd25eab`
+- Built from commit: `30b1cb5d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -56,10 +56,10 @@
   components/events/accordion-stage.tsx → types/index.ts
 - `HomePage()` --calls--> `EventsTimeline()`  [EXTRACTED]
   app/page.tsx → components/home/events-timeline.tsx
+- `RootLayout()` --calls--> `ScrollRail()`  [EXTRACTED]
+  app/layout.tsx → components/effects/scroll-rail.tsx
 - `Details()` --calls--> `isConfirmed()`  [EXTRACTED]
   components/home/hero-section.tsx → lib/utils.ts
-- `ScrollReveal()` --calls--> `registerGsap()`  [EXTRACTED]
-  components/home/scroll-reveal.tsx → lib/gsap.ts
 
 ## Import Cycles
 - None detected.

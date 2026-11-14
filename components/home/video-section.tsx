@@ -295,21 +295,6 @@ export function VideoSection() {
               </>
             )}
 
-            {/* Responsive Status HUD Pill */}
-            {isRestarting ? (
-              <div className="pointer-events-none absolute -top-8 left-1/2 z-40 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-signal px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-void shadow-[0_0_20px_rgba(230,40,23,1)] animate-bounce">
-                <span className="text-[11px] font-black">⟳</span> RESTART 0:00
-              </div>
-            ) : isPlaying ? (
-              <div className="pointer-events-none absolute -top-7 left-1/2 z-40 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-signal/40 bg-void/90 px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-sand shadow-[0_4px_12px_rgba(0,0,0,0.6)] backdrop-blur transition-opacity group-hover:border-signal">
-                <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse" /> PLAYING
-              </div>
-            ) : (
-              <div className="pointer-events-none absolute -top-7 left-1/2 z-40 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-sand/20 bg-void/90 px-2 py-0.5 font-mono text-[9px] font-bold tracking-wider text-sand/75 shadow-[0_4px_12px_rgba(0,0,0,0.6)] backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-500" /> PAUSED · CLICK TO PLAY
-              </div>
-            )}
-
             {/* Spinning Gramophone Vinyl Disc Container */}
             <div
               className="relative h-full w-full rounded-full shadow-[0_15px_35px_-5px_rgba(0,0,0,0.9)]"

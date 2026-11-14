@@ -1092,9 +1092,9 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-under-construction.tsx": {
-    "mtime": 1794671518.8601792,
-    "seen": 1794671545.861866,
-    "ast_hash": "fe27dfdac207f643ab3c6f999aec1c95",
+    "mtime": 1794673346.086867,
+    "seen": 1794673401.2162812,
+    "ast_hash": "faee459a86c51bf25174ac6450b77c02",
     "semantic_hash": ""
   },
   "package-lock.json": {
