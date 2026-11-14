@@ -37,7 +37,7 @@ export function ContactSection({
   const [copiedEmail, setCopiedEmail] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const email = "illumine.reunion.ju.it@gmail.com";
+  const email = "kerneljuit@gmail.com";
 
   /* Magnetic pull on the glowing circular SEND CTA button */
   useEffect(() => {

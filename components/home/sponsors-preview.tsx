@@ -44,14 +44,14 @@ export function SponsorsPreview() {
       <div aria-hidden data-bld className="absolute -left-[5vw] top-[4%] w-[26vw] min-w-40 rotate-[-4deg] opacity-80 grayscale shard-b" style={cropStyle(CROPS.building)} />
       <div aria-hidden data-crowd className="absolute -right-[4vw] bottom-[2%] w-[30vw] min-w-48 rotate-[3deg] opacity-60 grayscale shard-a" style={cropStyle(CROPS.crowd)} />
 
-      <div className="container relative">
-        <div className="max-w-3xl md:ml-[18vw]">
-          <p className="mb-6 font-mono text-xs text-sand-dim"><span className="slashes" />Backed by</p>
+      <div className="container relative mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="mb-4 font-mono text-xs text-sand-dim"><span className="slashes" />Backed by</p>
           <h2 id="sponsors-title" className="display text-[clamp(2.8rem,7vw,6.4rem)]">Built with <span className="text-signal">our partners</span></h2>
-          <p className="mt-6 max-w-md text-sand-dim">Brands joining KERNEL appear here, tier by tier. Want yours in front of a highly talented student community?</p>
+          <p className="mt-4 max-w-lg mx-auto text-sand-dim">Brands joining KERNEL appear here, tier by tier. Want yours in front of a highly talented student community?</p>
         </div>
 
-        <div className="mt-20 space-y-12 md:ml-[10vw]">
+        <div className="mt-16 max-w-4xl mx-auto space-y-12">
           {TIERS.map((tier) => {
             const have = byTier(tier.key).slice(0, tier.slots);
             const slots = Array.from({ length: tier.slots }, (_, i) => have[i] ?? null);

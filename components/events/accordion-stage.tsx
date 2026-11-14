@@ -543,8 +543,10 @@ function Blade({ event, index, isActive, isGlitching, onClick, onMouseEnter }: B
 export function AccordionStage({ events }: { events: EventItem[] }) {
   const [active, setActive] = useState(0);
   const [glitchingIndex, setGlitchingIndex] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
   const hasMounted = useRef(false);
   const stageRef = useRef<HTMLDivElement>(null);
+  const AUTO_SCROLL_INTERVAL = 3800; // 3.8s short timer for automatic event showcase
 
   useEffect(() => {
     registerGsap();
@@ -583,11 +585,37 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
     [active]
   );
 
+  /* Auto-scroll timer: cycles through events automatically */
+  useEffect(() => {
+    if (isPaused || events.length <= 1) return;
+    const interval = setInterval(() => {
+      setActive((curr) => {
+        const next = (curr + 1) % events.length;
+        const blades = stageRef.current?.querySelectorAll<HTMLElement>("[data-blade]");
+        if (blades) {
+          gsap.killTweensOf(blades);
+          gsap.set(blades, { clearProps: "x" });
+          gsap.to(blades, {
+            x: (i) => (i % 2 ? 6 : -6),
+            duration: 0.08,
+            ease: "power2.out",
+            yoyo: true,
+            repeat: 1,
+            onComplete: () => gsap.set(blades, { clearProps: "x" }),
+          });
+        }
+        return next;
+      });
+    }, AUTO_SCROLL_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [isPaused, events.length]);
+
   /* keyboard: left/right arrow to cycle blades */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") switchBlade(Math.min(active + 1, events.length - 1));
-      if (e.key === "ArrowLeft")  switchBlade(Math.max(active - 1, 0));
+      if (e.key === "ArrowRight") switchBlade((active + 1) % events.length);
+      if (e.key === "ArrowLeft")  switchBlade((active - 1 + events.length) % events.length);
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
@@ -598,10 +626,43 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
       {/* ── DESKTOP: diagonal accordion (lg+) ── */}
       <div
         ref={stageRef}
-        className="events-stage hidden lg:flex"
+        className="events-stage relative hidden lg:flex"
         role="tablist"
         aria-label="KERNEL 1.0 events"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
+        {/* Subtle timer progress bar along the top edge */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-40 h-[3px] bg-white/10">
+          <div
+            key={active + (isPaused ? "-paused" : "-active")}
+            className="h-full bg-signal shadow-[0_0_10px_rgba(228,9,8,0.9)]"
+            style={{
+              width: isPaused ? "100%" : "0%",
+              opacity: isPaused ? 0.35 : 1,
+              animation: isPaused ? "none" : `autoscrollProgress ${AUTO_SCROLL_INTERVAL}ms linear forwards`,
+            }}
+          />
+        </div>
+
+        {/* Floating auto-scroll indicator & controller */}
+        <div className="pointer-events-auto absolute bottom-4 left-6 z-40 hidden lg:flex items-center gap-2.5 rounded-full border border-sand/20 bg-void/85 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-widest text-sand backdrop-blur-md">
+          <span className={cn("h-2 w-2 rounded-full", isPaused ? "bg-sand/40" : "bg-signal animate-pulse")} />
+          <span>
+            {isPaused ? "Auto-play paused" : `Auto-scroll (${active + 1}/${events.length})`}
+          </span>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsPaused((p) => !p);
+            }}
+            className="ml-1 text-signal hover:text-white font-bold transition-colors cursor-pointer"
+          >
+            [{isPaused ? "RESUME" : "PAUSE"}]
+          </button>
+        </div>
+
         {events.map((ev, i) => (
           <Blade
             key={ev.id}
@@ -609,8 +670,14 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
             index={i}
             isActive={i === active}
             isGlitching={glitchingIndex === i}
-            onClick={() => switchBlade(i)}
-            onMouseEnter={() => switchBlade(i)}
+            onClick={() => {
+              switchBlade(i);
+              setIsPaused(true);
+            }}
+            onMouseEnter={() => {
+              switchBlade(i);
+              setIsPaused(true);
+            }}
           />
         ))}
       </div>
@@ -620,6 +687,10 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
         className="lg:hidden min-h-screen bg-void"
         role="tablist"
         aria-label="KERNEL 1.0 events"
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => {
+          setTimeout(() => setIsPaused(false), 4500);
+        }}
       >
         {/* hero strip for the active event */}
         <div className="relative h-[40vh] w-full overflow-hidden">
@@ -635,13 +706,22 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
             <BladeGlitchOverlay key={`mobile-${events[active].id}-${active}`} imagePath={events[active].imagePath} />
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-void/20 via-void/40 to-void" />
-          <div className="absolute bottom-6 left-6">
-            <span className="font-mono text-[0.65rem] font-bold tracking-widest text-signal/80 uppercase">
-              {String(active + 1).padStart(2, "0")}
-            </span>
-            <h1 className="display mt-1 text-[clamp(1.6rem,8vw,2.4rem)] leading-none text-sand">
-              {events[active].title}
-            </h1>
+          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+            <div>
+              <span className="font-mono text-[0.65rem] font-bold tracking-widest text-signal/80 uppercase">
+                {String(active + 1).padStart(2, "0")} / {String(events.length).padStart(2, "0")}
+              </span>
+              <h1 className="display mt-1 text-[clamp(1.6rem,8vw,2.4rem)] leading-none text-sand">
+                {events[active].title}
+              </h1>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsPaused((p) => !p)}
+              className="font-mono text-[9px] uppercase tracking-wider text-sand/60 border border-sand/20 rounded px-2 py-1 bg-void/60"
+            >
+              {isPaused ? "Play" : "Pause"}
+            </button>
           </div>
         </div>
 
@@ -653,7 +733,10 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
               event={ev}
               index={i}
               isActive={i === active}
-              onClick={() => setActive(i === active ? i : i)}
+              onClick={() => {
+                setActive(i);
+                setIsPaused(true);
+              }}
             />
           ))}
         </div>
