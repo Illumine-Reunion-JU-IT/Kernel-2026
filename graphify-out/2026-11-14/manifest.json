@@ -294,9 +294,9 @@
     "semantic_hash": ""
   },
   "components/home/video-section.tsx": {
-    "mtime": 1794670472.2280645,
-    "seen": 1794670668.9289868,
-    "ast_hash": "93d699eb4f617d07a5ac062b2ab63388",
+    "mtime": 1794674995.782023,
+    "seen": 1794675021.9378638,
+    "ast_hash": "e6075d0ad81e2dbfe49203f017e25239",
     "semantic_hash": ""
   },
   "components/home/what-is.tsx": {
@@ -1092,9 +1092,9 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-under-construction.tsx": {
-    "mtime": 1794673346.086867,
-    "seen": 1794673401.2162812,
-    "ast_hash": "faee459a86c51bf25174ac6450b77c02",
+    "mtime": 1794673860.3758738,
+    "seen": 1794675021.93785,
+    "ast_hash": "46db4bc2df1527eae3f3e9ce8739ecaf",
     "semantic_hash": ""
   },
   "package-lock.json": {

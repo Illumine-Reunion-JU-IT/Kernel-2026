@@ -37,7 +37,7 @@ export interface KernelEvent {
 
 interface EventOrbitalStageProps {
   event: KernelEvent;
-  indexNumber: string;
+  indexNumber?: string;
   prevEvent: { slug: string; title: string } | null;
   nextEvent: { slug: string; title: string } | null;
   coordinators: string[];
@@ -218,7 +218,6 @@ function ThumbnailLightbox({
 /* ─── Main Component ─────────────────────────────────────────────── */
 export function EventOrbitalStage({
   event,
-  indexNumber,
   prevEvent,
   nextEvent,
   coordinators,
@@ -1178,7 +1177,7 @@ export function EventOrbitalStage({
             {/* Top Badges */}
             <div className="mb-4 flex flex-wrap items-center gap-2">
               <span className="rounded-[4px] border border-white/20 bg-white/[0.05] px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-sand/85 backdrop-blur-sm">
-                #{indexNumber} · {dossier.edition}
+                {dossier.edition}
               </span>
               <span className="rounded-[4px] border border-white/20 bg-white/[0.05] px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-sand/85 backdrop-blur-sm">
                 {dossier.categoryBadge}
