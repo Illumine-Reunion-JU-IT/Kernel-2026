@@ -3,48 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-const DIVISIONS = [
-  {
-    code: "SEC_01",
-    tier: "APEX LEADERSHIP",
-    title: "Executive & Convenorship",
-    description:
-      "General convenor, joint convenors & advisory faculty heads overseeing festival operations, policy, and institutional governance.",
-    status: "SEALED · EMBARGO ACTIVE",
-    clearance: "LEVEL 5",
-    icon: "🏛️",
-  },
-  {
-    code: "SEC_02",
-    tier: "CORE DEV & PLATFORMS",
-    title: "Technical & DevOps",
-    description:
-      "Lead software architects, platform engineers, competitive coding problem authors, judge server admins & network infrastructure.",
-    status: "ACTIVE · COMPILING 94%",
-    clearance: "LEVEL 4",
-    icon: "⚡",
-  },
-  {
-    code: "SEC_03",
-    tier: "VISUAL & MOTION ART",
-    title: "Creative, UI & 3D Stage",
-    description:
-      "Brand directors, brutalist typography authors, 3D stage artists, motion graphic designers & festival media curators.",
-    status: "FINALIZING · ASSET PIPELINE",
-    clearance: "LEVEL 4",
-    icon: "🎨",
-  },
-  {
-    code: "SEC_04",
-    tier: "OPERATIONS & ALLIANCE",
-    title: "Sponsorship & Relations",
-    description:
-      "Corporate alliance directors, student hospitality liaisons, industry sponsor delegates & campus auditorium operations.",
-    status: "VERIFIED · STAGING READY",
-    clearance: "LEVEL 4",
-    icon: "🌐",
-  },
-];
 
 const TERMINAL_LOGS = [
   "[00:00:01] SYS_INIT: Jadavpur University Dept. of IT Kernel Core Engine v1.0",
@@ -59,12 +17,10 @@ export function CommitteeUnderConstruction() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard
-      .writeText("illumine.reunion.ju.it@gmail.com")
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2400);
-      });
+    navigator.clipboard.writeText("kerneljuit@gmail.com").then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2400);
+    });
   };
 
   return (
@@ -148,64 +104,6 @@ export function CommitteeUnderConstruction() {
           </div>
         </div>
 
-        {/* Blueprint Dossier Pods (4 Divisions) */}
-        <div className="mb-14">
-          <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-3">
-            <h2 className="mono-label text-xs sm:text-sm font-bold tracking-widest text-sand/90">
-              <span className="text-signal">■</span> INCOMING PORTFOLIO DIVISIONS
-            </h2>
-            <span className="font-mono text-[11px] text-sand/60">4 DEPARTMENTS STAGED</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {DIVISIONS.map((div) => (
-              <div
-                key={div.code}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-md border border-white/20 bg-[#110e1a] p-5 shadow-[0_8px_24px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-1 hover:border-signal hover:shadow-[0_12px_32px_rgba(228,9,8,0.45)]"
-              >
-                {/* Corner crosshairs */}
-                <span className="pointer-events-none absolute right-2.5 top-2.5 font-mono text-xs text-white/30 group-hover:text-signal transition-colors">
-                  +
-                </span>
-                <span className="pointer-events-none absolute left-2.5 bottom-2.5 font-mono text-xs text-white/30 group-hover:text-signal transition-colors">
-                  +
-                </span>
-
-                {/* Subtle card glow */}
-                <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-signal/10 blur-2xl group-hover:bg-signal/25 transition-all" />
-
-                <div>
-                  <div className="mb-3 flex items-center justify-between font-mono text-[11px]">
-                    <span className="font-bold text-sand/70">{div.code}</span>
-                    <span className="rounded border border-signal/40 bg-signal/20 px-2 py-0.5 text-[10px] font-bold text-signal">
-                      {div.clearance}
-                    </span>
-                  </div>
-
-                  <div className="mb-3 text-3xl">{div.icon}</div>
-
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-signal">
-                    {div.tier}
-                  </p>
-                  <h3 className="font-display text-xl font-black uppercase text-sand group-hover:text-white transition-colors">
-                    {div.title}
-                  </h3>
-
-                  <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-sand/80 font-sans">
-                    {div.description}
-                  </p>
-                </div>
-
-                <div className="mt-5 border-t border-white/10 pt-3.5">
-                  <div className="flex items-center gap-2 font-mono text-[10px] font-bold tracking-wider text-sand/90">
-                    <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
-                    <span>{div.status}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Real-time Staging Telemetry Terminal */}
         <div className="mb-14 overflow-hidden rounded-lg border border-white/15 bg-[#09070e] shadow-[0_20px_50px_rgba(0,0,0,0.8)]">

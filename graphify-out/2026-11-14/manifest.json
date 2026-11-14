@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "data/site.json": {
-    "mtime": 1794663066.932039,
-    "seen": 1794663265.09594,
-    "ast_hash": "597fcf68b68843b530912ad2a3e13b0b",
+    "mtime": 1794676719.7424016,
+    "seen": 1794676785.5238342,
+    "ast_hash": "1cad0b7864cf088b34a8e969bee076c4",
     "semantic_hash": ""
   },
   "data/speakers.json": {
@@ -744,9 +744,9 @@
     "semantic_hash": "b801f73440a77002263b45a808761691"
   },
   "components/contact-section.tsx": {
-    "mtime": 1794659782.1011105,
-    "seen": 1794661066.745512,
-    "ast_hash": "3623e27ed0ecef1bd11112ff36f21635",
+    "mtime": 1794676711.7543714,
+    "seen": 1794676785.523803,
+    "ast_hash": "07e56e62ea8a7d269206e17c3bf17771",
     "semantic_hash": ""
   },
   "public/images/statue-bust.jpeg": {
@@ -762,9 +762,9 @@
     "semantic_hash": ""
   },
   "components/event-orbital-stage.tsx": {
-    "mtime": 1794670627.8006663,
-    "seen": 1794670668.9289541,
-    "ast_hash": "38b45dc6ad2af62ec4d4055d9d413cc9",
+    "mtime": 1794675703.776826,
+    "seen": 1794675729.036405,
+    "ast_hash": "5959599630f29991fe44cbb777152f1c",
     "semantic_hash": ""
   },
   "public/images/event_slug_design.jpeg": {
@@ -1092,9 +1092,9 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-under-construction.tsx": {
-    "mtime": 1794673860.3758738,
-    "seen": 1794675021.93785,
-    "ast_hash": "46db4bc2df1527eae3f3e9ce8739ecaf",
+    "mtime": 1794676746.0512333,
+    "seen": 1794676785.523808,
+    "ast_hash": "68020cb054bdea8eedcb49735a269f09",
     "semantic_hash": ""
   },
   "package-lock.json": {
