@@ -35,7 +35,7 @@ const SECTIONS: Section[] = [
         name: "Rishav Chowdhury",
         role: "Secretary",
         year: "UG4",
-        imagePath: "/images/core-committee/rishav-chowdhury.jpg",
+        imagePath: "/images/core-committee/rishav-chowdhury.png",
       },
     ],
   },
@@ -65,7 +65,7 @@ const SECTIONS: Section[] = [
         name: "Tanishq Majumder",
         role: "Treasurer",
         year: "UG3",
-        imagePath: "/images/core-committee/tanishq-majumder.jpg",
+        imagePath: "/images/core-committee/tanishq-majumder.png",
       },
     ],
   },
@@ -81,7 +81,7 @@ const SECTIONS: Section[] = [
         name: "Rahul Pandey",
         role: "Tech Lead",
         year: "UG4",
-        imagePath: "/images/core-committee/rahul-pandey.jpg",
+        imagePath: "/images/core-committee/rahul-pandey.png",
       },
     ],
   },
@@ -97,7 +97,7 @@ const SECTIONS: Section[] = [
         name: "Debarun Patra",
         role: "Event Coordinator",
         year: "UG3",
-        imagePath: "/images/core-committee/debarun-patra.jpg",
+        imagePath: "/images/core-committee/debarun-patra.png",
       },
       {
         id: "saptarshi-sau",
@@ -120,7 +120,7 @@ const SECTIONS: Section[] = [
         name: "Aritra Mondal",
         role: "Lead",
         year: "UG2",
-        imagePath: "/images/core-committee/aritra-mondal.jpg",
+        imagePath: "/images/core-committee/aritra-mondal.png",
       },
       {
         id: "syed-hasan-farhan",
@@ -134,7 +134,7 @@ const SECTIONS: Section[] = [
         name: "Yasir Ahmad",
         role: "Coordinator",
         year: "UG2",
-        imagePath: "/images/core-committee/yasir-ahmad.jpg",
+        imagePath: "/images/core-committee/yasir-ahmad.png",
       },
     ],
   },
@@ -157,14 +157,14 @@ const SECTIONS: Section[] = [
         name: "Reetabrata Mandal",
         role: "Coordinator",
         year: "UG2",
-        imagePath: "/images/core-committee/reetabrata-mandal.jpg",
+        imagePath: "/images/core-committee/reetabrata-mandal.png",
       },
       {
         id: "iman-rout",
         name: "Iman Rout",
         role: "Coordinator",
         year: "UG2",
-        imagePath: "/images/core-committee/iman-rout.jpg",
+        imagePath: "/images/core-committee/iman-rout.png",
       },
     ],
   },
@@ -421,11 +421,6 @@ export function CommitteeShowcase() {
                         {/* Subtle bottom vignette */}
                         <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-transparent to-transparent opacity-60" />
 
-                        {/* Status Tag */}
-                        <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 rounded-full border border-sand/20 bg-void/85 px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-wider text-sand backdrop-blur-md">
-                          <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse" />
-                          <span>CORE 1.0</span>
-                        </div>
                       </div>
 
                       {/* Member Info Block */}
