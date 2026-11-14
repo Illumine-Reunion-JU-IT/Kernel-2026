@@ -46,8 +46,6 @@ export function Footer() {
 
   return (
     <div className="relative">
-      <ContactSection />
-
       <footer className="relative border-t border-white/10 bg-[#06040a] text-sand pt-12 pb-8 overflow-hidden">
         {/* Subtle accent glow line at the top */}
         <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-signal to-transparent opacity-80" />

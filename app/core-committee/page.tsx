@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CommitteeUnderConstruction } from "@/components/core-committee/committee-under-construction";
+import { CommitteeShowcase } from "@/components/core-committee/committee-showcase";
 
 export const metadata: Metadata = {
   title: "Core Committee | KERNEL '26",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function CoreCommitteePage() {
   return (
     <main id="committee-main">
-      <CommitteeUnderConstruction />
+      <CommitteeShowcase />
     </main>
   );
 }

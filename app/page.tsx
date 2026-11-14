@@ -6,6 +6,7 @@ import { EventsTimeline } from "@/components/home/events-timeline";
 import { GalleryTeaser } from "@/components/home/gallery-teaser";
 import { SpeakersPreview } from "@/components/home/speakers-preview";
 import { SponsorsPreview } from "@/components/home/sponsors-preview";
+import { ContactSection } from "@/components/contact-section";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <GalleryTeaser />
       <SpeakersPreview />
       <SponsorsPreview />
+      <ContactSection />
     </main>
   );
 }
