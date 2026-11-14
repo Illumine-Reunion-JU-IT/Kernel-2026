@@ -539,6 +539,237 @@ function Blade({ event, index, isActive, isGlitching, onClick, onMouseEnter }: B
   );
 }
 
+/* ─── mobile event showcase (< lg) — full-screen card swipe ─────────── */
+interface MobileShowcaseProps {
+  events: EventItem[];
+  active: number;
+  setActive: (i: number) => void;
+  isPaused: boolean;
+  setIsPaused: (fn: ((p: boolean) => boolean) | boolean) => void;
+  glitchingIndex: number | null;
+}
+
+function MobileEventShowcase({
+  events,
+  active,
+  setActive,
+  isPaused,
+  setIsPaused,
+  glitchingIndex,
+}: MobileShowcaseProps) {
+  const ev = events[active];
+  const accent = ACCENTS[ev.slug] ?? { from: "#e40908", via: "#8b0000" };
+  const touchStartX = useRef<number>(0);
+  const AUTO_SCROLL_INTERVAL = 4500;
+
+  /* touch-swipe navigation */
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) < 40) return;
+    setIsPaused(true);
+    if (dx < 0) setActive((active + 1) % events.length);
+    else setActive((active - 1 + events.length) % events.length);
+  };
+
+  /* auto-scroll */
+  useEffect(() => {
+    if (isPaused || events.length <= 1) return;
+    const id = setInterval(() => {
+      setActive((active + 1) % events.length);
+    }, AUTO_SCROLL_INTERVAL);
+    return () => clearInterval(id);
+  }, [isPaused, events.length, active, setActive]);
+
+  return (
+    <div
+      className="lg:hidden relative min-h-[calc(100svh-var(--nav-h))] bg-void flex flex-col justify-between overflow-hidden"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      {/* ── Background Poster with dynamic backdrop ── */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          key={ev.id}
+          src={ev.imagePath}
+          alt={ev.imageAlt}
+          fill
+          sizes="100vw"
+          className="object-cover object-top filter brightness-[0.4] transition-all duration-700"
+          priority
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to bottom,
+              rgba(5,3,8,0.7) 0%,
+              rgba(5,3,8,0.4) 30%,
+              rgba(5,3,8,0.85) 60%,
+              #050308 100%)`,
+          }}
+        />
+      </div>
+
+      {/* ── Progress bar (top) ── */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-[3px] bg-white/10">
+        <div
+          key={active + (isPaused ? "-p" : "-a")}
+          className="h-full bg-signal shadow-[0_0_10px_rgba(228,9,8,0.9)]"
+          style={{
+            width: isPaused ? "100%" : "0%",
+            opacity: isPaused ? 0.3 : 1,
+            animation: isPaused
+              ? "none"
+              : `autoscrollProgress ${AUTO_SCROLL_INTERVAL}ms linear forwards`,
+          }}
+        />
+      </div>
+
+      {/* ── Top Header Bar on Mobile ── */}
+      <div className="relative z-10 px-5 pt-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-signal animate-pulse" />
+          <span className="font-mono text-[10px] font-black tracking-widest text-signal uppercase">
+            EVENT {String(active + 1).padStart(2, "0")} / {String(events.length).padStart(2, "0")}
+          </span>
+        </div>
+        <span
+          className="rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-widest uppercase backdrop-blur-md"
+          style={{
+            background: `${accent.from}30`,
+            color: accent.from,
+            border: `1px solid ${accent.from}60`,
+          }}
+        >
+          {ev.category}
+        </span>
+      </div>
+
+      {/* ── Center Arena: Featured Event Card ── */}
+      <div className="relative z-10 px-5 py-4 flex flex-col items-center">
+        <div className="relative w-full max-w-[280px] aspect-[4/5] rounded-2xl overflow-hidden border-2 border-sand/20 shadow-[0_16px_40px_rgba(0,0,0,0.8)] group">
+          <Image
+            src={ev.imagePath}
+            alt={ev.imageAlt}
+            fill
+            sizes="280px"
+            className="object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent opacity-80" />
+          {ev.facts.find(f => f.label === "Prize Pool") && (
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-void/85 border border-sand/20 rounded-lg px-2.5 py-1 backdrop-blur-md">
+              <span className="font-mono text-[9px] text-sand/60 uppercase">Prize Pool</span>
+              <span className="font-mono text-xs font-black text-signal">
+                {ev.facts.find(f => f.label === "Prize Pool")!.value}
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* ── Bottom Content Area ── */}
+      <div className="relative z-10 px-5 pb-8 flex flex-col">
+        {/* Title & Tagline */}
+        <div className="text-center">
+          <h1 className="display text-[clamp(2rem,9vw,3rem)] leading-none text-sand drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]">
+            {ev.title}
+          </h1>
+          {ev.slug === "hojohborolo" && (
+            <p className="font-mono text-xs text-sand/60 mt-0.5">(হযবরল)</p>
+          )}
+          <p className="mt-1 font-mono text-[11px] tracking-wider text-signal uppercase font-bold">
+            {ev.tagline}
+          </p>
+        </div>
+
+        {/* Spec Grid */}
+        <div className="mt-4">
+          <SpecGrid facts={ev.facts} />
+        </div>
+
+        {/* Action Buttons */}
+        <div className="mt-4 flex flex-col gap-2">
+          <Link
+            href={`/events/${ev.slug}`}
+            className="flex items-center justify-center gap-2 rounded-lg border border-signal bg-signal py-3 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_24px_rgba(228,9,8,0.45)] transition-all active:scale-95"
+          >
+            Enter Arena / View Dossier →
+          </Link>
+          {ev.registrationUrl && (
+            <a
+              href={ev.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center font-mono text-[11px] font-bold uppercase tracking-wider text-sand/60 hover:text-sand py-1 transition-colors"
+            >
+              Direct Registration Form ↗
+            </a>
+          )}
+        </div>
+
+        {/* Navigation Dot controls */}
+        <div className="mt-5 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            {events.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to event ${i + 1}`}
+                onClick={() => { setActive(i); setIsPaused(true); }}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300",
+                  i === active
+                    ? "w-7 bg-signal shadow-[0_0_8px_rgba(228,9,8,0.8)]"
+                    : "w-1.5 bg-sand/30 hover:bg-sand/60"
+                )}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setActive((active - 1 + events.length) % events.length);
+                setIsPaused(true);
+              }}
+              className="w-8 h-8 rounded-full border border-sand/20 bg-void/80 text-sand flex items-center justify-center font-mono text-xs active:scale-90"
+              aria-label="Previous event"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setActive((active + 1) % events.length);
+                setIsPaused(true);
+              }}
+              className="w-8 h-8 rounded-full border border-sand/20 bg-void/80 text-sand flex items-center justify-center font-mono text-xs active:scale-90"
+              aria-label="Next event"
+            >
+              →
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsPaused((p: boolean) => !p)}
+              className="ml-1 flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider text-sand/50 border border-sand/20 rounded-full px-2.5 py-1 bg-void/60 hover:text-sand"
+            >
+              <span className={cn("h-1.5 w-1.5 rounded-full", isPaused ? "bg-sand/40" : "bg-signal animate-pulse")} />
+              {isPaused ? "PLAY" : "PAUSE"}
+            </button>
+          </div>
+        </div>
+
+        <p className="mt-3 text-center font-mono text-[9px] tracking-widest text-sand/30 uppercase">
+          ← Swipe or tap arrows to navigate →
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ─── main accordion stage ──────────────────────────────────────────── */
 export function AccordionStage({ events }: { events: EventItem[] }) {
   const [active, setActive] = useState(0);
@@ -682,65 +913,15 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
         ))}
       </div>
 
-      {/* ── MOBILE / TABLET: vertical stacked accordion (< lg) ── */}
-      <div
-        className="lg:hidden min-h-screen bg-void"
-        role="tablist"
-        aria-label="KERNEL 1.0 events"
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => {
-          setTimeout(() => setIsPaused(false), 4500);
-        }}
-      >
-        {/* hero strip for the active event */}
-        <div className="relative h-[40vh] w-full overflow-hidden">
-          <Image
-            src={events[active].imagePath}
-            alt={events[active].imageAlt}
-            fill
-            sizes="100vw"
-            className="object-cover object-top transition-all duration-500"
-            priority
-          />
-          {glitchingIndex === active && (
-            <BladeGlitchOverlay key={`mobile-${events[active].id}-${active}`} imagePath={events[active].imagePath} />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-b from-void/20 via-void/40 to-void" />
-          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-            <div>
-              <span className="font-mono text-[0.65rem] font-bold tracking-widest text-signal/80 uppercase">
-                {String(active + 1).padStart(2, "0")} / {String(events.length).padStart(2, "0")}
-              </span>
-              <h1 className="display mt-1 text-[clamp(1.6rem,8vw,2.4rem)] leading-none text-sand">
-                {events[active].title}
-              </h1>
-            </div>
-            <button
-              type="button"
-              onClick={() => setIsPaused((p) => !p)}
-              className="font-mono text-[9px] uppercase tracking-wider text-sand/60 border border-sand/20 rounded px-2 py-1 bg-void/60"
-            >
-              {isPaused ? "Play" : "Pause"}
-            </button>
-          </div>
-        </div>
-
-        {/* accordion list */}
-        <div className="border-t border-sand/10">
-          {events.map((ev, i) => (
-            <MobilePanel
-              key={ev.id}
-              event={ev}
-              index={i}
-              isActive={i === active}
-              onClick={() => {
-                setActive(i);
-                setIsPaused(true);
-              }}
-            />
-          ))}
-        </div>
-      </div>
+      {/* ── MOBILE / TABLET: full-screen card showcase (< lg) ── */}
+      <MobileEventShowcase
+        events={events}
+        active={active}
+        setActive={setActive}
+        isPaused={isPaused}
+        setIsPaused={setIsPaused}
+        glitchingIndex={glitchingIndex}
+      />
     </>
   );
 }

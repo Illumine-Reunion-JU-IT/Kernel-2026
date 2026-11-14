@@ -1,12 +1,132 @@
 [
   {
-    "id": "committee-placeholder-001",
-    "name": "TBD: Committee member name",
-    "role": "TBD: Official committee role",
-    "imagePath": "/images/placeholder.svg",
-    "imageAlt": "Committee member image placeholder",
+    "id": "rishav-chowdhury",
+    "name": "Rishav Chowdhury",
+    "role": "Secretary (UG4)",
+    "imagePath": "/images/core-committee/rishav-chowdhury.jpg",
+    "imageAlt": "Rishav Chowdhury - Secretary, KERNEL '26",
     "url": null,
-    "isPlaceholder": true,
-    "organiserNote": "Replace with an organiser-approved name, role and photograph."
+    "isPlaceholder": false,
+    "organiserNote": "Executive leadership - General Secretary, Department of Information Technology, Jadavpur University."
+  },
+  {
+    "id": "anuska-nath",
+    "name": "Anuska Nath",
+    "role": "Treasurer (UG4)",
+    "imagePath": "/images/core-committee/anuska-nath.jpg",
+    "imageAlt": "Anuska Nath - Treasurer, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Treasury & Finance Management, KERNEL '26."
+  },
+  {
+    "id": "ansh-kumar-singh",
+    "name": "Ansh Kumar Singh",
+    "role": "Treasurer (UG4)",
+    "imagePath": "/images/core-committee/ansh-kumar-singh.jpg",
+    "imageAlt": "Ansh Kumar Singh - Treasurer, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Treasury & Financial Operations, KERNEL '26."
+  },
+  {
+    "id": "tanishq-majumder",
+    "name": "Tanishq Majumder",
+    "role": "Treasurer (UG3)",
+    "imagePath": "/images/core-committee/tanishq-majumder.jpg",
+    "imageAlt": "Tanishq Majumder - Treasurer, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Treasury & Financial Operations, KERNEL '26."
+  },
+  {
+    "id": "rahul-pandey",
+    "name": "Rahul Pandey",
+    "role": "Tech Lead (UG4)",
+    "imagePath": "/images/core-committee/rahul-pandey.jpg",
+    "imageAlt": "Rahul Pandey - Tech Lead, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Executive leadership - Technical Lead & Architecture, KERNEL '26."
+  },
+  {
+    "id": "debarun-patra",
+    "name": "Debarun Patra",
+    "role": "Event Coordinator (UG3)",
+    "imagePath": "/images/core-committee/debarun-patra.jpg",
+    "imageAlt": "Debarun Patra - Event Coordinator, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Event Management, Logistics & Arena Staging, KERNEL '26."
+  },
+  {
+    "id": "saptarshi-sau",
+    "name": "Saptarshi Sau",
+    "role": "Event Coordinator (UG3)",
+    "imagePath": "/images/core-committee/saptarshi-sau.jpg",
+    "imageAlt": "Saptarshi Sau - Event Coordinator, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Event Operations & Schedule Coordination, KERNEL '26."
+  },
+  {
+    "id": "aritra-mondal",
+    "name": "Aritra Mondal",
+    "role": "Sponsorship Lead (UG2)",
+    "imagePath": "/images/core-committee/aritra-mondal.jpg",
+    "imageAlt": "Aritra Mondal - Sponsorship Lead, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Corporate Partnerships & Sponsorship Head, KERNEL '26."
+  },
+  {
+    "id": "syed-hasan-farhan",
+    "name": "Syed Hasan Farhan",
+    "role": "Sponsorship Coordinator (UG2)",
+    "imagePath": "/images/core-committee/syed-hasan-farhan.jpg",
+    "imageAlt": "Syed Hasan Farhan - Sponsorship Coordinator, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Sponsorship Outreach & Partner Management, KERNEL '26."
+  },
+  {
+    "id": "yasir-ahmad",
+    "name": "Yasir Ahmad",
+    "role": "Sponsorship Coordinator (UG2)",
+    "imagePath": "/images/core-committee/yasir-ahmad.jpg",
+    "imageAlt": "Yasir Ahmad - Sponsorship Coordinator, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Sponsorship Outreach & Industry Relations, KERNEL '26."
+  },
+  {
+    "id": "sourav-dutta",
+    "name": "Sourav Dutta",
+    "role": "PR Lead (UG2)",
+    "imagePath": "/images/core-committee/sourav-dutta.jpg",
+    "imageAlt": "Sourav Dutta - PR Lead, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Public Relations, Media Strategy & Marketing Head, KERNEL '26."
+  },
+  {
+    "id": "reetabrata-mandal",
+    "name": "Reetabrata Mandal",
+    "role": "PR Coordinator (UG2)",
+    "imagePath": "/images/core-committee/reetabrata-mandal.jpg",
+    "imageAlt": "Reetabrata Mandal - PR Coordinator, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Public Relations, Community & Communications Coordinator, KERNEL '26."
+  },
+  {
+    "id": "iman-rout",
+    "name": "Iman Rout",
+    "role": "PR Coordinator (UG2)",
+    "imagePath": "/images/core-committee/iman-rout.jpg",
+    "imageAlt": "Iman Rout - PR Coordinator, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Public Relations & Campus Outreach Coordinator, KERNEL '26."
   }
 ]

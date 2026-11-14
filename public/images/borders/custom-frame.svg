@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="frameMask">
+      <rect width="200" height="200" fill="white" />
+      <path d="M20,20 L180,20 L180,180 L20,180 Z M30,30 L170,30 L170,170 L30,170 Z" fill="black" />
+    </mask>
+  </defs>
+  <rect width="200" height="200" fill="#111" mask="url(#frameMask)" />
+</svg>

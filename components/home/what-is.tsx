@@ -138,7 +138,14 @@ export function WhatIs() {
       <dl data-stats className="container grid grid-cols-2 gap-y-12 py-section md:grid-cols-4">
         {siteContent.stats.map((s, i) => (
           <div key={s.label} data-stat-cell className={`flex flex-col-reverse justify-end border-l-4 border-signal pl-5 ${i % 2 ? "md:mt-10" : ""}`}>
-            <dt className="mt-2 max-w-[16ch] text-sm font-semibold text-sand md:text-base">{s.label}</dt>
+            <dt className="mt-2 max-w-[16ch] text-sm font-semibold text-sand md:text-base">
+              {s.label}
+              {s.value === "50+" && (
+                <span className="block text-[0.72rem] font-mono tracking-wider text-signal/80 uppercase mt-0.5 font-normal">
+                  by the clubs
+                </span>
+              )}
+            </dt>
             <dd data-stat={s.value} className="condensed text-[clamp(3.6rem,10vw,8rem)] leading-none text-sand">{s.value}</dd>
           </div>
         ))}
