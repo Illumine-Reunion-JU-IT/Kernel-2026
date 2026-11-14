@@ -109,12 +109,16 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden sm:block">
+        <div className="flex items-center gap-2.5 sm:gap-4">
+          <div>
             {hasRegistration ? (
-              <Button href={siteContent.registrationUrl!} external className="!px-5 !py-3 !text-[11px]">Register</Button>
+              <Button href={siteContent.registrationUrl!} external className="!px-3.5 !py-2 !text-[10px] sm:!px-5 sm:!py-3 sm:!text-[11px]">
+                Register
+              </Button>
             ) : (
-              <Button disabled className="!px-5 !py-3 !text-[11px]">Registration soon</Button>
+              <Button disabled className="!px-3.5 !py-2 !text-[10px] sm:!px-5 sm:!py-3 sm:!text-[11px]">
+                Register
+              </Button>
             )}
           </div>
           <MobileMenu />
