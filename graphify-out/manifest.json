@@ -426,9 +426,9 @@
     "semantic_hash": "8a80554c91d9fca8acb82f023de02f11"
   },
   "data/core-committee.json": {
-    "mtime": 1794697020.1862276,
-    "seen": 1794697493.5091789,
-    "ast_hash": "c5626220bf7afb6240509c67cc1e7650",
+    "mtime": 1794723429.5330625,
+    "seen": 1794723617.669612,
+    "ast_hash": "c50d5904ac3bdf350c94aaee7dbfb7f6",
     "semantic_hash": ""
   },
   "data/events.json": {
@@ -1098,21 +1098,21 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-enhanced.tsx": {
-    "mtime": 1794694300.5686553,
-    "seen": 1794697493.5091531,
-    "ast_hash": "3a7ece3c3fdc214dba9f380d319288ff",
+    "mtime": 1794723447.8633106,
+    "seen": 1794723617.669585,
+    "ast_hash": "80045f1bf7cc707933168d89c17c4e51",
     "semantic_hash": ""
   },
   "components/core-committee/committee-hero.tsx": {
-    "mtime": 1794694300.5687392,
-    "seen": 1794697493.509155,
-    "ast_hash": "2736b78effe95f12c1dd26c1eca01bad",
+    "mtime": 1794723439.2353563,
+    "seen": 1794723617.669587,
+    "ast_hash": "09055336a40575feed63fb5051c46aaf",
     "semantic_hash": ""
   },
   "components/core-committee/committee-showcase.tsx": {
-    "mtime": 1794697359.801252,
-    "seen": 1794697493.509155,
-    "ast_hash": "3fd6e2186a6d4ef9ed821f840733ad9e",
+    "mtime": 1794723392.8546064,
+    "seen": 1794723617.6695879,
+    "ast_hash": "397477f62d20d30414583837c3575843",
     "semantic_hash": ""
   },
   "scripts/process-committee.js": {
@@ -1383,6 +1383,78 @@
     "mtime": 1794696789.6289144,
     "seen": 1794697493.5092201,
     "ast_hash": "5bbbf65ee278ced9ad0a2d325c21a050",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/himadri mandal.png": {
+    "mtime": 1794722830.2148316,
+    "seen": 1794723617.669642,
+    "ast_hash": "72f656202c48a50c2703ff787b1597f5",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/himadri-mandal.jpg": {
+    "mtime": 1794723282.1080198,
+    "seen": 1794723617.669643,
+    "ast_hash": "7773a5f131ddc7f073d95ab0a71b90bb",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/himadri-mandal.png": {
+    "mtime": 1794723282.105266,
+    "seen": 1794723617.669643,
+    "ast_hash": "72f656202c48a50c2703ff787b1597f5",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/kaustav mondal.png": {
+    "mtime": 1794722827.865677,
+    "seen": 1794723617.669646,
+    "ast_hash": "8c5d9b97416779b04dba8583030c7c5a",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/kaustav-mondal.jpg": {
+    "mtime": 1794723282.1047115,
+    "seen": 1794723617.6696472,
+    "ast_hash": "46369dcd679c5bb1068383de95220284",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/kaustav-mondal.png": {
+    "mtime": 1794723282.0881097,
+    "seen": 1794723617.6696472,
+    "ast_hash": "8c5d9b97416779b04dba8583030c7c5a",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/krish-agarwal.jpg": {
+    "mtime": 1794723282.1112008,
+    "seen": 1794723617.669648,
+    "ast_hash": "3a4a0ba970130cafdc71d30583450d92",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/krish-agarwal.png": {
+    "mtime": 1794723282.1085052,
+    "seen": 1794723617.669648,
+    "ast_hash": "b68c71fd5ec45bbe4b2d68c260428935",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/krish_agarwal.png": {
+    "mtime": 1794722822.7805443,
+    "seen": 1794723617.669648,
+    "ast_hash": "b68c71fd5ec45bbe4b2d68c260428935",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/swapneel ray.png": {
+    "mtime": 1794722833.5868556,
+    "seen": 1794723617.669657,
+    "ast_hash": "529fa7fec310c3355497babf64ac49d0",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/swapneel-ray.jpg": {
+    "mtime": 1794723282.1148772,
+    "seen": 1794723617.6696582,
+    "ast_hash": "45613e9e5f9a20fd213873a62470bad9",
+    "semantic_hash": ""
+  },
+  "public/images/core-committee/swapneel-ray.png": {
+    "mtime": 1794723282.1119013,
+    "seen": 1794723617.6696582,
+    "ast_hash": "529fa7fec310c3355497babf64ac49d0",
     "semantic_hash": ""
   },
   "package-lock.json": {

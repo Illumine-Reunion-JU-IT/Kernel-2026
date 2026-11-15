@@ -1,7 +1,7 @@
 # Graph Report - Kernel-2026  (2026-11-15)
 
 ## Corpus Check
-- 110 files · ~37,100 words
+- 110 files · ~37,371 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 8, .example 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `37c657eb`
+- Built from commit: `b184fd3b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,19 +47,19 @@
 7. `Button()` - 12 edges
 8. `HomePage()` - 10 edges
 9. `scrollToElement()` - 10 edges
-10. `ClubGallery()` - 9 edges
+10. `EventsTimeline()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `CoreCommitteePage()` --calls--> `CommitteeShowcase()`  [EXTRACTED]
   app/core-committee/page.tsx → components/core-committee/committee-showcase.tsx
-- `EventsPage()` --calls--> `publicOnly()`  [EXTRACTED]
-  app/events/page.tsx → lib/content.ts
-- `GalleryPage()` --calls--> `ClubGallery()`  [EXTRACTED]
-  app/gallery/page.tsx → components/gallery/club-gallery.tsx
-- `RootLayout()` --calls--> `Footer()`  [EXTRACTED]
-  app/layout.tsx → components/navigation/footer.tsx
-- `RootLayout()` --calls--> `Navbar()`  [EXTRACTED]
-  app/layout.tsx → components/navigation/navbar.tsx
+- `CommitteeShowcase()` --calls--> `cn()`  [EXTRACTED]
+  components/core-committee/committee-showcase.tsx → lib/utils.ts
+- `BladeProps` --references--> `EventItem`  [EXTRACTED]
+  components/events/accordion-stage.tsx → types/index.ts
+- `MobilePanelProps` --references--> `EventItem`  [EXTRACTED]
+  components/events/accordion-stage.tsx → types/index.ts
+- `MobileShowcaseProps` --references--> `EventItem`  [EXTRACTED]
+  components/events/accordion-stage.tsx → types/index.ts
 
 ## Import Cycles
 - None detected.

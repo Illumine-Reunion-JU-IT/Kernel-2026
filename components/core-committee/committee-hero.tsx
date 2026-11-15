@@ -7,7 +7,8 @@ import { useState } from "react";
 
 // Group members by role category in the exact order required
 const ROLE_ORDER = [
-  { title: "Secretary", filter: (m:any) => m.role.toLowerCase().includes("secretary") },
+  { title: "Secretary", filter: (m:any) => m.role.toLowerCase().includes("secretary") && !m.role.toLowerCase().includes("additional") },
+  { title: "Additional General Secretary", filter: (m:any) => m.role.toLowerCase().includes("additional") },
   { title: "Treasury", filter: (m:any) => m.role.toLowerCase().includes("treasurer") },
   { title: "Tech Lead", filter: (m:any) => m.role.toLowerCase().includes("tech lead") },
   { title: "Event Coordinators", filter: (m:any) => m.role.toLowerCase().includes("event coordinator") },

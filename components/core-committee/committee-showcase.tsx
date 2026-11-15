@@ -40,6 +40,36 @@ const SECTIONS: Section[] = [
     ],
   },
   {
+    key: "additional-general-secretary",
+    title: "Additional General Secretary",
+    tagline: "EXECUTIVE ADMINISTRATION // DEPUTY CONVENERSHIP",
+    description:
+      "Assisting general convenorship, inter-departmental operations, festival administration, logistics oversight, and student leadership across KERNEL 1.0.",
+    members: [
+      {
+        id: "kaustav-mondal",
+        name: "Kaustav Mondal",
+        role: "Additional General Secretary",
+        year: "UG4",
+        imagePath: "/images/core-committee/kaustav-mondal.png",
+      },
+      {
+        id: "himadri-mandal",
+        name: "Himadri Mandal",
+        role: "Additional General Secretary",
+        year: "UG4",
+        imagePath: "/images/core-committee/himadri-mandal.png",
+      },
+      {
+        id: "krish-agarwal",
+        name: "Krish Agarwal",
+        role: "Additional General Secretary",
+        year: "UG3",
+        imagePath: "/images/core-committee/krish-agarwal.png",
+      },
+    ],
+  },
+  {
     key: "treasury",
     title: "Treasurer",
     tagline: "FINANCIAL OPERATIONS // RESOURCE ALLOCATION",
@@ -82,6 +112,13 @@ const SECTIONS: Section[] = [
         role: "Tech Lead",
         year: "UG4",
         imagePath: "/images/core-committee/rahul-pandey.png",
+      },
+      {
+        id: "swapneel-ray",
+        name: "Swapneel Ray",
+        role: "Tech Lead",
+        year: "UG4",
+        imagePath: "/images/core-committee/swapneel-ray.png",
       },
     ],
   },

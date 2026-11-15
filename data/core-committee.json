@@ -10,6 +10,36 @@
     "organiserNote": "Executive leadership - General Secretary, Department of Information Technology, Jadavpur University."
   },
   {
+    "id": "kaustav-mondal",
+    "name": "Kaustav Mondal",
+    "role": "Additional General Secretary (UG4)",
+    "imagePath": "/images/core-committee/kaustav-mondal.png",
+    "imageAlt": "Kaustav Mondal - Additional General Secretary, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Executive leadership - Additional General Secretary, Department of Information Technology, Jadavpur University."
+  },
+  {
+    "id": "himadri-mandal",
+    "name": "Himadri Mandal",
+    "role": "Additional General Secretary (UG4)",
+    "imagePath": "/images/core-committee/himadri-mandal.png",
+    "imageAlt": "Himadri Mandal - Additional General Secretary, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Executive leadership - Additional General Secretary, Department of Information Technology, Jadavpur University."
+  },
+  {
+    "id": "krish-agarwal",
+    "name": "Krish Agarwal",
+    "role": "Additional General Secretary (UG3)",
+    "imagePath": "/images/core-committee/krish-agarwal.png",
+    "imageAlt": "Krish Agarwal - Additional General Secretary, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Executive leadership - Additional General Secretary, Department of Information Technology, Jadavpur University."
+  },
+  {
     "id": "anuska-nath",
     "name": "Anuska Nath",
     "role": "Treasurer (UG4)",
@@ -45,6 +75,16 @@
     "role": "Tech Lead (UG4)",
     "imagePath": "/images/core-committee/rahul-pandey.png",
     "imageAlt": "Rahul Pandey - Tech Lead, KERNEL '26",
+    "url": null,
+    "isPlaceholder": false,
+    "organiserNote": "Executive leadership - Technical Lead & Architecture, KERNEL '26."
+  },
+  {
+    "id": "swapneel-ray",
+    "name": "Swapneel Ray",
+    "role": "Tech Lead (UG4)",
+    "imagePath": "/images/core-committee/swapneel-ray.png",
+    "imageAlt": "Swapneel Ray - Tech Lead, KERNEL '26",
     "url": null,
     "isPlaceholder": false,
     "organiserNote": "Executive leadership - Technical Lead & Architecture, KERNEL '26."
