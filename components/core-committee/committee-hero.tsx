@@ -2,22 +2,22 @@
 
 import Image from "next/image";
 import { coreCommittee } from "@/lib/content";
-import { cn } from "@/lib/utils";
 import { useState } from "react";
+import type { CommitteeMember } from "@/types";
 
 // Group members by role category in the exact order required
 const ROLE_ORDER = [
-  { title: "Secretary", filter: (m:any) => m.role.toLowerCase().includes("secretary") && !m.role.toLowerCase().includes("additional") },
-  { title: "Additional General Secretary", filter: (m:any) => m.role.toLowerCase().includes("additional") },
-  { title: "Treasury", filter: (m:any) => m.role.toLowerCase().includes("treasurer") },
-  { title: "Tech Lead", filter: (m:any) => m.role.toLowerCase().includes("tech lead") },
-  { title: "Event Coordinators", filter: (m:any) => m.role.toLowerCase().includes("event coordinator") },
-  { title: "Sponsorship Team", filter: (m:any) => m.role.toLowerCase().includes("sponsorship") },
-  { title: "PR Team", filter: (m:any) => m.role.toLowerCase().includes("pr") },
+  { title: "Secretary", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("secretary") && !m.role.toLowerCase().includes("additional") },
+  { title: "Additional General Secretary", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("additional") },
+  { title: "Treasury", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("treasurer") },
+  { title: "Tech Lead", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("tech lead") },
+  { title: "Event Coordinators", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("event coordinator") },
+  { title: "Sponsorship Team", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("sponsorship") },
+  { title: "PR Team", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("pr") },
 ];
 
 export function CommitteeHero() {
-  const [activeMember, setActiveMember] = useState<any>(null);
+  const [activeMember, setActiveMember] = useState<CommitteeMember | null>(null);
 
   return (
     <div className="relative min-h-screen bg-void pt-[calc(var(--nav-h)+2rem)] pb-20 text-sand overflow-x-hidden">
@@ -33,7 +33,7 @@ export function CommitteeHero() {
                 {section.title}
               </h2>
               <div className="flex gap-4 overflow-x-auto py-2 pb-4 -mx-2 px-2 scrollbar-none">
-                {members.map((member:any, idx:number) => (
+                {members.map((member: CommitteeMember, idx: number) => (
                   <div
                     key={member.id}
                     className="flex-shrink-0 w-48 cursor-pointer group"

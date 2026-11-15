@@ -2,19 +2,19 @@
 
 import Image from "next/image"
 import { coreCommittee } from "@/lib/content"
-import { useState, useEffect } from "react"
-import { cn } from "@/lib/utils"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import type { CommitteeMember } from "@/types"
 
 // Order of sections as requested
 const SECTIONS = [
-  { title: "Secretary", filter: (m:any) => m.role.toLowerCase().includes("secretary") && !m.role.toLowerCase().includes("additional") },
-  { title: "Additional General Secretary", filter: (m:any) => m.role.toLowerCase().includes("additional") },
-  { title: "Treasury", filter: (m:any) => m.role.toLowerCase().includes("treasurer") },
-  { title: "Tech Lead", filter: (m:any) => m.role.toLowerCase().includes("tech lead") },
-  { title: "Event Coordinators", filter: (m:any) => m.role.toLowerCase().includes("event coordinator") },
-  { title: "Sponsorship Team", filter: (m:any) => m.role.toLowerCase().includes("sponsorship") },
-  { title: "PR Team", filter: (m:any) => m.role.toLowerCase().includes("pr") },
+  { title: "Secretary", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("secretary") && !m.role.toLowerCase().includes("additional") },
+  { title: "Additional General Secretary", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("additional") },
+  { title: "Treasury", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("treasurer") },
+  { title: "Tech Lead", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("tech lead") },
+  { title: "Event Coordinators", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("event coordinator") },
+  { title: "Sponsorship Team", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("sponsorship") },
+  { title: "PR Team", filter: (m: CommitteeMember) => m.role.toLowerCase().includes("pr") },
 ]
 
 export function CommitteeEnhanced() {
@@ -23,7 +23,7 @@ export function CommitteeEnhanced() {
   // Fade‑in animation for sections
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: (i:number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1 } }),
+    visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1 } }),
   }
 
   return (
@@ -47,7 +47,7 @@ export function CommitteeEnhanced() {
                 {sec.title}
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
-                {members.map((member:any, idx:number) => (
+                {members.map((member: CommitteeMember) => (
                   <div
                     key={member.id}
                     className="group flex items-start gap-6 cursor-pointer"

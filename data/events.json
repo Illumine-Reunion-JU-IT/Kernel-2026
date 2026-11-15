@@ -16,7 +16,7 @@
     "venue": "TBD: confirmed event venue",
     "imagePath": "/images/events/mogoj-dholai.jpg",
     "imageAlt": "Mogoj Dholai poster: a neo-expressionist black figure with binary tree diagrams and complexity notations on a coral-red background",
-    "registrationUrl": null,
+    "registrationUrl": "https://unstop.com/p/mogoj-dholai-kernel-10-department-of-information-technology-jadavpur-university-1812279",
     "isPlaceholder": false,
     "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Ankit Kundu 6295529281, Rahul Pandey 8961716604. Replace date, venue and registrationUrl once confirmed."
   },
@@ -37,7 +37,7 @@
     "venue": "TBD: confirmed event venue",
     "imagePath": "/images/events/hojohborolo.jpg",
     "imageAlt": "Hojohborolo poster: an ink-drawn crow typing on a mechanical keyboard against a golden-yellow wave background with Bengali title হযবরল",
-    "registrationUrl": null,
+    "registrationUrl": "https://unstop.com/p/hojohborolo-kernel-10-department-of-information-technology-jadavpur-university-1812281",
     "isPlaceholder": false,
     "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Swarnendu Bannerjee 9564027954, Ansh Kumar Singh 97756073. Replace date, venue and registrationUrl once confirmed."
   },
@@ -58,7 +58,7 @@
     "venue": "TBD: confirmed event venue",
     "imagePath": "/images/events/data-nilaam.jpg",
     "imageAlt": "Data Nilaam poster: electric cobalt-blue background with a white auction gavel, binary rings 0100101, and hot-pink geometric shapes, with Devanagari title नीलाम",
-    "registrationUrl": null,
+    "registrationUrl": "https://unstop.com/p/data-nilaam-kernel-10-department-of-information-technology-jadavpur-university-1812314",
     "isPlaceholder": false,
     "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Rishav Chowdhury 8276991374, Debarun Patra 8582922525. Replace date, venue and registrationUrl once confirmed."
   },
@@ -100,8 +100,50 @@
     "venue": "TBD: confirmed event venue",
     "imagePath": "/images/events/hack-sangram.jpg",
     "imageAlt": "Hack Sangram poster: a split black-and-white classical bust with the ₹20,000 censor bar across the eyes and CONQUER typography on deep crimson",
-    "registrationUrl": null,
+    "registrationUrl": "https://unstop.com/p/hack-sangram-kernel-10-department-of-information-technology-jadavpur-university-1812315",
     "isPlaceholder": false,
     "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Kaustav Mandal 8918221701, Prama Roy 8293331677. Flagship hackathon with ₹20,000 prize. Replace date, venue and registrationUrl once confirmed."
+  },
+  {
+    "id": "event-006",
+    "title": "BGMI",
+    "slug": "bgmi",
+    "category": "Esports",
+    "tagline": "KRAFTON Campus Tour",
+    "summary": "KRAFTON India Esports presents College Campus Tour: BGMI at KERNEL 1.0. An elite open-for-all battle royale tournament featuring an explosive ₹30,000 prize pool.",
+    "facts": [
+      { "label": "Team Size", "value": "Squad (4 Players)" },
+      { "label": "Format", "value": "Battle Royale Lobbies" },
+      { "label": "Entry", "value": "Open for All" },
+      { "label": "Prize Pool", "value": "₹30,000" }
+    ],
+    "date": "TBA",
+    "venue": "Online / Campus Arena",
+    "imagePath": "/images/events/bgmi.jpg",
+    "imageAlt": "KRAFTON India Esports Presents College Campus Tour BGMI poster featuring a player in level 3 helmet with ₹30,000 prize pool",
+    "registrationUrl": null,
+    "isPlaceholder": false,
+    "organiserNote": "KRAFTON India Esports College Campus Tour. Open for all with ₹30,000 prize pool. Contacts: Organizing Committee."
+  },
+  {
+    "id": "event-007",
+    "title": "Real Cricket",
+    "slug": "real-cricket",
+    "category": "Esports",
+    "tagline": "The Digital Pitch Showdown",
+    "summary": "KRAFTON India Esports presents College Campus Tour: Real Cricket at KERNEL 1.0. A high-stakes solo esports showdown on the virtual pitch featuring a ₹10,000 prize pool.",
+    "facts": [
+      { "label": "Team Size", "value": "Solo (1v1)" },
+      { "label": "Format", "value": "Multiplayer Knockout" },
+      { "label": "Entry", "value": "Open for All" },
+      { "label": "Prize Pool", "value": "₹10,000" }
+    ],
+    "date": "TBA",
+    "venue": "Online / Campus Arena",
+    "imagePath": "/images/events/real-cricket.jpg",
+    "imageAlt": "KRAFTON India Esports Presents College Campus Tour Real Cricket poster featuring a batsman in action with ₹10,000 prize pool",
+    "registrationUrl": null,
+    "isPlaceholder": false,
+    "organiserNote": "KRAFTON India Esports College Campus Tour. Open for all with ₹10,000 prize pool. Contacts: Organizing Committee."
   }
 ]
