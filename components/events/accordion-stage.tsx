@@ -10,8 +10,20 @@ import type { EventItem } from "@/types";
 
 /* ─── layout constants ──────────────────────────────────────────────── */
 const SKEW = 8; // blade tilt in degrees — applied only on lg+
-const ACTIVE_W = 65; // % of viewport taken by the open blade
-const INACTIVE_W = (100 - ACTIVE_W) / 4; // % each collapsed blade takes
+
+function computeBladeWidths(totalCount: number) {
+  if (totalCount <= 1) {
+    return { activeW: 100, inactiveW: 0 };
+  }
+  const inactiveCount = totalCount - 1;
+  let activeW = 65;
+  if (totalCount === 6) activeW = 60;
+  else if (totalCount === 7) activeW = 55;
+  else if (totalCount > 7) activeW = Math.max(45, 100 - inactiveCount * 7.5);
+
+  const inactiveW = (100 - activeW) / inactiveCount;
+  return { activeW, inactiveW };
+}
 
 /* ─── per-event accent colours that bleed from each poster ──────────── */
 const ACCENTS: Record<string, { from: string; via: string }> = {
@@ -20,6 +32,8 @@ const ACCENTS: Record<string, { from: string; via: string }> = {
   "data-nilaam":    { from: "#3b5bdb", via: "#6741d9" },
   "speaker-session":{ from: "#e40908", via: "#8b0000" },
   "hack-sangram":   { from: "#8b0000", via: "#350000" },
+  bgmi:             { from: "#00a88f", via: "#0b4e5b" },
+  "real-cricket":   { from: "#1d72b8", via: "#0d47a1" },
 };
 
 /* ─── small sub-components ──────────────────────────────────────────── */
@@ -96,94 +110,6 @@ function QRDrawer({
       <p className="mt-3 font-mono text-[0.6rem] text-sand/30 tracking-wide uppercase">
         {event.title} · KERNEL 1.0
       </p>
-    </div>
-  );
-}
-
-/* ─── mobile accordion panel (shown below lg) ───────────────────────── */
-interface MobilePanelProps {
-  event: EventItem;
-  index: number;
-  isActive: boolean;
-  onClick: () => void;
-}
-
-function MobilePanel({ event, index, isActive, onClick }: MobilePanelProps) {
-  const idx = String(index + 1).padStart(2, "0");
-
-  return (
-    <div className="border-b border-sand/10 last:border-b-0">
-      {/* header row — always visible */}
-      <button
-        onClick={onClick}
-        aria-expanded={isActive}
-        className="flex w-full items-center gap-4 px-5 py-4 text-left focus-visible:outline-2 focus-visible:outline-signal"
-      >
-        <span className="font-mono text-[0.7rem] font-bold tracking-widest text-signal/70">{idx}</span>
-        <span className="display flex-1 text-[1.1rem] leading-none text-sand">{event.title}</span>
-        <span
-          className="font-mono text-[0.7rem] text-sand/40 transition-transform duration-300"
-          style={{ transform: isActive ? "rotate(45deg)" : "rotate(0deg)" }}
-        >
-          +
-        </span>
-      </button>
-
-      {/* expandable body */}
-      <div
-        className={cn(
-          "overflow-hidden transition-all duration-500",
-          isActive ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-        )}
-        aria-hidden={!isActive}
-      >
-        {/* poster strip */}
-        <div className="relative h-48 w-full overflow-hidden">
-          <Image
-            src={event.imagePath}
-            alt={event.imageAlt}
-            fill
-            sizes="100vw"
-            className="object-cover object-top"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(to bottom, transparent 40%, #050308 100%)`,
-            }}
-          />
-          {/* prize badge if present */}
-          {event.facts.find(f => f.label === "Prize Pool") && (
-            <span className="absolute bottom-3 right-4 font-mono text-[0.9rem] font-black text-sand">
-              {event.facts.find(f => f.label === "Prize Pool")!.value}
-            </span>
-          )}
-        </div>
-
-        <div className="px-5 pb-6 pt-4">
-          <p className="font-mono text-[0.7rem] tracking-widest text-sand/50 uppercase mb-4">{event.tagline}</p>
-          <SpecGrid facts={event.facts} />
-          <div className="mt-5 flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
-            <Link
-              href={`/events/${event.slug}`}
-              className="inline-flex items-center justify-center gap-2 w-full border border-signal bg-signal py-3 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_20px_rgba(228,9,8,0.4)] transition-all hover:bg-[#c80706]"
-            >
-              <span>Enter Arena / View Dossier</span>
-              <span aria-hidden="true">→</span>
-            </Link>
-            {event.registrationUrl && (
-              <a
-                href={event.registrationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-center font-mono text-[11px] font-bold uppercase tracking-wider text-sand/60 hover:text-sand py-1 transition-colors"
-              >
-                Direct Form ↗
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -298,11 +224,22 @@ interface BladeProps {
   index: number;
   isActive: boolean;
   isGlitching: boolean;
+  activeWidth: number;
+  inactiveWidth: number;
   onClick: () => void;
   onMouseEnter: () => void;
 }
 
-function Blade({ event, index, isActive, isGlitching, onClick, onMouseEnter }: BladeProps) {
+function Blade({
+  event,
+  index,
+  isActive,
+  isGlitching,
+  activeWidth,
+  inactiveWidth,
+  onClick,
+  onMouseEnter,
+}: BladeProps) {
   const router = useRouter();
   const accent = ACCENTS[event.slug] ?? { from: "#e40908", via: "#8b0000" };
   const idx = String(index + 1).padStart(2, "0");
@@ -354,14 +291,14 @@ function Blade({ event, index, isActive, isGlitching, onClick, onMouseEnter }: B
         }
       }}
       className={cn(
-        "blade relative h-full shrink-0 overflow-hidden",
+        "blade relative h-full shrink min-w-0 overflow-hidden",
         "cursor-pointer select-none outline-none",
         "focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-1",
       )}
       style={{
-        flexBasis: isActive ? `${ACTIVE_W}%` : `${INACTIVE_W}%`,
+        flexBasis: isActive ? `${activeWidth}%` : `${inactiveWidth}%`,
         flexGrow: 0,
-        flexShrink: 0,
+        flexShrink: 1,
         transform: `skewX(-${SKEW}deg)`,
         transformOrigin: "bottom left",
         transition: "flex-basis 0.55s cubic-bezier(0.7,0,0.1,1)",
@@ -453,7 +390,7 @@ function Blade({ event, index, isActive, isGlitching, onClick, onMouseEnter }: B
            *   108px / 65vw ≈ 11%, so 15% gives a comfortable safety margin.
            * We also keep pr-4 to avoid running into the poster half.
            */}
-          <div className="flex h-full w-[48%] flex-col justify-end pb-10 pr-4 pl-[15%]">
+          <div className="flex h-full w-[52%] flex-col justify-end pb-10 pr-4 pl-[14%]">
             <div className="mb-4">
               <span className="font-mono text-[2.5rem] font-black leading-none text-signal/40 xl:text-[3.5rem] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                 {idx}
@@ -546,7 +483,6 @@ interface MobileShowcaseProps {
   setActive: (i: number) => void;
   isPaused: boolean;
   setIsPaused: (fn: ((p: boolean) => boolean) | boolean) => void;
-  glitchingIndex: number | null;
 }
 
 function MobileEventShowcase({
@@ -555,7 +491,6 @@ function MobileEventShowcase({
   setActive,
   isPaused,
   setIsPaused,
-  glitchingIndex,
 }: MobileShowcaseProps) {
   const ev = events[active];
   const accent = ACCENTS[ev.slug] ?? { from: "#e40908", via: "#8b0000" };
@@ -852,6 +787,8 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
     return () => window.removeEventListener("keydown", handler);
   }, [active, events.length, switchBlade]);
 
+  const { activeW, inactiveW } = computeBladeWidths(events.length);
+
   return (
     <>
       {/* ── DESKTOP: diagonal accordion (lg+) ── */}
@@ -876,7 +813,6 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
           />
         </div>
 
-
         {events.map((ev, i) => (
           <Blade
             key={ev.id}
@@ -884,6 +820,8 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
             index={i}
             isActive={i === active}
             isGlitching={glitchingIndex === i}
+            activeWidth={activeW}
+            inactiveWidth={inactiveW}
             onClick={() => {
               switchBlade(i);
               setIsPaused(true);
@@ -903,7 +841,6 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
         setActive={setActive}
         isPaused={isPaused}
         setIsPaused={setIsPaused}
-        glitchingIndex={glitchingIndex}
       />
     </>
   );

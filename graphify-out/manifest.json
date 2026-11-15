@@ -30,10 +30,10 @@
     "semantic_hash": "cfb07b65aa2d80eb308c1fdd18ed617e"
   },
   "app/events/page.tsx": {
-    "mtime": 1794659782.0742667,
-    "seen": 1794661066.745501,
-    "ast_hash": "9efff7d70e70f314c84d75ae780ac2f2",
-    "semantic_hash": "9efff7d70e70f314c84d75ae780ac2f2"
+    "mtime": 1794764720.2590601,
+    "seen": 1794764904.169394,
+    "ast_hash": "2d67fe811b23bf3d464bcdc78b737aa7",
+    "semantic_hash": ""
   },
   "app/layout.tsx": {
     "mtime": 1794659782.074677,
@@ -264,9 +264,9 @@
     "semantic_hash": ""
   },
   "components/home/hero-section.tsx": {
-    "mtime": 1794694300.5696738,
-    "seen": 1794697493.509166,
-    "ast_hash": "7c2a2a6d0acb3ed22462c8d72a6ba9a4",
+    "mtime": 1794764073.2440064,
+    "seen": 1794764340.516041,
+    "ast_hash": "496149401d90a3157cde0fcaf49719dd",
     "semantic_hash": ""
   },
   "components/home/marquee.tsx": {
@@ -306,15 +306,15 @@
     "semantic_hash": ""
   },
   "components/navigation/footer.tsx": {
-    "mtime": 1794694300.5708127,
-    "seen": 1794697493.5091689,
-    "ast_hash": "17e2aab53a258d2bf511844b3c5908ca",
+    "mtime": 1794765930.8751504,
+    "seen": 1794766035.531754,
+    "ast_hash": "d0989df860a8cc721395822aef72faf7",
     "semantic_hash": ""
   },
   "components/navigation/mobile-menu.tsx": {
-    "mtime": 1794694300.571086,
-    "seen": 1794697493.5091698,
-    "ast_hash": "fbc50f351cd51aef0fb16ca6aca0f7f2",
+    "mtime": 1794765977.584233,
+    "seen": 1794766035.531755,
+    "ast_hash": "f72970e9af9936682c59b0bc61681b35",
     "semantic_hash": ""
   },
   "components/navigation/nav-links.ts": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "data/events.json": {
-    "mtime": 1794666313.051524,
-    "seen": 1794666653.877824,
-    "ast_hash": "99892ff16d97b6d948341c802142ae0d",
+    "mtime": 1794764137.0489662,
+    "seen": 1794764340.516057,
+    "ast_hash": "3113d98a35162151a83d7a07ccb064e6",
     "semantic_hash": ""
   },
   "data/faq.json": {
@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "data/site.json": {
-    "mtime": 1794676719.7424016,
-    "seen": 1794676785.5238342,
-    "ast_hash": "1cad0b7864cf088b34a8e969bee076c4",
+    "mtime": 1794764063.5195136,
+    "seen": 1794764340.5160599,
+    "ast_hash": "f59b2b2d5ad58b6655d58467c4a7d636",
     "semantic_hash": ""
   },
   "data/speakers.json": {
@@ -468,10 +468,10 @@
     "semantic_hash": "63e03ff3f99feeebe13520bc28206af8"
   },
   "eslint.config.mjs": {
-    "mtime": 1794593744.8884113,
-    "seen": 1794594283.8564422,
-    "ast_hash": "c90b3536de5c85e6c2fd9c1517b4c654",
-    "semantic_hash": "c90b3536de5c85e6c2fd9c1517b4c654"
+    "mtime": 1794765925.4529696,
+    "seen": 1794766035.531771,
+    "ast_hash": "b90973d4a9607c27fb53f716ad7cd737",
+    "semantic_hash": ""
   },
   "lib/content.ts": {
     "mtime": 1794659776.9654443,
@@ -624,9 +624,9 @@
     "semantic_hash": "e3c5ca2d777096dfee5caf7cace51bc6"
   },
   "components/events/accordion-stage.tsx": {
-    "mtime": 1794723718.9311035,
-    "seen": 1794723812.067703,
-    "ast_hash": "5acf3e63b88463523400569db6330225",
+    "mtime": 1794765964.492737,
+    "seen": 1794766035.531744,
+    "ast_hash": "213f1d6c15e140bed39d8ebf73cb502c",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -762,9 +762,9 @@
     "semantic_hash": ""
   },
   "components/event-orbital-stage.tsx": {
-    "mtime": 1794675703.776826,
-    "seen": 1794675729.036405,
-    "ast_hash": "5959599630f29991fe44cbb777152f1c",
+    "mtime": 1794765397.0748353,
+    "seen": 1794765466.105469,
+    "ast_hash": "bed56c3d779f7005490db33535ab06fb",
     "semantic_hash": ""
   },
   "public/images/event_slug_design.jpeg": {
@@ -1086,9 +1086,9 @@
     "semantic_hash": ""
   },
   "data/event-dossiers.ts": {
-    "mtime": 1794670600.630593,
-    "seen": 1794670668.929027,
-    "ast_hash": "a5e069106acfd3de3bf74304d2c3bdb2",
+    "mtime": 1794764162.607168,
+    "seen": 1794764340.516057,
+    "ast_hash": "e89fcf9772387d0827ae8cc834608249",
     "semantic_hash": ""
   },
   "components/core-committee/committee-under-construction.tsx": {
@@ -1098,15 +1098,15 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-enhanced.tsx": {
-    "mtime": 1794723743.2112813,
-    "seen": 1794723812.0676951,
-    "ast_hash": "80045f1bf7cc707933168d89c17c4e51",
+    "mtime": 1794765995.313179,
+    "seen": 1794766035.5317361,
+    "ast_hash": "69928b1849ba8e405da126659688d0e5",
     "semantic_hash": ""
   },
   "components/core-committee/committee-hero.tsx": {
-    "mtime": 1794723743.2114773,
-    "seen": 1794723812.0676968,
-    "ast_hash": "09055336a40575feed63fb5051c46aaf",
+    "mtime": 1794766012.2924232,
+    "seen": 1794766035.531738,
+    "ast_hash": "c0ffaefd82bc327e74935ff2299e4338",
     "semantic_hash": ""
   },
   "components/core-committee/committee-showcase.tsx": {
@@ -1455,6 +1455,30 @@
     "mtime": 1794723743.2339492,
     "seen": 1794723812.067774,
     "ast_hash": "529fa7fec310c3355497babf64ac49d0",
+    "semantic_hash": ""
+  },
+  "public/images/events/BGMI.jpeg": {
+    "mtime": 1794763160.7123358,
+    "seen": 1794764340.516114,
+    "ast_hash": "1cb233585b7ae977600490e80299290f",
+    "semantic_hash": ""
+  },
+  "public/images/events/bgmi.jpg": {
+    "mtime": 1794764023.3071122,
+    "seen": 1794764340.516115,
+    "ast_hash": "5d07ef11c547de7296f3b290bb233272",
+    "semantic_hash": ""
+  },
+  "public/images/events/real-cricket.jpeg": {
+    "mtime": 1794763157.020234,
+    "seen": 1794764340.516118,
+    "ast_hash": "7dd51cf12a6a2b583c41c0ac66fded76",
+    "semantic_hash": ""
+  },
+  "public/images/events/real-cricket.jpg": {
+    "mtime": 1794764023.3147,
+    "seen": 1794764340.516119,
+    "ast_hash": "b95f8133fbbf583e54d1989837719dcd",
     "semantic_hash": ""
   },
   "package-lock.json": {

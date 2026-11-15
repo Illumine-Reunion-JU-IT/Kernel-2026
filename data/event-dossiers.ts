@@ -266,4 +266,93 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       { name: "Prama Roy", phone: "+91 82933 31677" },
     ],
   },
+  bgmi: {
+    edition: "KERNEL '26",
+    categoryBadge: "ESPORTS",
+    lastRegistrationDate: "TBA",
+    mode: "Online / Arena",
+    teamSize: "Squad (4)",
+    prizePool: "30,000",
+    timeline: {
+      prelims: "TBD",
+      finals: "TBA",
+      time: "TBA",
+      venue: "Online / Campus Esports Arena",
+    },
+    overviewSummary: [
+      { prefix: "KRAFTON India Esports presents the ", highlight: "College Campus Tour: BGMI Championship", suffix: " at KERNEL 1.0. " },
+      { prefix: "Battlegrounds Mobile India brings collegiate squads into an intense battle royale showdown with a massive ", highlight: "₹30,000 prize pool", suffix: ". " },
+      { prefix: "Open for all collegiate teams across India to drop into the battlegrounds and claim the championship.", highlight: "", suffix: "" },
+    ],
+    rules: [
+      { prefix: "Teams must consist of ", highlight: "4 players (Squad)", suffix: " with optional 1 substitute." },
+      { prefix: "All players must play on ", highlight: "mobile devices only", suffix: " (emulators, tablets/iPads, and triggers are strictly prohibited)." },
+      { prefix: "Use of third-party software, hacks, or ", highlight: "cheating tools will result in permanent disqualification", suffix: "." },
+      { prefix: "Teams must join custom room lobbies ", highlight: "15 minutes prior", suffix: " to match schedule." },
+      { prefix: "Scoring is determined by ", highlight: "standard BGIS / Krafton point system", suffix: " (placement points + finish points)." },
+    ],
+    format: [
+      {
+        roundTitle: "Round 1: Online Qualifiers",
+        points: [
+          { prefix: "Registered squads battle across multiple lobbies in ", highlight: "classic Erangel and Miramar maps", suffix: "." },
+          { prefix: "Top-ranking squads from each group advance to the ", highlight: "Grand Finals", suffix: "." },
+        ],
+      },
+      {
+        roundTitle: "Round 2: Grand Finals",
+        points: [
+          { prefix: "Elite squads compete over ", highlight: "5 intense consecutive matches", suffix: " for the ₹30,000 prize purse." },
+          { prefix: "Matches streamed live with ", highlight: "real-time caster telemetry", suffix: "." },
+        ],
+      },
+    ],
+    contacts: [
+      { name: "Organizing Committee", phone: "+91 82769 91374" },
+    ],
+  },
+  "real-cricket": {
+    edition: "KERNEL '26",
+    categoryBadge: "ESPORTS",
+    lastRegistrationDate: "TBA",
+    mode: "Online / Arena",
+    teamSize: "Solo (1v1)",
+    prizePool: "10,000",
+    timeline: {
+      prelims: "TBD",
+      finals: "TBA",
+      time: "TBA",
+      venue: "Online / Campus Esports Arena",
+    },
+    overviewSummary: [
+      { prefix: "KRAFTON India Esports presents the ", highlight: "College Campus Tour: Real Cricket Championship", suffix: " at KERNEL 1.0. " },
+      { prefix: "The ultimate mobile cricket esports tournament featuring a ", highlight: "₹10,000 prize pool", suffix: ". " },
+      { prefix: "Experience realistic cricket simulations, tactical bowling, and strategic shot execution on the digital pitch.", highlight: "", suffix: "" },
+    ],
+    rules: [
+      { prefix: "Tournament is conducted in ", highlight: "Solo 1v1 multiplayer format", suffix: "." },
+      { prefix: "Players must compete on official ", highlight: "Real Cricket mobile client", suffix: " updated to the latest version." },
+      { prefix: "Disconnections or deliberate quits during active overs will result in ", highlight: "forfeiture of the match", suffix: "." },
+      { prefix: "Fair play policy is strictly enforced; ", highlight: "exploits or modified APKs", suffix: " will result in immediate disqualification." },
+    ],
+    format: [
+      {
+        roundTitle: "Round 1: Knockout Qualifiers",
+        points: [
+          { prefix: "Head-to-head ", highlight: "5-over quick matches", suffix: " in a single-elimination bracket." },
+          { prefix: "Winners advance through the bracket to the ", highlight: "Championship Round", suffix: "." },
+        ],
+      },
+      {
+        roundTitle: "Round 2: Championship Finals",
+        points: [
+          { prefix: "Top finalists battle in a ", highlight: "Best-of-3 10-over showdown", suffix: " to determine the champion." },
+          { prefix: "The victor claims the lion's share of the ", highlight: "₹10,000 prize pool", suffix: "." },
+        ],
+      },
+    ],
+    contacts: [
+      { name: "Organizing Committee", phone: "+91 82769 91374" },
+    ],
+  },
 };

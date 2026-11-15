@@ -1,17 +1,17 @@
 # Graph Report - Kernel-2026  (2026-11-15)
 
 ## Corpus Check
-- 110 files · ~37,261 words
+- 110 files · ~37,951 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 8, .example 1, .css 1)
 
 ## Summary
-- 408 nodes · 722 edges · 71 communities (13 shown, 58 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 9 edges (avg confidence: 0.89)
+- 408 nodes · 719 edges · 71 communities (13 shown, 58 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d6337851`
+- Built from commit: `716eeb22`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,7 +24,7 @@
 - Event & Site Data Catalogs
 - Dynamic Event Page Slug Routing
 - TypeScript Compiler Configuration
-- layout.tsx
+- events-timeline.tsx
 - accordion-stage.tsx
 - Brand Identity & Design System
 - Mogoj Dholai Event Page Mockup
@@ -40,8 +40,8 @@
 ## God Nodes (most connected - your core abstractions)
 1. `next` - 37 edges
 2. `registerGsap()` - 29 edges
-3. `cn()` - 29 edges
-4. `react` - 28 edges
+3. `react` - 28 edges
+4. `cn()` - 26 edges
 5. `compilerOptions` - 16 edges
 6. `KernelLogo()` - 12 edges
 7. `Button()` - 12 edges
@@ -50,16 +50,16 @@
 10. `EventsTimeline()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `CoreCommitteePage()` --calls--> `CommitteeShowcase()`  [EXTRACTED]
-  app/core-committee/page.tsx → components/core-committee/committee-showcase.tsx
-- `CommitteeShowcase()` --calls--> `cn()`  [EXTRACTED]
-  components/core-committee/committee-showcase.tsx → lib/utils.ts
+- `QRDrawer()` --calls--> `cn()`  [EXTRACTED]
+  components/events/accordion-stage.tsx → lib/utils.ts
 - `BladeProps` --references--> `EventItem`  [EXTRACTED]
   components/events/accordion-stage.tsx → types/index.ts
-- `MobilePanelProps` --references--> `EventItem`  [EXTRACTED]
-  components/events/accordion-stage.tsx → types/index.ts
+- `Blade()` --calls--> `cn()`  [EXTRACTED]
+  components/events/accordion-stage.tsx → lib/utils.ts
 - `MobileShowcaseProps` --references--> `EventItem`  [EXTRACTED]
   components/events/accordion-stage.tsx → types/index.ts
+- `MobileEventShowcase()` --calls--> `cn()`  [EXTRACTED]
+  components/events/accordion-stage.tsx → lib/utils.ts
 
 ## Import Cycles
 - None detected.
@@ -68,19 +68,19 @@
 
 ### Community 0 - "Project Dependencies & Tooling"
 Cohesion: 0.11
-Nodes (33): HomePage(), ContactFormData, ContactSection(), ContactSectionProps, EventsTimeline(), frames, GalleryTeaser(), teaserIds (+25 more)
+Nodes (32): HomePage(), ContactFormData, ContactSection(), ContactSectionProps, frames, GalleryTeaser(), teaserIds, Details() (+24 more)
 
 ### Community 1 - "Home Page & Core Visuals"
 Cohesion: 0.11
-Nodes (30): metadata, NotFound(), JuLogo(), KernelLogo(), CommitteeUnderConstruction(), TERMINAL_LOGS, PathData, FEATURED_EVENTS (+22 more)
+Nodes (33): body, condensed, display, metadata, mono, RootLayout(), serif, viewport (+25 more)
 
 ### Community 2 - "Root Layout & Global Styling"
 Cohesion: 0.06
-Nodes (41): dependencies, framer-motion@^14.14.0, gsap@^3.15.1, next@16.4.6, react@^19.0.0, react-dom@^19.0.0, three@^0.187.0, devDependencies (+33 more)
+Nodes (41): dependencies, gsap@^3.15.1, lenis@^1.3.27, next@16.4.6, react@^19.0.0, react-dom@^19.0.0, three@^0.187.0, devDependencies (+33 more)
 
 ### Community 3 - "Brand Logos & Error Handling"
 Cohesion: 0.06
-Nodes (15): CoreCommitteePage(), metadata, alt, contentType, size, alt, contentType, size (+7 more)
+Nodes (17): CoreCommitteePage(), metadata, alt, contentType, size, alt, contentType, size (+9 more)
 
 ### Community 4 - "Static Routes & Contact Handlers"
 Cohesion: 0.09
@@ -98,13 +98,13 @@ Nodes (19): events, EventSlugPage(), extractCoordinators(), EventFact, EventOrbi
 Cohesion: 0.11
 Nodes (17): jobs, validate, name, on, pull_request, push, branches, branches (+9 more)
 
-### Community 8 - "layout.tsx"
-Cohesion: 0.12
-Nodes (18): body, condensed, display, metadata, mono, RootLayout(), serif, viewport (+10 more)
+### Community 8 - "events-timeline.tsx"
+Cohesion: 0.16
+Nodes (15): metadata, NotFound(), CommitteeUnderConstruction(), TERMINAL_LOGS, EventsTimeline(), PathData, Button(), ButtonProps (+7 more)
 
 ### Community 9 - "accordion-stage.tsx"
 Cohesion: 0.18
-Nodes (17): EventsPage(), metadata, ACCENTS, AccordionStage(), Blade(), BladeGlitchOverlay(), BladeProps, GLITCH_BLOCKS (+9 more)
+Nodes (16): EventsPage(), metadata, ACCENTS, AccordionStage(), Blade(), BladeGlitchOverlay(), BladeProps, computeBladeWidths() (+8 more)
 
 ### Community 10 - "Brand Identity & Design System"
 Cohesion: 0.40
@@ -126,17 +126,17 @@ Nodes (5): fs, members, path, run(), sharp
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `next` connect `Brand Logos & Error Handling` to `Project Dependencies & Tooling`, `Home Page & Core Visuals`, `Root Layout & Global Styling`, `Static Routes & Contact Handlers`, `club-gallery.tsx`, `Dynamic Event Page Slug Routing`, `layout.tsx`, `accordion-stage.tsx`?**
-  _High betweenness centrality (0.197) - this node is a cross-community bridge._
+- **Why does `next` connect `Brand Logos & Error Handling` to `Project Dependencies & Tooling`, `Home Page & Core Visuals`, `Root Layout & Global Styling`, `Static Routes & Contact Handlers`, `club-gallery.tsx`, `Dynamic Event Page Slug Routing`, `events-timeline.tsx`, `accordion-stage.tsx`?**
+  _High betweenness centrality (0.200) - this node is a cross-community bridge._
 - **What connects `Brand Color Palette`, `Jadavpur University Logo`, `KERNEL Brand Logo` to the rest of the system?**
   _11 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Project Dependencies & Tooling` be split into smaller, more focused modules?**
-  _Cohesion score 0.10980392156862745 - nodes in this community are weakly interconnected._
-- **Why does `react` connect `Project Dependencies & Tooling` to `Home Page & Core Visuals`, `Root Layout & Global Styling`, `Brand Logos & Error Handling`, `Static Routes & Contact Handlers`, `club-gallery.tsx`, `Dynamic Event Page Slug Routing`, `layout.tsx`, `accordion-stage.tsx`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+  _Cohesion score 0.1110204081632653 - nodes in this community are weakly interconnected._
+- **Why does `react` connect `Project Dependencies & Tooling` to `Home Page & Core Visuals`, `Root Layout & Global Styling`, `Brand Logos & Error Handling`, `Static Routes & Contact Handlers`, `club-gallery.tsx`, `Dynamic Event Page Slug Routing`, `events-timeline.tsx`, `accordion-stage.tsx`?**
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Should `Home Page & Core Visuals` be split into smaller, more focused modules?**
-  _Cohesion score 0.11313131313131314 - nodes in this community are weakly interconnected._
-- **Why does `cn()` connect `Home Page & Core Visuals` to `accordion-stage.tsx`, `Brand Logos & Error Handling`, `Static Routes & Contact Handlers`, `club-gallery.tsx`?**
-  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+  _Cohesion score 0.10505050505050505 - nodes in this community are weakly interconnected._
+- **Why does `cn()` connect `Home Page & Core Visuals` to `events-timeline.tsx`, `accordion-stage.tsx`, `Brand Logos & Error Handling`, `club-gallery.tsx`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Should `Root Layout & Global Styling` be split into smaller, more focused modules?**
   _Cohesion score 0.0613107822410148 - nodes in this community are weakly interconnected._

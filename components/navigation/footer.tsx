@@ -6,7 +6,6 @@ import { navLinks, legalLinks } from "./nav-links";
 import { siteContent } from "@/lib/content";
 import { JuLogo, KernelLogo } from "@/components/brand/logos";
 import { scrollToElement } from "@/lib/scroll";
-import { ContactSection } from "@/components/contact-section";
 
 const FEATURED_EVENTS = [
   { label: "Hack Sangram (Hackathon)", href: "/events/hack-sangram" },

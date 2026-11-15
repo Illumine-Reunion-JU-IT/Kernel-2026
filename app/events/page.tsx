@@ -5,7 +5,7 @@ import { AccordionStage } from "@/components/events/accordion-stage";
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Explore all KERNEL 1.0 events: Mogoj Dholai (CP), Hojohborolo (software challenge), Data Nilaam (ML), Speaker Session, and Hack Sangram (hackathon).",
+    "Explore all KERNEL 1.0 events: Mogoj Dholai (CP), Hojohborolo (software challenge), Data Nilaam (ML), Speaker Session, Hack Sangram (hackathon), BGMI, and Real Cricket (esports).",
 };
 
 export default function EventsPage() {

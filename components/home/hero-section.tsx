@@ -180,7 +180,7 @@ export function HeroSection() {
         <div data-fade className="mt-4 space-y-4 md:mt-0 md:flex md:flex-col md:items-end md:text-right">
           <Details />
           <div className="flex flex-wrap gap-3 md:justify-end max-md:[&_.kbtn]:!px-4 max-md:[&_.kbtn]:!py-3 max-md:[&_.kbtn]:!text-[0.7rem]">
-            {url ? <Button href={url} external>Register</Button> : <Button disabled>Registration opens soon</Button>}
+            {url ? <Button href={url} external>Registration has started</Button> : <Button disabled>Registration opens soon</Button>}
             <Button href="/events" variant="secondary">See the events</Button>
           </div>
         </div>

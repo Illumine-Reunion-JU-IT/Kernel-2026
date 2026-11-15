@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { navLinks } from "./nav-links";
 import { siteContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { JuLogo, KernelLogo } from "@/components/brand/logos";
 import { scrollToElement } from "@/lib/scroll";
+
+const emptySubscribe = () => () => {};
 
 /** 
  * Mobile menu with React Portal to bypass header stacking context.
@@ -18,12 +20,8 @@ export function MobileMenu() {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const toggleRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const close = useCallback(() => setOpen(false), []);
 

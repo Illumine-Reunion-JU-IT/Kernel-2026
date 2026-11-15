@@ -1441,7 +1441,7 @@ export function EventOrbitalStage({
               href={event.registrationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-mono font-black tracking-widest text-cyan-200 bg-[#0e1724]/95 hover:bg-[#152336] border border-cyan-500/50 hover:border-cyan-400 transition-all duration-200 active:scale-95 shadow-[0_0_24px_rgba(0,240,255,0.25)]"
+              className="group relative inline-flex items-center px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-mono font-black tracking-widest text-white bg-signal hover:bg-[#c80706] border border-signal hover:border-red-400 transition-all duration-200 active:scale-95 shadow-[0_0_24px_rgba(228,9,8,0.5)] hover:shadow-[0_0_32px_rgba(228,9,8,0.7)] cursor-pointer"
               style={{
                 clipPath:
                   "polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)",
@@ -1449,7 +1449,7 @@ export function EventOrbitalStage({
             >
               <span className="flex items-center gap-2.5">
                 <span>REGISTER</span>
-                <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00f0ff]" />
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_#ffffff]" />
               </span>
             </a>
           ) : (
