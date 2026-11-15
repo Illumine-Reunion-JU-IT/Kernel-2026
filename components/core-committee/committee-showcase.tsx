@@ -284,7 +284,7 @@ export function CommitteeShowcase() {
               </h1>
               <div className="mt-3 flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-sand/60">
                 <span className="text-sand font-bold">{totalMembers} CORE MEMBERS</span>
-                <span className="text-signal font-bold">///</span>
+                <span className="text-signal font-bold">{"///"}</span>
                 <span>{SECTIONS.length} STRATEGIC DIVISIONS</span>
               </div>
             </div>
@@ -401,7 +401,7 @@ export function CommitteeShowcase() {
                       {String(
                         SECTIONS.findIndex((s) => s.key === effectiveSection.key) + 1
                       ).padStart(2, "0")}{" "}
-                      /// ACTIVE DIRECTIVE
+                      {"/// ACTIVE DIRECTIVE"}
                     </span>
                   </div>
                   <h2 className="display text-[clamp(2rem,5vw,3.8rem)] text-sand leading-none tracking-tight">

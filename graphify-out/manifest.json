@@ -426,8 +426,8 @@
     "semantic_hash": "8a80554c91d9fca8acb82f023de02f11"
   },
   "data/core-committee.json": {
-    "mtime": 1794723429.5330625,
-    "seen": 1794723617.669612,
+    "mtime": 1794723743.212297,
+    "seen": 1794723812.067724,
     "ast_hash": "c50d5904ac3bdf350c94aaee7dbfb7f6",
     "semantic_hash": ""
   },
@@ -624,8 +624,8 @@
     "semantic_hash": "e3c5ca2d777096dfee5caf7cace51bc6"
   },
   "components/events/accordion-stage.tsx": {
-    "mtime": 1794694776.3903008,
-    "seen": 1794697493.50916,
+    "mtime": 1794723718.9311035,
+    "seen": 1794723812.067703,
     "ast_hash": "5acf3e63b88463523400569db6330225",
     "semantic_hash": ""
   },
@@ -1098,21 +1098,21 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-enhanced.tsx": {
-    "mtime": 1794723447.8633106,
-    "seen": 1794723617.669585,
+    "mtime": 1794723743.2112813,
+    "seen": 1794723812.0676951,
     "ast_hash": "80045f1bf7cc707933168d89c17c4e51",
     "semantic_hash": ""
   },
   "components/core-committee/committee-hero.tsx": {
-    "mtime": 1794723439.2353563,
-    "seen": 1794723617.669587,
+    "mtime": 1794723743.2114773,
+    "seen": 1794723812.0676968,
     "ast_hash": "09055336a40575feed63fb5051c46aaf",
     "semantic_hash": ""
   },
   "components/core-committee/committee-showcase.tsx": {
-    "mtime": 1794723392.8546064,
-    "seen": 1794723617.6695879,
-    "ast_hash": "397477f62d20d30414583837c3575843",
+    "mtime": 1794723792.6689749,
+    "seen": 1794723812.067698,
+    "ast_hash": "79207bbe6fe2a2cf5b86735c4b97d797",
     "semantic_hash": ""
   },
   "scripts/process-committee.js": {
@@ -1164,20 +1164,20 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/aritra-mondal.jpg": {
-    "mtime": 1794696978.2580917,
-    "seen": 1794697493.509206,
+    "mtime": 1794723718.937691,
+    "seen": 1794723812.067754,
     "ast_hash": "00a9a7f34d6e5e865f48213e573d982b",
     "semantic_hash": ""
   },
   "public/images/core-committee/aritra-mondal.png": {
-    "mtime": 1794696978.2457418,
-    "seen": 1794697493.509206,
+    "mtime": 1794723718.9398062,
+    "seen": 1794723812.067754,
     "ast_hash": "fc930be1c2a5101da2f1c2aafbebd811",
     "semantic_hash": ""
   },
   "public/images/core-committee/aritra_mondal.png": {
-    "mtime": 1794696788.0047061,
-    "seen": 1794697493.509206,
+    "mtime": 1794723718.9406905,
+    "seen": 1794723812.067755,
     "ast_hash": "fc930be1c2a5101da2f1c2aafbebd811",
     "semantic_hash": ""
   },
@@ -1188,20 +1188,20 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/debarun-patra.jpg": {
-    "mtime": 1794696978.2611148,
-    "seen": 1794697493.509207,
+    "mtime": 1794723718.941543,
+    "seen": 1794723812.067756,
     "ast_hash": "27715634169331943cf975905956d8a7",
     "semantic_hash": ""
   },
   "public/images/core-committee/debarun-patra.png": {
-    "mtime": 1794696978.2585006,
-    "seen": 1794697493.509208,
+    "mtime": 1794723718.9487164,
+    "seen": 1794723812.067756,
     "ast_hash": "85e09f58eafc55c317e6dfe4667e1412",
     "semantic_hash": ""
   },
   "public/images/core-committee/debarun_patra.png": {
-    "mtime": 1794696785.2901247,
-    "seen": 1794697493.509208,
+    "mtime": 1794723718.9496999,
+    "seen": 1794723812.0677571,
     "ast_hash": "85e09f58eafc55c317e6dfe4667e1412",
     "semantic_hash": ""
   },
@@ -1212,20 +1212,20 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/iman-rout.jpg": {
-    "mtime": 1794696978.2641137,
-    "seen": 1794697493.5092092,
+    "mtime": 1794723718.9530628,
+    "seen": 1794723812.0677602,
     "ast_hash": "53cf36c612634f4458effe3f45d76dac",
     "semantic_hash": ""
   },
   "public/images/core-committee/iman-rout.png": {
-    "mtime": 1794696978.26152,
-    "seen": 1794697493.5092092,
+    "mtime": 1794723718.9542122,
+    "seen": 1794723812.067761,
     "ast_hash": "89cef2850d7def1c84e500dd8a7b1010",
     "semantic_hash": ""
   },
   "public/images/core-committee/iman_rout.png": {
-    "mtime": 1794696792.496319,
-    "seen": 1794697493.50921,
+    "mtime": 1794723718.9545894,
+    "seen": 1794723812.067761,
     "ast_hash": "89cef2850d7def1c84e500dd8a7b1010",
     "semantic_hash": ""
   },
@@ -1236,20 +1236,20 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/rahul-pandey.jpg": {
-    "mtime": 1794696978.266781,
-    "seen": 1794697493.5092108,
+    "mtime": 1794723718.955126,
+    "seen": 1794723812.067765,
     "ast_hash": "5b63a44c848472f0d7aa75c0c4c4d44d",
     "semantic_hash": ""
   },
   "public/images/core-committee/rahul-pandey.png": {
-    "mtime": 1794696978.2644444,
-    "seen": 1794697493.5092108,
+    "mtime": 1794723718.9558077,
+    "seen": 1794723812.067765,
     "ast_hash": "85f7731fca90c9556ee299fd830a4677",
     "semantic_hash": ""
   },
   "public/images/core-committee/rahul_pandey.png": {
-    "mtime": 1794696782.6618214,
-    "seen": 1794697493.509212,
+    "mtime": 1794723718.9560444,
+    "seen": 1794723812.067766,
     "ast_hash": "85f7731fca90c9556ee299fd830a4677",
     "semantic_hash": ""
   },
@@ -1260,20 +1260,20 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/reetabrata-mandal.jpg": {
-    "mtime": 1794696978.269556,
-    "seen": 1794697493.509212,
+    "mtime": 1794723718.9583483,
+    "seen": 1794723812.0677671,
     "ast_hash": "4289141caabfae28796c4efb0e25c247",
     "semantic_hash": ""
   },
   "public/images/core-committee/reetabrata-mandal.png": {
-    "mtime": 1794696978.2671092,
-    "seen": 1794697493.509213,
+    "mtime": 1794723718.959715,
+    "seen": 1794723812.067768,
     "ast_hash": "6e7ddd80b58f9337d304a9d6d1267f90",
     "semantic_hash": ""
   },
   "public/images/core-committee/reetabrata_mondal.png": {
-    "mtime": 1794696779.4016793,
-    "seen": 1794697493.509213,
+    "mtime": 1794723718.9600937,
+    "seen": 1794723812.067768,
     "ast_hash": "6e7ddd80b58f9337d304a9d6d1267f90",
     "semantic_hash": ""
   },
@@ -1284,20 +1284,20 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/rishav-chowdhury.jpg": {
-    "mtime": 1794695444.4070773,
-    "seen": 1794697493.509214,
+    "mtime": 1794723718.9613948,
+    "seen": 1794723812.067769,
     "ast_hash": "a61d84e360baeae1700939f2d6c0120a",
     "semantic_hash": ""
   },
   "public/images/core-committee/rishav-chowdhury.png": {
-    "mtime": 1794695444.387702,
-    "seen": 1794697493.5092149,
+    "mtime": 1794723718.9636295,
+    "seen": 1794723812.06777,
     "ast_hash": "0c3657a5f3f8cd2b74d2414e81739b5e",
     "semantic_hash": ""
   },
   "public/images/core-committee/rishav_chowdhury.png": {
-    "mtime": 1794695444.388121,
-    "seen": 1794697493.5092149,
+    "mtime": 1794723718.965916,
+    "seen": 1794723812.06777,
     "ast_hash": "0c3657a5f3f8cd2b74d2414e81739b5e",
     "semantic_hash": ""
   },
@@ -1344,20 +1344,20 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/tanishq-majumder.jpg": {
-    "mtime": 1794696978.272117,
-    "seen": 1794697493.509218,
+    "mtime": 1794723718.9690754,
+    "seen": 1794723812.067776,
     "ast_hash": "1266259eb88541ba39792817ec589f69",
     "semantic_hash": ""
   },
   "public/images/core-committee/tanishq-majumder.png": {
-    "mtime": 1794696978.269924,
-    "seen": 1794697493.509218,
+    "mtime": 1794723718.9704053,
+    "seen": 1794723812.067777,
     "ast_hash": "ed1b153d88e005a45ebb577fe83d5af3",
     "semantic_hash": ""
   },
   "public/images/core-committee/tanishq_majumder.png": {
-    "mtime": 1794695765.4340148,
-    "seen": 1794697493.5092192,
+    "mtime": 1794723718.9707892,
+    "seen": 1794723812.067777,
     "ast_hash": "ed1b153d88e005a45ebb577fe83d5af3",
     "semantic_hash": ""
   },
@@ -1368,92 +1368,92 @@
     "semantic_hash": ""
   },
   "public/images/core-committee/yasir-ahmad.jpg": {
-    "mtime": 1794696978.275261,
-    "seen": 1794697493.5092201,
+    "mtime": 1794723718.9713974,
+    "seen": 1794723812.067778,
     "ast_hash": "96a85027f3f3b8c7d143f54200f23d32",
     "semantic_hash": ""
   },
   "public/images/core-committee/yasir-ahmad.png": {
-    "mtime": 1794696978.2725854,
-    "seen": 1794697493.5092201,
+    "mtime": 1794723718.9742417,
+    "seen": 1794723812.067779,
     "ast_hash": "5bbbf65ee278ced9ad0a2d325c21a050",
     "semantic_hash": ""
   },
   "public/images/core-committee/yasir_ahmad.png": {
-    "mtime": 1794696789.6289144,
-    "seen": 1794697493.5092201,
+    "mtime": 1794723718.9756286,
+    "seen": 1794723812.067779,
     "ast_hash": "5bbbf65ee278ced9ad0a2d325c21a050",
     "semantic_hash": ""
   },
   "public/images/core-committee/himadri mandal.png": {
-    "mtime": 1794722830.2148316,
-    "seen": 1794723617.669642,
+    "mtime": 1794723743.219254,
+    "seen": 1794723812.067758,
     "ast_hash": "72f656202c48a50c2703ff787b1597f5",
     "semantic_hash": ""
   },
   "public/images/core-committee/himadri-mandal.jpg": {
-    "mtime": 1794723282.1080198,
-    "seen": 1794723617.669643,
+    "mtime": 1794723743.2201252,
+    "seen": 1794723812.067758,
     "ast_hash": "7773a5f131ddc7f073d95ab0a71b90bb",
     "semantic_hash": ""
   },
   "public/images/core-committee/himadri-mandal.png": {
-    "mtime": 1794723282.105266,
-    "seen": 1794723617.669643,
+    "mtime": 1794723743.2207608,
+    "seen": 1794723812.067759,
     "ast_hash": "72f656202c48a50c2703ff787b1597f5",
     "semantic_hash": ""
   },
   "public/images/core-committee/kaustav mondal.png": {
-    "mtime": 1794722827.865677,
-    "seen": 1794723617.669646,
+    "mtime": 1794723743.2217503,
+    "seen": 1794723812.067762,
     "ast_hash": "8c5d9b97416779b04dba8583030c7c5a",
     "semantic_hash": ""
   },
   "public/images/core-committee/kaustav-mondal.jpg": {
-    "mtime": 1794723282.1047115,
-    "seen": 1794723617.6696472,
+    "mtime": 1794723743.2222412,
+    "seen": 1794723812.067762,
     "ast_hash": "46369dcd679c5bb1068383de95220284",
     "semantic_hash": ""
   },
   "public/images/core-committee/kaustav-mondal.png": {
-    "mtime": 1794723282.0881097,
-    "seen": 1794723617.6696472,
+    "mtime": 1794723743.2224362,
+    "seen": 1794723812.067762,
     "ast_hash": "8c5d9b97416779b04dba8583030c7c5a",
     "semantic_hash": ""
   },
   "public/images/core-committee/krish-agarwal.jpg": {
-    "mtime": 1794723282.1112008,
-    "seen": 1794723617.669648,
+    "mtime": 1794723743.224939,
+    "seen": 1794723812.0677629,
     "ast_hash": "3a4a0ba970130cafdc71d30583450d92",
     "semantic_hash": ""
   },
   "public/images/core-committee/krish-agarwal.png": {
-    "mtime": 1794723282.1085052,
-    "seen": 1794723617.669648,
+    "mtime": 1794723743.2261925,
+    "seen": 1794723812.0677629,
     "ast_hash": "b68c71fd5ec45bbe4b2d68c260428935",
     "semantic_hash": ""
   },
   "public/images/core-committee/krish_agarwal.png": {
-    "mtime": 1794722822.7805443,
-    "seen": 1794723617.669648,
+    "mtime": 1794723743.2267497,
+    "seen": 1794723812.067764,
     "ast_hash": "b68c71fd5ec45bbe4b2d68c260428935",
     "semantic_hash": ""
   },
   "public/images/core-committee/swapneel ray.png": {
-    "mtime": 1794722833.5868556,
-    "seen": 1794723617.669657,
+    "mtime": 1794723743.2305744,
+    "seen": 1794723812.0677729,
     "ast_hash": "529fa7fec310c3355497babf64ac49d0",
     "semantic_hash": ""
   },
   "public/images/core-committee/swapneel-ray.jpg": {
-    "mtime": 1794723282.1148772,
-    "seen": 1794723617.6696582,
+    "mtime": 1794723743.2330396,
+    "seen": 1794723812.0677729,
     "ast_hash": "45613e9e5f9a20fd213873a62470bad9",
     "semantic_hash": ""
   },
   "public/images/core-committee/swapneel-ray.png": {
-    "mtime": 1794723282.1119013,
-    "seen": 1794723617.6696582,
+    "mtime": 1794723743.2339492,
+    "seen": 1794723812.067774,
     "ast_hash": "529fa7fec310c3355497babf64ac49d0",
     "semantic_hash": ""
   },
