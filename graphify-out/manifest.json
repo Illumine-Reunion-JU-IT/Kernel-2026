@@ -426,9 +426,9 @@
     "semantic_hash": "8a80554c91d9fca8acb82f023de02f11"
   },
   "data/core-committee.json": {
-    "mtime": 1794723743.212297,
-    "seen": 1794723812.067724,
-    "ast_hash": "c50d5904ac3bdf350c94aaee7dbfb7f6",
+    "mtime": 1794726035.1880536,
+    "seen": 1794726120.371089,
+    "ast_hash": "960d62a9f005306ed8b4f07b5ba42bcd",
     "semantic_hash": ""
   },
   "data/events.json": {
@@ -1110,9 +1110,9 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-showcase.tsx": {
-    "mtime": 1794723792.6689749,
-    "seen": 1794723812.067698,
-    "ast_hash": "79207bbe6fe2a2cf5b86735c4b97d797",
+    "mtime": 1794726016.666316,
+    "seen": 1794726120.371062,
+    "ast_hash": "38aa20521163a43079c7641e7e792791",
     "semantic_hash": ""
   },
   "scripts/process-committee.js": {

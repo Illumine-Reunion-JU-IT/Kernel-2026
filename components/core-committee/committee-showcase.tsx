@@ -47,25 +47,11 @@ const SECTIONS: Section[] = [
       "Assisting general convenorship, inter-departmental operations, festival administration, logistics oversight, and student leadership across KERNEL 1.0.",
     members: [
       {
-        id: "kaustav-mondal",
-        name: "Kaustav Mondal",
-        role: "Additional General Secretary",
-        year: "UG4",
-        imagePath: "/images/core-committee/kaustav-mondal.png",
-      },
-      {
         id: "himadri-mandal",
         name: "Himadri Mandal",
         role: "Additional General Secretary",
         year: "UG4",
         imagePath: "/images/core-committee/himadri-mandal.png",
-      },
-      {
-        id: "krish-agarwal",
-        name: "Krish Agarwal",
-        role: "Additional General Secretary",
-        year: "UG3",
-        imagePath: "/images/core-committee/krish-agarwal.png",
       },
     ],
   },
