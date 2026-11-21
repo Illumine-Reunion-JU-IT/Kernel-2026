@@ -285,9 +285,6 @@ export function CommitteeShowcase() {
                   placeholder="Filter by name or division..."
                   className="w-full px-4 py-3 rounded-xl bg-void/80 border border-sand/20 text-sand placeholder:text-sand/40 font-mono text-xs tracking-wider focus:outline-none focus:border-signal focus:shadow-[0_0_20px_rgba(228,9,8,0.35)] transition-all"
                 />
-                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-sand/40 font-mono text-xs">
-                  ⌘K
-                </span>
               </div>
             </div>
           </div>
