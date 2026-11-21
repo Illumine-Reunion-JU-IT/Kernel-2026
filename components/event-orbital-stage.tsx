@@ -1225,43 +1225,37 @@ export function EventOrbitalStage({
                 </h2>
                 <div className="space-y-3 font-mono text-sm sm:text-[15px] font-semibold text-sand/90">
                   {dossier.timeline.prelims && (
-                    <div className="flex items-start gap-2.5">
-                      <span className="text-base sm:text-lg text-[#ff3b30] shrink-0 leading-none mt-0.5">📅</span>
+                    <div>
                       <span>Prelims: {dossier.timeline.prelims}</span>
                     </div>
                   )}
                   {(dossier.timeline.finals || dossier.timeline.date) && (
                     <div className="space-y-1.5">
-                      <div className="flex items-start gap-2.5">
-                        <span className="text-base sm:text-lg text-[#ff3b30] shrink-0 leading-none mt-0.5">📅</span>
+                      <div>
                         <span>
                           {dossier.timeline.prelims
                             ? `Finals: ${dossier.timeline.finals}`
                             : `Date: ${dossier.timeline.date || dossier.timeline.finals}`}
                         </span>
                       </div>
-                      <div className="pl-7 space-y-1.5 text-sand/80 text-xs sm:text-[13px] font-medium">
+                      <div className="pl-4 space-y-1.5 text-sand/80 text-xs sm:text-[13px] font-medium">
                         {dossier.timeline.time && (
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm">🕒</span>
+                          <div>
                             <span>{dossier.timeline.time}</span>
                           </div>
                         )}
                         {dossier.timeline.venue && (
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm">📍</span>
+                          <div>
                             <span>{dossier.timeline.venue}</span>
                           </div>
                         )}
                       </div>
                     </div>
                   )}
-                  <div className="flex items-center gap-2.5 pt-1 text-sand/90">
-                    <span className="text-base sm:text-lg shrink-0 leading-none">🌐</span>
+                  <div className="pt-1 text-sand/90">
                     <span>{dossier.mode}</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-sand/90">
-                    <span className="text-base sm:text-lg shrink-0 leading-none">👥</span>
+                  <div className="text-sand/90">
                     <span>{dossier.teamSize}</span>
                   </div>
                 </div>

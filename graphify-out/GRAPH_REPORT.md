@@ -1,17 +1,17 @@
-# Graph Report - Kernel-2026  (2026-11-15)
+# Graph Report - Kernel-2026  (2026-11-21)
 
 ## Corpus Check
-- 110 files · ~37,951 words
+- 110 files · ~37,905 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 8, .example 1, .css 1)
 
 ## Summary
 - 408 nodes · 719 edges · 71 communities (13 shown, 58 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.89)
-- Token cost: 0 input · 0 output
+- Token cost: 3,550 input · 1,700 output
 
 ## Graph Freshness
-- Built from commit: `716eeb22`
+- Built from commit: `25f5400d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,19 +47,19 @@
 7. `Button()` - 12 edges
 8. `HomePage()` - 10 edges
 9. `scrollToElement()` - 10 edges
-10. `EventsTimeline()` - 9 edges
+10. `publicOnly()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `QRDrawer()` --calls--> `cn()`  [EXTRACTED]
-  components/events/accordion-stage.tsx → lib/utils.ts
 - `BladeProps` --references--> `EventItem`  [EXTRACTED]
   components/events/accordion-stage.tsx → types/index.ts
-- `Blade()` --calls--> `cn()`  [EXTRACTED]
-  components/events/accordion-stage.tsx → lib/utils.ts
 - `MobileShowcaseProps` --references--> `EventItem`  [EXTRACTED]
   components/events/accordion-stage.tsx → types/index.ts
-- `MobileEventShowcase()` --calls--> `cn()`  [EXTRACTED]
-  components/events/accordion-stage.tsx → lib/utils.ts
+- `HomePage()` --calls--> `EventsTimeline()`  [EXTRACTED]
+  app/page.tsx → components/home/events-timeline.tsx
+- `ScrollReveal()` --calls--> `registerGsap()`  [EXTRACTED]
+  components/home/scroll-reveal.tsx → lib/gsap.ts
+- `EventsPage()` --calls--> `publicOnly()`  [EXTRACTED]
+  app/events/page.tsx → lib/content.ts
 
 ## Import Cycles
 - None detected.
@@ -68,19 +68,19 @@
 
 ### Community 0 - "Project Dependencies & Tooling"
 Cohesion: 0.11
-Nodes (32): HomePage(), ContactFormData, ContactSection(), ContactSectionProps, frames, GalleryTeaser(), teaserIds, Details() (+24 more)
+Nodes (33): HomePage(), ContactFormData, ContactSection(), ContactSectionProps, ScrollRail(), frames, GalleryTeaser(), teaserIds (+25 more)
 
 ### Community 1 - "Home Page & Core Visuals"
 Cohesion: 0.11
-Nodes (33): body, condensed, display, metadata, mono, RootLayout(), serif, viewport (+25 more)
+Nodes (32): body, condensed, display, metadata, mono, RootLayout(), serif, viewport (+24 more)
 
 ### Community 2 - "Root Layout & Global Styling"
 Cohesion: 0.06
-Nodes (41): dependencies, gsap@^3.15.1, lenis@^1.3.27, next@16.4.6, react@^19.0.0, react-dom@^19.0.0, three@^0.187.0, devDependencies (+33 more)
+Nodes (43): dependencies, framer-motion@^14.14.0, gsap@^3.15.1, lenis@^1.3.27, next@16.4.6, react@^19.0.0, react-dom@^19.0.0, three@^0.187.0 (+35 more)
 
 ### Community 3 - "Brand Logos & Error Handling"
 Cohesion: 0.06
-Nodes (17): CoreCommitteePage(), metadata, alt, contentType, size, alt, contentType, size (+9 more)
+Nodes (15): CoreCommitteePage(), metadata, alt, contentType, size, alt, contentType, size (+7 more)
 
 ### Community 4 - "Static Routes & Contact Handlers"
 Cohesion: 0.09
@@ -131,12 +131,12 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `Brand Color Palette`, `Jadavpur University Logo`, `KERNEL Brand Logo` to the rest of the system?**
   _11 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Project Dependencies & Tooling` be split into smaller, more focused modules?**
-  _Cohesion score 0.1110204081632653 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10823529411764705 - nodes in this community are weakly interconnected._
 - **Why does `react` connect `Project Dependencies & Tooling` to `Home Page & Core Visuals`, `Root Layout & Global Styling`, `Brand Logos & Error Handling`, `Static Routes & Contact Handlers`, `club-gallery.tsx`, `Dynamic Event Page Slug Routing`, `events-timeline.tsx`, `accordion-stage.tsx`?**
   _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Should `Home Page & Core Visuals` be split into smaller, more focused modules?**
-  _Cohesion score 0.10505050505050505 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10782241014799154 - nodes in this community are weakly interconnected._
 - **Why does `cn()` connect `Home Page & Core Visuals` to `events-timeline.tsx`, `accordion-stage.tsx`, `Brand Logos & Error Handling`, `club-gallery.tsx`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Should `Root Layout & Global Styling` be split into smaller, more focused modules?**
-  _Cohesion score 0.0613107822410148 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05893719806763285 - nodes in this community are weakly interconnected._

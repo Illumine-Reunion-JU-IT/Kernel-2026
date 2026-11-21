@@ -30,8 +30,8 @@
     "semantic_hash": "cfb07b65aa2d80eb308c1fdd18ed617e"
   },
   "app/events/page.tsx": {
-    "mtime": 1794764720.2590601,
-    "seen": 1794764904.169394,
+    "mtime": 1795246827.115063,
+    "seen": 1795247930.811262,
     "ast_hash": "2d67fe811b23bf3d464bcdc78b737aa7",
     "semantic_hash": ""
   },
@@ -264,8 +264,8 @@
     "semantic_hash": ""
   },
   "components/home/hero-section.tsx": {
-    "mtime": 1794764073.2440064,
-    "seen": 1794764340.516041,
+    "mtime": 1795246827.1195343,
+    "seen": 1795247930.811293,
     "ast_hash": "496149401d90a3157cde0fcaf49719dd",
     "semantic_hash": ""
   },
@@ -306,14 +306,14 @@
     "semantic_hash": ""
   },
   "components/navigation/footer.tsx": {
-    "mtime": 1794765930.8751504,
-    "seen": 1794766035.531754,
+    "mtime": 1795246827.119954,
+    "seen": 1795247930.811297,
     "ast_hash": "d0989df860a8cc721395822aef72faf7",
     "semantic_hash": ""
   },
   "components/navigation/mobile-menu.tsx": {
-    "mtime": 1794765977.584233,
-    "seen": 1794766035.531755,
+    "mtime": 1795246827.1204858,
+    "seen": 1795247930.811297,
     "ast_hash": "f72970e9af9936682c59b0bc61681b35",
     "semantic_hash": ""
   },
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "data/events.json": {
-    "mtime": 1794764137.0489662,
-    "seen": 1794764340.516057,
-    "ast_hash": "3113d98a35162151a83d7a07ccb064e6",
+    "mtime": 1795247784.3486366,
+    "seen": 1795247930.811309,
+    "ast_hash": "b82c10b4622c53ecc034c0f478586672",
     "semantic_hash": ""
   },
   "data/faq.json": {
@@ -450,8 +450,8 @@
     "semantic_hash": ""
   },
   "data/site.json": {
-    "mtime": 1794764063.5195136,
-    "seen": 1794764340.5160599,
+    "mtime": 1795246827.1213448,
+    "seen": 1795247930.811311,
     "ast_hash": "f59b2b2d5ad58b6655d58467c4a7d636",
     "semantic_hash": ""
   },
@@ -468,8 +468,8 @@
     "semantic_hash": "63e03ff3f99feeebe13520bc28206af8"
   },
   "eslint.config.mjs": {
-    "mtime": 1794765925.4529696,
-    "seen": 1794766035.531771,
+    "mtime": 1795246827.1215556,
+    "seen": 1795247930.811313,
     "ast_hash": "b90973d4a9607c27fb53f716ad7cd737",
     "semantic_hash": ""
   },
@@ -624,8 +624,8 @@
     "semantic_hash": "e3c5ca2d777096dfee5caf7cace51bc6"
   },
   "components/events/accordion-stage.tsx": {
-    "mtime": 1794765964.492737,
-    "seen": 1794766035.531744,
+    "mtime": 1795246827.118891,
+    "seen": 1795247930.811286,
     "ast_hash": "213f1d6c15e140bed39d8ebf73cb502c",
     "semantic_hash": ""
   },
@@ -762,9 +762,9 @@
     "semantic_hash": ""
   },
   "components/event-orbital-stage.tsx": {
-    "mtime": 1794765397.0748353,
-    "seen": 1794765466.105469,
-    "ast_hash": "bed56c3d779f7005490db33535ab06fb",
+    "mtime": 1795247806.531952,
+    "seen": 1795247930.811285,
+    "ast_hash": "55559bde6b977697dc92a01354e0a680",
     "semantic_hash": ""
   },
   "public/images/event_slug_design.jpeg": {
@@ -1086,9 +1086,9 @@
     "semantic_hash": ""
   },
   "data/event-dossiers.ts": {
-    "mtime": 1794764162.607168,
-    "seen": 1794764340.516057,
-    "ast_hash": "e89fcf9772387d0827ae8cc834608249",
+    "mtime": 1795247776.1318944,
+    "seen": 1795247930.811309,
+    "ast_hash": "ec8bde723f82efa75655045eaa92d7e0",
     "semantic_hash": ""
   },
   "components/core-committee/committee-under-construction.tsx": {
@@ -1098,14 +1098,14 @@
     "semantic_hash": ""
   },
   "components/core-committee/committee-enhanced.tsx": {
-    "mtime": 1794765995.313179,
-    "seen": 1794766035.5317361,
+    "mtime": 1795246827.1154478,
+    "seen": 1795247930.811279,
     "ast_hash": "69928b1849ba8e405da126659688d0e5",
     "semantic_hash": ""
   },
   "components/core-committee/committee-hero.tsx": {
-    "mtime": 1794766012.2924232,
-    "seen": 1794766035.531738,
+    "mtime": 1795246827.115784,
+    "seen": 1795247930.811281,
     "ast_hash": "c0ffaefd82bc327e74935ff2299e4338",
     "semantic_hash": ""
   },
@@ -1458,26 +1458,26 @@
     "semantic_hash": ""
   },
   "public/images/events/BGMI.jpeg": {
-    "mtime": 1794763160.7123358,
-    "seen": 1794764340.516114,
+    "mtime": 1795246827.1303737,
+    "seen": 1795247930.811379,
     "ast_hash": "1cb233585b7ae977600490e80299290f",
     "semantic_hash": ""
   },
   "public/images/events/bgmi.jpg": {
-    "mtime": 1794764023.3071122,
-    "seen": 1794764340.516115,
+    "mtime": 1795246827.1332753,
+    "seen": 1795247930.81138,
     "ast_hash": "5d07ef11c547de7296f3b290bb233272",
     "semantic_hash": ""
   },
   "public/images/events/real-cricket.jpeg": {
-    "mtime": 1794763157.020234,
-    "seen": 1794764340.516118,
+    "mtime": 1795246827.1362357,
+    "seen": 1795247930.811383,
     "ast_hash": "7dd51cf12a6a2b583c41c0ac66fded76",
     "semantic_hash": ""
   },
   "public/images/events/real-cricket.jpg": {
-    "mtime": 1794764023.3147,
-    "seen": 1794764340.516119,
+    "mtime": 1795246827.1421647,
+    "seen": 1795247930.811384,
     "ast_hash": "b95f8133fbbf583e54d1989837719dcd",
     "semantic_hash": ""
   },

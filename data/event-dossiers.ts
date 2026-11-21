@@ -127,7 +127,7 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
     ],
     contacts: [
       { name: "Swarnendu Bannerjee", phone: "9564027954" },
-      { name: "Ansh Kumar Singh", phone: "9775607310" },
+      { name: "Ansh Kumar Singh", phone: "9775756073" },
     ],
   },
 
