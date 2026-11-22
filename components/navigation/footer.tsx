@@ -7,12 +7,13 @@ import { siteContent } from "@/lib/content";
 import { JuLogo, KernelLogo } from "@/components/brand/logos";
 import { scrollToElement } from "@/lib/scroll";
 
-const FEATURED_EVENTS = [
+const COMPETITIONS = [
   { label: "Hack Sangram (Hackathon)", href: "/events/hack-sangram" },
   { label: "Mogoj Dholai (CP Contest)", href: "/events/mogoj-dholai" },
   { label: "Data Nilaam (ML Auction)", href: "/events/data-nilaam" },
   { label: "Hojohborolo (Tech Sprint)", href: "/events/hojohborolo" },
-  { label: "Speaker Sessions", href: "/events/speaker-session" },
+  { label: "BGMI (Esports)", href: "/events/bgmi" },
+  { label: "Real Cricket (Esports)", href: "/events/real-cricket" },
 ];
 
 export function Footer() {
@@ -113,7 +114,7 @@ export function Footer() {
                 <span className="h-px flex-1 bg-signal/20" />
               </h3>
               <ul className="space-y-2 text-xs sm:text-sm font-mono">
-                {FEATURED_EVENTS.map((ev) => (
+                {COMPETITIONS.map((ev) => (
                   <li key={ev.href}>
                     <Link
                       href={ev.href}

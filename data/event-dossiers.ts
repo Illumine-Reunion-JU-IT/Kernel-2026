@@ -43,7 +43,7 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
     categoryBadge: "CODING",
     lastRegistrationDate: "31ST MARCH",
     mode: "Hybrid",
-    teamSize: "1-3",
+    teamSize: "1 (Single Participant)",
     prizePool: "6,000",
     timeline: {
       prelims: "TBD",
@@ -57,7 +57,7 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       { prefix: "Participants tackle multi-tiered problems ranging from ", highlight: "dynamic programming to graph theory", suffix: " on standard ICPC scoring." },
     ],
     rules: [
-      { prefix: "Teams must consist of ", highlight: "1 to 3 members", suffix: " from any recognized university or college." },
+      { prefix: "Participation is ", highlight: "strictly individual / single participant (1 member)", suffix: " from any recognized university or college." },
       { prefix: "Participants must connect to the contest server; ", highlight: "plagiarism and AI-assisted code generation", suffix: " will lead to immediate disqualification." },
       { prefix: "Standard ICPC-style rules apply: ranking is determined by ", highlight: "total solved problems and penalty time", suffix: "." },
       { prefix: "Languages permitted: ", highlight: "C++, C, Java, and Python 3", suffix: "." },
@@ -68,7 +68,7 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
         roundTitle: "Round 1: Online Preliminary Qualifier",
         points: [
           { prefix: "A 2.5-hour algorithmic coding challenge hosted on the ", highlight: "live contest platform", suffix: "." },
-          { prefix: "Top 25 qualifying teams will advance to the ", highlight: "on-campus Grand Finale", suffix: "." },
+          { prefix: "Top 25 qualifying participants will advance to the ", highlight: "on-campus Grand Finale", suffix: "." },
         ],
       },
       {
@@ -80,8 +80,8 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       },
     ],
     contacts: [
-      { name: "Ankit Kundu", phone: "6295529281" },
-      { name: "Rahul Pandey", phone: "8961716604" },
+      { name: "Soumyadeep Roy Chowdhury", phone: "+91 9163746705" },
+      { name: "Ayush Bhkta", phone: "+91 9903752006" },
     ],
   },
 
@@ -126,8 +126,8 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       },
     ],
     contacts: [
-      { name: "Swarnendu Bannerjee", phone: "9564027954" },
-      { name: "Ansh Kumar Singh", phone: "9775756073" },
+      { name: "Rajdeep Dhar", phone: "+91 7439121680" },
+      { name: "Ankit Roy", phone: "+91 9433481219" },
     ],
   },
 
@@ -172,8 +172,8 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       },
     ],
     contacts: [
-      { name: "Rishav Chowdhury", phone: "8276991374" },
-      { name: "Debarun Patra", phone: "8582922525" },
+      { name: "Debarun Patra", phone: "+91 8582922525" },
+      { name: "Naireet Sadhukan", phone: "+91 9875625835" },
     ],
   },
 
@@ -216,8 +216,8 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       },
     ],
     contacts: [
-      { name: "Swarnendu Bannerjee", phone: "9564027954" },
-      { name: "Debarun Patra", phone: "8582922525" },
+      { name: "Swarnendu Bannerjee", phone: "+91 9564027954" },
+      { name: "Debarun Patra", phone: "+91 8582922525" },
     ],
   },
 
@@ -262,8 +262,8 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       },
     ],
     contacts: [
-      { name: "Kaustav Mandal", phone: "+91 89182 21701" },
-      { name: "Prama Roy", phone: "+91 82933 31677" },
+      { name: "Kaustav Mandal", phone: "+91 8918221701" },
+      { name: "Prama Roy", phone: "+91 8293331677" },
     ],
   },
   bgmi: {
@@ -308,7 +308,7 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       },
     ],
     contacts: [
-      { name: "Organizing Committee", phone: "+91 82769 91374" },
+      { name: "Organizing Committee", phone: "+91 8276991374" },
     ],
   },
   "real-cricket": {
@@ -352,7 +352,7 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
       },
     ],
     contacts: [
-      { name: "Organizing Committee", phone: "+91 82769 91374" },
+      { name: "Organizing Committee", phone: "+91 8276991374" },
     ],
   },
 };
