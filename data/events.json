@@ -7,7 +7,7 @@
     "tagline": "Our traditional CP flagship",
     "summary": "Our traditional CP flagship event, designed to test the analytical limits, algorithmic thinking and data structure mastery of the participants.",
     "facts": [
-      { "label": "Team Size", "value": "1 to 3 Members" },
+      { "label": "Team Size", "value": "Single Participant (1)" },
       { "label": "Duration", "value": "2H 00M" },
       { "label": "Format", "value": "ICPC-Style Online" },
       { "label": "Prize Pool", "value": "₹6,000" }
@@ -18,7 +18,7 @@
     "imageAlt": "Mogoj Dholai poster: a neo-expressionist black figure with binary tree diagrams and complexity notations on a coral-red background",
     "registrationUrl": "https://unstop.com/p/mogoj-dholai-kernel-10-department-of-information-technology-jadavpur-university-1822588",
     "isPlaceholder": false,
-    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Ankit Kundu 6295529281, Rahul Pandey 8961716604. Replace date, venue and registrationUrl once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Soumyadeep Roy Chowdhury +91 9163746705, Ayush Bhkta +91 9903752006. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-002",
@@ -39,7 +39,7 @@
     "imageAlt": "Hojohborolo poster: an ink-drawn crow typing on a mechanical keyboard against a golden-yellow wave background with Bengali title হযবরল",
     "registrationUrl": "https://unstop.com/p/hojohborolo-kernel-10-department-of-information-technology-jadavpur-university-1822587",
     "isPlaceholder": false,
-    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Swarnendu Bannerjee 9564027954, Ansh Kumar Singh 9775756073. Replace date, venue and registrationUrl once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Rajdeep Dhar +91 7439121680, Ankit Roy +91 9433481219. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-003",
@@ -60,7 +60,7 @@
     "imageAlt": "Data Nilaam poster: electric cobalt-blue background with a white auction gavel, binary rings 0100101, and hot-pink geometric shapes, with Devanagari title नीलाम",
     "registrationUrl": "https://unstop.com/p/data-nilaam-kernel-10-department-of-information-technology-jadavpur-university-1822546",
     "isPlaceholder": false,
-    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Rishav Chowdhury 8276991374, Debarun Patra 8582922525. Replace date, venue and registrationUrl once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Debarun Patra +91 8582922525, Naireet Sadhukan +91 9875625835. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-004",
@@ -102,7 +102,7 @@
     "imageAlt": "Hack Sangram poster: a split black-and-white classical bust with the ₹20,000 censor bar across the eyes and CONQUER typography on deep crimson",
     "registrationUrl": "https://unstop.com/p/hack-sangram-kernel-10-department-of-information-technology-jadavpur-university-1812315",
     "isPlaceholder": false,
-    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Kaustav Mandal 8918221701, Prama Roy 8293331677. Flagship hackathon with ₹20,000 prize. Replace date, venue and registrationUrl once confirmed."
+    "organiserNote": "Poster and format confirmed from KERNEL 2026 brochure. Contacts: Kaustav Mandal +91 8918221701, Prama Roy +91 8293331677. Flagship hackathon with ₹20,000 prize. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-006",

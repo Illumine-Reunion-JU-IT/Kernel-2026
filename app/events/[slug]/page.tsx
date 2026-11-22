@@ -12,7 +12,7 @@ function extractCoordinators(note?: string): string[] {
   if (!match) return [];
   return match[1]
     .split(",")
-    .map((entry) => entry.replace(/\d+/g, "").trim())
+    .map((entry) => entry.replace(/(\+91|\+?\d+)/g, "").trim())
     .filter(Boolean);
 }
 

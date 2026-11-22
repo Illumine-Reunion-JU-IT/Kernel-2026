@@ -278,14 +278,49 @@ export function EventOrbitalStage({
       setIsScrolledToDetails(rect.top <= window.innerHeight * 0.45);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    type LenisWindow = Window & {
+      __lenis?: {
+        on: (event: string, cb: () => void) => void;
+        off: (event: string, cb: () => void) => void;
+      };
+    };
+
+    if (typeof window !== "undefined" && (window as LenisWindow).__lenis) {
+      (window as LenisWindow).__lenis?.on("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (typeof window !== "undefined" && (window as LenisWindow).__lenis) {
+        (window as LenisWindow).__lenis?.off("scroll", handleScroll);
+      }
+    };
   }, []);
 
   const toggleDetailsScroll = useCallback(() => {
+    type LenisWindow = Window & {
+      __lenis?: {
+        scrollTo: (target: number | HTMLElement, opts?: { offset?: number; duration?: number }) => void;
+      };
+    };
+    const lenis = typeof window !== "undefined" ? (window as LenisWindow).__lenis : undefined;
+
     if (isScrolledToDetails) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 1 });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     } else {
-      document.getElementById("event-details")?.scrollIntoView({ behavior: "smooth" });
+      const detailsEl = document.getElementById("event-details");
+      if (detailsEl) {
+        if (lenis) {
+          lenis.scrollTo(detailsEl, { offset: -60, duration: 1 });
+        } else {
+          detailsEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
   }, [isScrolledToDetails]);
 
@@ -407,6 +442,7 @@ export function EventOrbitalStage({
 
   /* ── Interaction 1: Stage Background Drag → Free 3D System Rotation ── */
   const onStagePD = useCallback((e: ReactPointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "touch") return; // Allow normal touch scrolling on mobile
     if (dragMode.current !== "none") return;
     dragMode.current = "sys";
     dragX0.current = e.clientX;
@@ -439,6 +475,7 @@ export function EventOrbitalStage({
 
   /* ── Interaction 2: Central Card Drag → Independent Card Spin ──── */
   const onCardPD = useCallback((e: ReactPointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "touch") return; // Allow normal touch scrolling on mobile
     e.stopPropagation();
     dragMode.current = "card";
     dragDist.current = 0;
@@ -475,6 +512,7 @@ export function EventOrbitalStage({
 
   /* ── Interaction 3: Orbit Box Drag → Slid Strictly Along 3D Orbit ── */
   const onBadgePD = useCallback((e: ReactPointerEvent<HTMLDivElement>, i: number) => {
+    if (e.pointerType === "touch") return;
     e.stopPropagation();
     dragMode.current = "badge";
     badgeDragI.current = i;
@@ -741,12 +779,12 @@ export function EventOrbitalStage({
           {/* ════ LEFT: 3D Orbital Stage (3D System & Interactions) ═══ */}
           <div
             ref={stageRef}
-            className="relative lg:col-span-7 flex items-center justify-center min-h-[580px] sm:min-h-[700px] select-none"
+            className="relative lg:col-span-7 flex items-center justify-center min-h-[580px] sm:min-h-[700px] select-none touch-pan-y"
             style={{
               perspective: "1900px",
               perspectiveOrigin: "50% 50%",
               cursor: "grab",
-              touchAction: "none",
+              touchAction: "pan-y",
             }}
             onPointerDown={onStagePD}
             onPointerMove={onStagePM}
@@ -899,6 +937,7 @@ export function EventOrbitalStage({
                   Double click to flip, click to open lightbox.         */}
               <div
                 ref={cardWrapRef}
+                className="touch-pan-y"
                 style={{
                   position: "absolute",
                   left: "50%",
@@ -909,8 +948,9 @@ export function EventOrbitalStage({
                   aspectRatio: "4 / 5.4",
                   zIndex: 20,
                   cursor: "pointer",
-                  touchAction: "none",
+                  touchAction: "pan-y",
                 }}
+                onClick={() => setLightboxOpen(true)}
                 onPointerDown={onCardPD}
                 onPointerMove={onCardPM}
                 onPointerUp={onCardPU}
