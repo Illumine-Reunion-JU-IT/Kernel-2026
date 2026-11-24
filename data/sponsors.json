@@ -1,12 +1,50 @@
 [
   {
-    "id": "sponsor-placeholder-001",
-    "name": "TBD: Sponsor name",
-    "category": "TBD: Sponsor category",
-    "logoPath": "/images/placeholder.svg",
-    "logoAlt": "Sponsor logo placeholder",
-    "url": null,
-    "isPlaceholder": true,
-    "organiserNote": "Replace only after the sponsorship is officially confirmed."
+    "id": "sponsor-flutterflow",
+    "name": "FlutterFlow",
+    "tier": "gold",
+    "category": "Gold Sponsor",
+    "tagline": "Build beautiful apps, fast",
+    "logoPath": "/images/sponsors/flutterflow.jpg",
+    "logoAlt": "FlutterFlow logo",
+    "url": "https://flutterflow.io",
+    "isPlaceholder": false,
+    "organiserNote": "Gold Sponsor - FlutterFlow. Official."
+  },
+  {
+    "id": "sponsor-studio-one",
+    "name": "Studio One",
+    "tier": "silver",
+    "category": "Silver Sponsor",
+    "tagline": "Creative excellence",
+    "logoPath": "/images/sponsors/studio-one.jpg",
+    "logoAlt": "Studio One logo",
+    "url": "https://www.studioone.world",
+    "isPlaceholder": false,
+    "organiserNote": "Silver Sponsor - Studio One. Official."
+  },
+  {
+    "id": "sponsor-krafton",
+    "name": "Krafton",
+    "tier": "partner",
+    "category": "Gaming Partner",
+    "tagline": "Gaming partner",
+    "logoPath": "/images/sponsors/krafton.jpg",
+    "logoAlt": "Krafton logo",
+    "url": "https://www.krafton.com",
+    "isPlaceholder": false,
+    "organiserNote": "Gaming Partner - Krafton. Official."
+  },
+  {
+    "id": "sponsor-edugraph",
+    "name": "The Telegraph Online Edugraph",
+    "tier": "partner",
+    "category": "Digital Media Partner",
+    "tagline": "The Telegraph Online",
+    "logoPath": "/images/sponsors/edugraph.jpg",
+    "logoAlt": "The Telegraph Online Edugraph logo",
+    "url": "https://www.telegraphindia.com/edugraph",
+    "isPlaceholder": false,
+    "organiserNote": "Digital Media Partner - The Telegraph Online Edugraph. Official."
   }
 ]

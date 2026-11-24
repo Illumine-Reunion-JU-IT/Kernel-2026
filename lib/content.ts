@@ -228,6 +228,7 @@ export const sponsors = validateCollection<Sponsor>(
   [
     "id",
     "name",
+    "tier",
     "category",
     "logoPath",
     "logoAlt",

@@ -67,7 +67,9 @@ export interface Speaker {
 export interface Sponsor {
   id: string;
   name: string;
+  tier: string;
   category: string;
+  tagline: string;
   logoPath: string;
   logoAlt: string;
   url: string | null;
