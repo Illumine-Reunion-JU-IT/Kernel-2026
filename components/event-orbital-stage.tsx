@@ -1213,11 +1213,13 @@ export function EventOrbitalStage({
                         {event.category}
                       </span>
                       <h2
-                        className="display text-center text-2xl uppercase leading-tight"
+                        className="display text-center text-xl sm:text-2xl uppercase leading-tight"
                         style={{
                           background: "linear-gradient(180deg,#fff 0%,#9a4dff 100%)",
                           WebkitBackgroundClip: "text",
                           WebkitTextFillColor: "transparent",
+                          wordBreak: "keep-all",
+                          overflowWrap: "normal",
                         }}
                       >
                         {event.title}
@@ -1367,11 +1369,13 @@ export function EventOrbitalStage({
             {/* Main Title */}
             <div className="relative mb-2">
               <h1
-                className="display text-[clamp(2.1rem,3.4vw,3.8rem)] uppercase leading-[0.92] tracking-tight drop-shadow-[0_0_28px_rgba(228,9,8,0.5)] break-words max-w-full font-black"
+                className="display text-[clamp(1.75rem,2.8vw,3.4rem)] uppercase leading-[0.95] tracking-tight drop-shadow-[0_0_28px_rgba(228,9,8,0.5)] font-black"
                 style={{
                   background: "linear-gradient(180deg,#ffffff 0%,#ffd0d0 45%,#e40908 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
+                  wordBreak: "keep-all",
+                  overflowWrap: "normal",
                 }}
               >
                 {event.title}

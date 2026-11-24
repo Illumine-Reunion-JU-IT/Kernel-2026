@@ -608,7 +608,10 @@ function MobileEventShowcase({
       <div className="relative z-10 px-5 pb-8 flex flex-col">
         {/* Title & Tagline */}
         <div className="text-center">
-          <h1 className="display text-[clamp(2rem,9vw,3rem)] leading-none text-sand drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]">
+          <h1
+            className="display text-[clamp(1.75rem,8vw,3rem)] leading-none text-sand drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]"
+            style={{ wordBreak: "keep-all", overflowWrap: "normal" }}
+          >
             {ev.title}
           </h1>
           {ev.slug === "hojohborolo" && (
