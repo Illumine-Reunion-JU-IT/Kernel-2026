@@ -1,17 +1,17 @@
 # Graph Report - Kernel-2026  (2026-11-24)
 
 ## Corpus Check
-- 110 files · ~38,839 words
+- 110 files · ~39,049 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 8, .example 1, .css 1)
 
 ## Summary
-- 408 nodes · 719 edges · 71 communities (13 shown, 58 thin omitted)
+- 409 nodes · 720 edges · 71 communities (13 shown, 58 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.89)
 - Token cost: 3,550 input · 1,700 output
 
 ## Graph Freshness
-- Built from commit: `14222716`
+- Built from commit: `56c40f56`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,16 +50,16 @@
 10. `publicOnly()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `EventsPage()` --calls--> `publicOnly()`  [EXTRACTED]
+  app/events/page.tsx → lib/content.ts
+- `QRDrawer()` --calls--> `cn()`  [EXTRACTED]
+  components/events/accordion-stage.tsx → lib/utils.ts
 - `BladeProps` --references--> `EventItem`  [EXTRACTED]
   components/events/accordion-stage.tsx → types/index.ts
+- `Blade()` --calls--> `cn()`  [EXTRACTED]
+  components/events/accordion-stage.tsx → lib/utils.ts
 - `MobileShowcaseProps` --references--> `EventItem`  [EXTRACTED]
   components/events/accordion-stage.tsx → types/index.ts
-- `HomePage()` --calls--> `EventsTimeline()`  [EXTRACTED]
-  app/page.tsx → components/home/events-timeline.tsx
-- `RootLayout()` --calls--> `ScrollRail()`  [EXTRACTED]
-  app/layout.tsx → components/effects/scroll-rail.tsx
-- `ScrollReveal()` --calls--> `registerGsap()`  [EXTRACTED]
-  components/home/scroll-reveal.tsx → lib/gsap.ts
 
 ## Import Cycles
 - None detected.
@@ -92,7 +92,7 @@ Nodes (18): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModu
 
 ### Community 6 - "Dynamic Event Page Slug Routing"
 Cohesion: 0.11
-Nodes (19): events, EventSlugPage(), extractCoordinators(), EventFact, EventOrbitalStage(), tick(), EventOrbitalStageProps, getOrbitPoint() (+11 more)
+Nodes (20): events, EventSlugPage(), extractCoordinators(), EVENT_BROCHURES, EventFact, EventOrbitalStage(), tick(), EventOrbitalStageProps (+12 more)
 
 ### Community 7 - "TypeScript Compiler Configuration"
 Cohesion: 0.11
@@ -120,7 +120,7 @@ Nodes (5): fs, members, path, run(), sharp
 
 ## Knowledge Gaps
 - **11 isolated node(s):** `Brand Color Palette`, `Jadavpur University Logo`, `KERNEL Brand Logo`, `Event Header Navigation Design Mockup`, `Image Asset Specifications` (+6 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 195 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 196 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **58 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions

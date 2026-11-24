@@ -31,6 +31,7 @@ export interface KernelEvent {
   imagePath: string;
   imageAlt: string;
   registrationUrl: string | null;
+  brochureUrl?: string | null;
   isPlaceholder?: boolean;
   organiserNote?: string;
 }
@@ -216,6 +217,14 @@ function ThumbnailLightbox({
 }
 
 /* ─── Main Component ─────────────────────────────────────────────── */
+/* ─── Static Event Brochure Mapping ────────────────────────────── */
+const EVENT_BROCHURES: Record<string, string> = {
+  "mogoj-dholai": "/details/mogoj-dholai.pdf",
+  "hojohborolo": "/details/hojohborolo.pdf",
+  "data-nilaam": "/details/data-nilaam.pdf",
+  "hack-sangram": "/details/hack-sangram.pdf",
+};
+
 export function EventOrbitalStage({
   event,
   prevEvent,
@@ -364,6 +373,9 @@ export function EventOrbitalStage({
     ],
     contacts: coordinators.map((c) => ({ name: c, phone: "Desk Contact" })),
   };
+
+  const brochureUrl =
+    event.brochureUrl || EVENT_BROCHURES[event.slug] || dossier.brochureUrl || null;
 
   /* Keep flipped state in sync */
   useEffect(() => {
@@ -1604,30 +1616,49 @@ export function EventOrbitalStage({
 
         {/* ── Persistent Bottom HUD Bar ────────────────────────────── */}
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center gap-2.5 sm:gap-4 px-3 py-2 pointer-events-auto select-none">
-          {/* Scroll toggle: DETAILS / OVERVIEW */}
-          <button
-            type="button"
-            onClick={toggleDetailsScroll}
-            className="group relative inline-flex items-center px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-mono font-black tracking-widest text-black bg-white hover:bg-[#f3ede2] transition-all duration-200 active:scale-95 shadow-[0_4px_24px_rgba(0,0,0,0.65)] cursor-pointer"
-            style={{
-              clipPath:
-                "polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)",
-            }}
-          >
-            <span className="flex items-center gap-2">
-              {!isScrolledToDetails ? (
-                <>
-                  <span>DETAILS</span>
-                  <span className="text-sm">📄</span>
-                </>
-              ) : (
-                <>
-                  <span>OVERVIEW</span>
-                  <span className="text-sm text-[#ff3b30]">✦</span>
-                </>
-              )}
-            </span>
-          </button>
+          {/* Details / Brochure Button */}
+          {brochureUrl ? (
+            <a
+              href={brochureUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-mono font-black tracking-widest text-black bg-white hover:bg-[#f3ede2] transition-all duration-200 active:scale-95 shadow-[0_4px_24px_rgba(0,0,0,0.65)] cursor-pointer"
+              style={{
+                clipPath:
+                  "polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)",
+              }}
+              title={`View ${event.title} Information Brochure (PDF)`}
+            >
+              <span className="flex items-center gap-2">
+                <span>DETAILS</span>
+                <span className="text-sm">📄</span>
+              </span>
+            </a>
+          ) : (
+            <button
+              type="button"
+              onClick={toggleDetailsScroll}
+              className="group relative inline-flex items-center px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-mono font-black tracking-widest text-black bg-white hover:bg-[#f3ede2] transition-all duration-200 active:scale-95 shadow-[0_4px_24px_rgba(0,0,0,0.65)] cursor-pointer"
+              style={{
+                clipPath:
+                  "polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)",
+              }}
+            >
+              <span className="flex items-center gap-2">
+                {!isScrolledToDetails ? (
+                  <>
+                    <span>DETAILS</span>
+                    <span className="text-sm">📄</span>
+                  </>
+                ) : (
+                  <>
+                    <span>OVERVIEW</span>
+                    <span className="text-sm text-[#ff3b30]">✦</span>
+                  </>
+                )}
+              </span>
+            </button>
+          )}
 
           {/* SHARE Button */}
           <button

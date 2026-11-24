@@ -30,7 +30,6 @@ const ACCENTS: Record<string, { from: string; via: string }> = {
   "mogoj-dholai":   { from: "#e84525", via: "#c0391e" },
   hojohborolo:      { from: "#f5c518", via: "#c9a010" },
   "data-nilaam":    { from: "#3b5bdb", via: "#6741d9" },
-  "speaker-session":{ from: "#e40908", via: "#8b0000" },
   "hack-sangram":   { from: "#8b0000", via: "#350000" },
   bgmi:             { from: "#00a88f", via: "#0b4e5b" },
   "real-cricket":   { from: "#1d72b8", via: "#0d47a1" },
