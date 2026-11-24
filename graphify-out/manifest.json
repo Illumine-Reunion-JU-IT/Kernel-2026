@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "app/events/page.tsx": {
-    "mtime": 1795246827.115063,
-    "seen": 1795247930.811262,
-    "ast_hash": "2d67fe811b23bf3d464bcdc78b737aa7",
+    "mtime": 1795514092.8277385,
+    "seen": 1795514133.27149,
+    "ast_hash": "284a61ab2aec012b5d7c63748e82891b",
     "semantic_hash": ""
   },
   "app/layout.tsx": {
@@ -432,9 +432,9 @@
     "semantic_hash": ""
   },
   "data/events.json": {
-    "mtime": 1795506058.887223,
-    "seen": 1795506821.237865,
-    "ast_hash": "6f832f5667ca1020cc1b5f02ad38e797",
+    "mtime": 1795514013.187776,
+    "seen": 1795514133.271539,
+    "ast_hash": "05a529d8d621c6f0439e8b708a9c6d1c",
     "semantic_hash": ""
   },
   "data/faq.json": {
@@ -624,9 +624,9 @@
     "semantic_hash": "e3c5ca2d777096dfee5caf7cace51bc6"
   },
   "components/events/accordion-stage.tsx": {
-    "mtime": 1795506058.8860073,
-    "seen": 1795506821.237833,
-    "ast_hash": "3b0a68bf226ad3458c66ee32d1201dda",
+    "mtime": 1795514072.3858783,
+    "seen": 1795514133.271515,
+    "ast_hash": "e8f12306e074b2526e68d5692b2bdf84",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -702,10 +702,10 @@
     "semantic_hash": "71d5f2379348f14effad9589fcfa848f"
   },
   "public/images/events/data-nilaam.jpg": {
-    "mtime": 1794659782.166158,
-    "seen": 1794661066.745569,
-    "ast_hash": "ac19f62058a1a4c57e6adeddb72033cd",
-    "semantic_hash": "ac19f62058a1a4c57e6adeddb72033cd"
+    "mtime": 1795513270.6958814,
+    "seen": 1795513292.956774,
+    "ast_hash": "a58cf04cd9bbea31b47aa0edbd916a1f",
+    "semantic_hash": ""
   },
   "public/images/events/hack-sangram.jpg": {
     "mtime": 1794668098.6065812,
@@ -762,9 +762,9 @@
     "semantic_hash": ""
   },
   "components/event-orbital-stage.tsx": {
-    "mtime": 1795507481.4081452,
-    "seen": 1795507497.8485289,
-    "ast_hash": "56e2deadce2559b0afecc11c5cd8aa1b",
+    "mtime": 1795513030.4221213,
+    "seen": 1795513054.179307,
+    "ast_hash": "cbcc593e3277c91f21c93e2a6b2d4fbf",
     "semantic_hash": ""
   },
   "public/images/event_slug_design.jpeg": {
@@ -1086,9 +1086,9 @@
     "semantic_hash": ""
   },
   "data/event-dossiers.ts": {
-    "mtime": 1795506058.8868806,
-    "seen": 1795506821.237864,
-    "ast_hash": "5601a75d87c6cd217de9787821115294",
+    "mtime": 1795514037.42955,
+    "seen": 1795514133.271539,
+    "ast_hash": "23420563234e2808691c4d620c70c573",
     "semantic_hash": ""
   },
   "components/core-committee/committee-under-construction.tsx": {
@@ -1479,6 +1479,60 @@
     "mtime": 1795246827.1421647,
     "seen": 1795247930.811384,
     "ast_hash": "b95f8133fbbf583e54d1989837719dcd",
+    "semantic_hash": ""
+  },
+  "details/Hack Sangram \u2014 Official Event Information Brochure.pdf": {
+    "mtime": 1795510963.3058336,
+    "seen": 1795511796.155584,
+    "ast_hash": "68f8743d3ef580dbd2f813f7e9716e4c",
+    "semantic_hash": ""
+  },
+  "details/Hojohborolo - Event Information Brochure.pdf": {
+    "mtime": 1795510965.2140691,
+    "seen": 1795511796.155585,
+    "ast_hash": "cd36aca98fabe31c20bd52ae09d68815",
+    "semantic_hash": ""
+  },
+  "details/Mogoj Dholai \u2014 Official Event Information Brochure.pdf": {
+    "mtime": 1795510972.0461662,
+    "seen": 1795511796.155586,
+    "ast_hash": "55ef35a0fb26ba67a6a6099e7a1fbc49",
+    "semantic_hash": ""
+  },
+  "details/brochure.pdf": {
+    "mtime": 1795510969.1113484,
+    "seen": 1795511796.155586,
+    "ast_hash": "b4cc95f7db8e2fb1e8ec055ab31906ce",
+    "semantic_hash": ""
+  },
+  "public/details/data-nilaam.pdf": {
+    "mtime": 1795511397.8423142,
+    "seen": 1795511796.155587,
+    "ast_hash": "b4cc95f7db8e2fb1e8ec055ab31906ce",
+    "semantic_hash": ""
+  },
+  "public/details/hack-sangram.pdf": {
+    "mtime": 1795511397.8441317,
+    "seen": 1795511796.155587,
+    "ast_hash": "68f8743d3ef580dbd2f813f7e9716e4c",
+    "semantic_hash": ""
+  },
+  "public/details/hojohborolo.pdf": {
+    "mtime": 1795511397.8395617,
+    "seen": 1795511796.1555882,
+    "ast_hash": "cd36aca98fabe31c20bd52ae09d68815",
+    "semantic_hash": ""
+  },
+  "public/details/mogoj-dholai.pdf": {
+    "mtime": 1795511397.8361714,
+    "seen": 1795511796.155589,
+    "ast_hash": "55ef35a0fb26ba67a6a6099e7a1fbc49",
+    "semantic_hash": ""
+  },
+  "public/images/events/data-nilam.jpeg": {
+    "mtime": 1795512767.6999466,
+    "seen": 1795513054.179403,
+    "ast_hash": "a58cf04cd9bbea31b47aa0edbd916a1f",
     "semantic_hash": ""
   },
   "package-lock.json": {
