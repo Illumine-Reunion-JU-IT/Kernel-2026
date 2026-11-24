@@ -220,7 +220,7 @@ export function EventsTimeline() {
 
       <div className="container relative">
         <p className="mb-6 font-mono text-xs text-sand-dim"><span className="slashes" />The lineup</p>
-        <h2 id="events-title" className="display max-w-4xl text-[clamp(2.6rem,7vw,6.4rem)]">Five ways to <span className="text-signal">compete</span></h2>
+        <h2 id="events-title" className="display max-w-4xl text-[clamp(2.6rem,7vw,6.4rem)]">Six ways to <span className="text-signal">compete</span></h2>
 
         {list.length === 0 ? (
           <EmptyState className="mt-14" title="Events to be announced" message="The full lineup will appear here once the organising team confirms it." action={<Button href="/events">Events page</Button>} />
