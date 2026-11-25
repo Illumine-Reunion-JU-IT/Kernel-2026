@@ -1,15 +1,21 @@
 "use client";
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { gsap } from "@/lib/gsap";
+// import { gsap } from "@/lib/gsap";
 import { registerGsap } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 import type { EventItem } from "@/types";
 
 /* ─── layout constants ──────────────────────────────────────────────── */
-const SKEW = 8; // blade tilt in degrees — applied only on lg+
+const SKEW = 8; // diagonal accordion blade architecture tilt on lg+
 
 function computeBladeWidths(totalCount: number) {
   if (totalCount <= 1) {
@@ -27,12 +33,12 @@ function computeBladeWidths(totalCount: number) {
 
 /* ─── per-event accent colours that bleed from each poster ──────────── */
 const ACCENTS: Record<string, { from: string; via: string }> = {
-  "mogoj-dholai":   { from: "#e84525", via: "#c0391e" },
-  hojohborolo:      { from: "#f5c518", via: "#c9a010" },
-  "data-nilaam":    { from: "#3b5bdb", via: "#6741d9" },
-  "hack-sangram":   { from: "#8b0000", via: "#350000" },
-  bgmi:             { from: "#00a88f", via: "#0b4e5b" },
-  "real-cricket":   { from: "#1d72b8", via: "#0d47a1" },
+  "mogoj-dholai": { from: "#e84525", via: "#c0391e" },
+  hojohborolo: { from: "#f5c518", via: "#c9a010" },
+  "data-nilaam": { from: "#3b5bdb", via: "#6741d9" },
+  "hack-sangram": { from: "#8b0000", via: "#350000" },
+  bgmi: { from: "#00a88f", via: "#0b4e5b" },
+  "real-cricket": { from: "#1d72b8", via: "#0d47a1" },
 };
 
 /* ─── small sub-components ──────────────────────────────────────────── */
@@ -40,7 +46,10 @@ function SpecGrid({ facts }: { facts: EventItem["facts"] }) {
   return (
     <div className="grid grid-cols-2 gap-px border border-sand/15 bg-sand/10 backdrop-blur-md">
       {facts.map((f) => (
-        <div key={f.label} className="flex flex-col gap-0.5 bg-void/80 px-3 py-2.5 backdrop-blur-sm">
+        <div
+          key={f.label}
+          className="flex flex-col gap-0.5 bg-void/80 px-3 py-2.5 backdrop-blur-sm"
+        >
           <span className="font-mono text-[0.6rem] font-bold tracking-widest text-sand/60 uppercase">
             {f.label}:
           </span>
@@ -53,92 +62,95 @@ function SpecGrid({ facts }: { facts: EventItem["facts"] }) {
   );
 }
 
-function QRDrawer({
-  event,
-  open,
-  onClose,
-}: {
-  event: EventItem;
-  open: boolean;
-  onClose: () => void;
-}) {
-  return (
-    <div
-      role="dialog"
-      aria-label={`Quick register for ${event.title}`}
-      aria-modal="true"
-      className={cn(
-        "absolute bottom-0 right-0 z-30 w-72 border border-sand/20 bg-void/90 p-5 backdrop-blur-md transition-transform duration-500",
-        open ? "translate-y-0" : "translate-y-full"
-      )}
-      style={{ clipPath: "polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)" }}
-    >
-      <button
-        onClick={onClose}
-        aria-label="Close QR drawer"
-        className="absolute right-3 top-3 font-mono text-[0.65rem] tracking-widest text-sand/50 hover:text-sand"
-      >
-        [ESC]
-      </button>
-      <p className="font-mono text-[0.65rem] font-bold tracking-widest text-signal uppercase">
-        Quick Register // Scan QR
-      </p>
-      <div className="mt-3 flex gap-3">
-        <div className="flex h-28 w-28 shrink-0 items-center justify-center border border-sand/20 bg-sand/5 p-1">
-          <span className="font-mono text-[0.55rem] text-sand/40 text-center leading-relaxed">
-            QR CODE<br />COMING<br />SOON
-          </span>
-        </div>
-        <div className="flex flex-col justify-center gap-2">
-          {event.registrationUrl ? (
-            <a
-              href={event.registrationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="kbtn kbtn-primary !bg-signal !text-white py-3 px-4 text-[0.65rem] shadow-[0_4px_16px_rgba(228,9,8,0.4)]"
-            >
-              <span className="kbtn-label">Fill Team Form</span>
-            </a>
-          ) : (
-            <span className="font-mono text-[0.65rem] text-sand/40 uppercase tracking-widest">
-              Registration<br />opens soon
-            </span>
-          )}
-        </div>
-      </div>
-      <p className="mt-3 font-mono text-[0.6rem] text-sand/30 tracking-wide uppercase">
-        {event.title} · KERNEL 1.0
-      </p>
-    </div>
-  );
-}
-
 /* ─── blade glitch overlay ──────────────────────────────────────────── */
 const GLITCH_SLICES = [
-  { top: 0,   bottom: 91, x: "-65px", delay: "0ms" },
-  { top: 8,   bottom: 82, x: "74px",  delay: "20ms" },
-  { top: 16,  bottom: 74, x: "-55px", delay: "10ms" },
-  { top: 25,  bottom: 66, x: "82px",  delay: "35ms" },
-  { top: 33,  bottom: 58, x: "-75px", delay: "15ms" },
-  { top: 41,  bottom: 49, x: "90px",  delay: "40ms" },
-  { top: 50,  bottom: 41, x: "-62px", delay: "25ms" },
-  { top: 58,  bottom: 33, x: "78px",  delay: "10ms" },
-  { top: 66,  bottom: 24, x: "-84px", delay: "30ms" },
-  { top: 74,  bottom: 16, x: "66px",  delay: "15ms" },
-  { top: 82,  bottom: 8,  x: "-70px", delay: "35ms" },
-  { top: 90,  bottom: 0,  x: "56px",  delay: "20ms" },
+  { top: 0, bottom: 91, x: "-65px", delay: "0ms" },
+  { top: 8, bottom: 82, x: "74px", delay: "20ms" },
+  { top: 16, bottom: 74, x: "-55px", delay: "10ms" },
+  { top: 25, bottom: 66, x: "82px", delay: "35ms" },
+  { top: 33, bottom: 58, x: "-75px", delay: "15ms" },
+  { top: 41, bottom: 49, x: "90px", delay: "40ms" },
+  { top: 50, bottom: 41, x: "-62px", delay: "25ms" },
+  { top: 58, bottom: 33, x: "78px", delay: "10ms" },
+  { top: 66, bottom: 24, x: "-84px", delay: "30ms" },
+  { top: 74, bottom: 16, x: "66px", delay: "15ms" },
+  { top: 82, bottom: 8, x: "-70px", delay: "35ms" },
+  { top: 90, bottom: 0, x: "56px", delay: "20ms" },
 ];
 
 const GLITCH_BLOCKS = [
-  { top: "5%",  left: "8%",  w: "180px", h: "20px", color: "var(--signal)", delay: "0ms" },
-  { top: "16%", left: "42%", w: "260px", h: "30px", color: "var(--volt)",   delay: "25ms" },
-  { top: "27%", left: "14%", w: "160px", h: "22px", color: "#00f0ff",        delay: "10ms" },
-  { top: "38%", left: "60%", w: "310px", h: "36px", color: "var(--signal)", delay: "35ms" },
-  { top: "49%", left: "22%", w: "190px", h: "18px", color: "var(--sand)",   delay: "15ms" },
-  { top: "62%", left: "50%", w: "240px", h: "28px", color: "#00f0ff",        delay: "45ms" },
-  { top: "73%", left: "12%", w: "210px", h: "24px", color: "var(--volt)",   delay: "20ms" },
-  { top: "84%", left: "46%", w: "290px", h: "32px", color: "var(--signal)", delay: "30ms" },
-  { top: "92%", left: "28%", w: "150px", h: "16px", color: "var(--sand)",   delay: "40ms" },
+  {
+    top: "5%",
+    left: "8%",
+    w: "180px",
+    h: "20px",
+    color: "var(--signal)",
+    delay: "0ms",
+  },
+  {
+    top: "16%",
+    left: "42%",
+    w: "260px",
+    h: "30px",
+    color: "var(--volt)",
+    delay: "25ms",
+  },
+  {
+    top: "27%",
+    left: "14%",
+    w: "160px",
+    h: "22px",
+    color: "#00f0ff",
+    delay: "10ms",
+  },
+  {
+    top: "38%",
+    left: "60%",
+    w: "310px",
+    h: "36px",
+    color: "var(--signal)",
+    delay: "35ms",
+  },
+  {
+    top: "49%",
+    left: "22%",
+    w: "190px",
+    h: "18px",
+    color: "var(--sand)",
+    delay: "15ms",
+  },
+  {
+    top: "62%",
+    left: "50%",
+    w: "240px",
+    h: "28px",
+    color: "#00f0ff",
+    delay: "45ms",
+  },
+  {
+    top: "73%",
+    left: "12%",
+    w: "210px",
+    h: "24px",
+    color: "var(--volt)",
+    delay: "20ms",
+  },
+  {
+    top: "84%",
+    left: "46%",
+    w: "290px",
+    h: "32px",
+    color: "var(--signal)",
+    delay: "30ms",
+  },
+  {
+    top: "92%",
+    left: "28%",
+    w: "150px",
+    h: "16px",
+    color: "var(--sand)",
+    delay: "40ms",
+  },
 ];
 
 export function BladeGlitchOverlay({ imagePath }: { imagePath: string }) {
@@ -233,7 +245,7 @@ function Blade({
   event,
   index,
   isActive,
-  isGlitching,
+  // isGlitching,
   activeWidth,
   inactiveWidth,
   onClick,
@@ -242,28 +254,13 @@ function Blade({
   const router = useRouter();
   const accent = ACCENTS[event.slug] ?? { from: "#e40908", via: "#8b0000" };
   const idx = String(index + 1).padStart(2, "0");
-  const [qrOpen, setQrOpen] = useState(false);
-
-  /* ESC to close QR */
-  useEffect(() => {
-    if (!qrOpen) return;
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setQrOpen(false); };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [qrOpen]);
 
   /*
-   * The skew geometry:  outer container = skewX(-8deg), overflow:hidden.
-   * The inner content counter-skews back by +8deg.
-   * Problem: the outer's left boundary is a diagonal line. At height H,
-   * the visible left edge at the top of the blade is H × tan(8°) ≈ 0.14H px
-   * to the right of the bottom-left corner.
-   * Fix: shift the inner div far enough left that its full width + right clearance
-   * keeps content safe, then add an explicit left-pad inset on the copy column
-   * to clear the worst-case diagonal bite (top of blade, left side).
+   * The diagonal accordion stage architecture: outer container = skewX(-8deg), overflow:hidden.
+   * The inner content counter-skews back by +8deg so all text, the 4 details section, and action buttons render as clean rectangles.
    */
   const LEFT_OVERSHOOT = "-8%"; // extends inner div past the blade's left edge
-  const INNER_WIDTH = "116%";   // compensates for the overshoot on both sides
+  const INNER_WIDTH = "116%"; // compensates for the overshoot on both sides
 
   return (
     <div
@@ -298,18 +295,20 @@ function Blade({
         flexBasis: isActive ? `${activeWidth}%` : `${inactiveWidth}%`,
         flexGrow: 0,
         flexShrink: 1,
-        transform: `skewX(-${SKEW}deg)`,
-        transformOrigin: "bottom left",
+        ...(SKEW > 0
+          ? { transform: `skewX(-${SKEW}deg)`, transformOrigin: "bottom left" }
+          : {}),
         transition: "flex-basis 0.55s cubic-bezier(0.7,0,0.1,1)",
       }}
       data-blade={event.slug}
     >
-      {/* un-skew the inner content */}
+      {/* inner content */}
       <div
         className="absolute inset-0"
         style={{
-          transform: `skewX(${SKEW}deg)`,
-          transformOrigin: "bottom left",
+          ...(SKEW > 0
+            ? { transform: `skewX(${SKEW}deg)`, transformOrigin: "bottom left" }
+            : {}),
           left: LEFT_OVERSHOOT,
           width: INNER_WIDTH,
         }}
@@ -318,7 +317,7 @@ function Blade({
         <div
           className={cn(
             "absolute inset-0 transition-all duration-500",
-            isActive ? "opacity-100 grayscale-0" : "opacity-30 grayscale"
+            isActive ? "opacity-100 grayscale-0" : "opacity-30 grayscale",
           )}
         >
           <Image
@@ -331,10 +330,10 @@ function Blade({
           />
         </div>
 
-        {/* chromatic slice glitch burst on switch */}
-        {isGlitching && (
+        {/* chromatic slice glitch burst on switch (code retained, disabled per request) */}
+        {/* {isGlitching && (
           <BladeGlitchOverlay key={`${event.id}-${index}`} imagePath={event.imagePath} />
-        )}
+        )} */}
 
         {/* gradient overlay — translucent scrim so poster artwork spans throughout the blade */}
         <div
@@ -353,7 +352,8 @@ function Blade({
             backgroundImage: `radial-gradient(${isActive ? accent.from : "#e40908"} 1.2px, transparent 1.6px)`,
             backgroundSize: "11px 11px",
             maskImage: "linear-gradient(115deg, #000 0%, transparent 55%)",
-            WebkitMaskImage: "linear-gradient(115deg, #000 0%, transparent 55%)",
+            WebkitMaskImage:
+              "linear-gradient(115deg, #000 0%, transparent 55%)",
           }}
         />
 
@@ -361,14 +361,20 @@ function Blade({
         <div
           className={cn(
             "absolute inset-0 flex flex-col items-center justify-end gap-3 pb-6 transition-opacity duration-300",
-            isActive ? "opacity-0 pointer-events-none" : "opacity-100"
+            isActive ? "opacity-0 pointer-events-none" : "opacity-100",
           )}
           aria-hidden={isActive}
         >
-          <span className="font-mono text-[0.65rem] font-bold tracking-widest text-signal/80 uppercase">{idx}</span>
+          <span className="font-mono text-[0.65rem] font-bold tracking-widest text-signal/80 uppercase">
+            {idx}
+          </span>
           <div
             className="display text-[clamp(0.85rem,1.3vw,1.3rem)] font-black text-sand/80 outline-text"
-            style={{ writingMode: "vertical-rl", textOrientation: "mixed", letterSpacing: "0.06em" }}
+            style={{
+              writingMode: "vertical-rl",
+              textOrientation: "mixed",
+              letterSpacing: "0.06em",
+            }}
           >
             {event.title.toUpperCase()}
           </div>
@@ -378,22 +384,17 @@ function Blade({
         <div
           className={cn(
             "absolute inset-0 flex transition-opacity duration-300 delay-100",
-            isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+            isActive ? "opacity-100" : "opacity-0 pointer-events-none",
           )}
           aria-hidden={!isActive}
         >
           {/*
            * Left copy column.
-           * pl-[15%] clears the diagonal bite:
-           *   at blade height ≈ 85vh ≈ 765px,  tan(8°)×765 ≈ 108px
-           *   108px / 65vw ≈ 11%, so 15% gives a comfortable safety margin.
-           * We also keep pr-4 to avoid running into the poster half.
+           * SKEW === 0 uses standard pl-8 xl:pl-12.
+           * Skewed mode previously used pl-[14%] to clear the diagonal cut.
            */}
           <div className="flex h-full w-[52%] flex-col justify-end pb-10 pr-4 pl-[14%]">
             <div className="mb-4">
-              <span className="font-mono text-[2.5rem] font-black leading-none text-signal/40 xl:text-[3.5rem] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                {idx}
-              </span>
               <Link
                 href={`/events/${event.slug}`}
                 className="group/title block"
@@ -401,15 +402,13 @@ function Blade({
                 <h2
                   className={cn(
                     "display mt-1 text-[clamp(1.2rem,2.6vw,2.4rem)] leading-none text-sand group-hover/title:text-signal transition-colors drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]",
-                    isGlitching && "blade-title-glitch"
+                    // Glitch animation disabled per request (code retained):
+                    // isGlitching && "blade-title-glitch"
                   )}
                 >
                   {event.title}
                 </h2>
               </Link>
-              {event.slug === "hojohborolo" && (
-                <p className="mt-1 font-mono text-[0.9rem] text-sand/70 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">(হযবরল)</p>
-              )}
               <p className="mt-2 font-mono text-[0.68rem] tracking-widest text-sand/65 uppercase drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                 {event.tagline}
               </p>
@@ -421,7 +420,10 @@ function Blade({
               {event.category}
             </p>
 
-            <div className="mt-5 flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="mt-5 flex items-center gap-3"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Link
                 href={`/events/${event.slug}`}
                 data-cursor="Enter"
@@ -443,30 +445,17 @@ function Blade({
             </div>
           </div>
 
-          {/* Right column: poster + QR trigger */}
-          <div className="relative flex-1">
-            <div
-              className="absolute bottom-6 right-6 z-20 cursor-pointer"
-              onClick={(e) => { e.stopPropagation(); setQrOpen((o) => !o); }}
-            >
-              <div className="flex flex-col items-end gap-1">
-                <span className="font-mono text-[0.6rem] tracking-widest text-sand/40 uppercase">Register Now</span>
-                <div className="flex h-20 w-20 items-center justify-center border border-sand/20 bg-void/60 p-1 backdrop-blur-sm">
-                  <span className="font-mono text-[0.5rem] text-sand/30 text-center leading-relaxed">
-                    QR<br />SOON
-                  </span>
-                </div>
-              </div>
-            </div>
-            <QRDrawer event={event} open={isActive && qrOpen} onClose={() => setQrOpen(false)} />
-          </div>
+          {/* Right column: clear space for poster artwork */}
+          <div className="relative flex-1" />
         </div>
 
         {/* active left-edge glow */}
         <div
           className={cn(
             "pointer-events-none absolute inset-0 border-l-2 transition-all duration-500",
-            isActive ? "border-signal/70 shadow-[inset_2px_0_18px_rgba(228,9,8,0.18)]" : "border-sand/8"
+            isActive
+              ? "border-signal/70 shadow-[inset_2px_0_18px_rgba(228,9,8,0.18)]"
+              : "border-sand/8",
           )}
           aria-hidden
         />
@@ -566,7 +555,8 @@ function MobileEventShowcase({
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-signal animate-pulse" />
           <span className="font-mono text-[10px] font-black tracking-widest text-signal uppercase">
-            EVENT {String(active + 1).padStart(2, "0")} / {String(events.length).padStart(2, "0")}
+            EVENT {String(active + 1).padStart(2, "0")} /{" "}
+            {String(events.length).padStart(2, "0")}
           </span>
         </div>
         <span
@@ -592,11 +582,13 @@ function MobileEventShowcase({
             className="object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent opacity-80" />
-          {ev.facts.find(f => f.label === "Prize Pool") && (
+          {ev.facts.find((f) => f.label === "Prize Pool") && (
             <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-void/85 border border-sand/20 rounded-lg px-2.5 py-1 backdrop-blur-md">
-              <span className="font-mono text-[9px] text-sand/60 uppercase">Prize Pool</span>
+              <span className="font-mono text-[9px] text-sand/60 uppercase">
+                Prize Pool
+              </span>
               <span className="font-mono text-xs font-black text-signal">
-                {ev.facts.find(f => f.label === "Prize Pool")!.value}
+                {ev.facts.find((f) => f.label === "Prize Pool")!.value}
               </span>
             </div>
           )}
@@ -613,9 +605,6 @@ function MobileEventShowcase({
           >
             {ev.title}
           </h1>
-          {ev.slug === "hojohborolo" && (
-            <p className="font-mono text-xs text-sand/60 mt-0.5">(হযবরল)</p>
-          )}
           <p className="mt-1 font-mono text-[11px] tracking-wider text-signal uppercase font-bold">
             {ev.tagline}
           </p>
@@ -654,12 +643,15 @@ function MobileEventShowcase({
                 key={i}
                 type="button"
                 aria-label={`Go to event ${i + 1}`}
-                onClick={() => { setActive(i); setIsPaused(true); }}
+                onClick={() => {
+                  setActive(i);
+                  setIsPaused(true);
+                }}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-300",
                   i === active
                     ? "w-7 bg-signal shadow-[0_0_8px_rgba(228,9,8,0.8)]"
-                    : "w-1.5 bg-sand/30 hover:bg-sand/60"
+                    : "w-1.5 bg-sand/30 hover:bg-sand/60",
                 )}
               />
             ))}
@@ -693,7 +685,12 @@ function MobileEventShowcase({
               onClick={() => setIsPaused((p: boolean) => !p)}
               className="ml-1 flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider text-sand/50 border border-sand/20 rounded-full px-2.5 py-1 bg-void/60 hover:text-sand"
             >
-              <span className={cn("h-1.5 w-1.5 rounded-full", isPaused ? "bg-sand/40" : "bg-signal animate-pulse")} />
+              <span
+                className={cn(
+                  "h-1.5 w-1.5 rounded-full",
+                  isPaused ? "bg-sand/40" : "bg-signal animate-pulse",
+                )}
+              />
               {isPaused ? "PLAY" : "PAUSE"}
             </button>
           </div>
@@ -710,9 +707,9 @@ function MobileEventShowcase({
 /* ─── main accordion stage ──────────────────────────────────────────── */
 export function AccordionStage({ events }: { events: EventItem[] }) {
   const [active, setActive] = useState(0);
-  const [glitchingIndex, setGlitchingIndex] = useState<number | null>(null);
+  // const [glitchingIndex, setGlitchingIndex] = useState<number | null>(null); // Glitch disabled per request
   const [isPaused, setIsPaused] = useState(false);
-  const hasMounted = useRef(false);
+  // const hasMounted = useRef(false);
   const stageRef = useRef<HTMLDivElement>(null);
   const AUTO_SCROLL_INTERVAL = 3800; // 3.8s short timer for automatic event showcase
 
@@ -720,7 +717,7 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
     registerGsap();
   }, []);
 
-  /* trigger 420ms glitch burst only during blade transitions */
+  /* trigger 420ms glitch burst only during blade transitions (disabled per request, code retained)
   useEffect(() => {
     if (!hasMounted.current) {
       hasMounted.current = true;
@@ -730,11 +727,12 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
     const timer = window.setTimeout(() => setGlitchingIndex(null), 420);
     return () => window.clearTimeout(timer);
   }, [active]);
+  */
 
   const switchBlade = useCallback(
     (idx: number) => {
       if (idx === active) return;
-      /* chromatic glitch flash */
+      /* chromatic glitch flash (disabled per request, code retained)
       const blades = stageRef.current?.querySelectorAll<HTMLElement>("[data-blade]");
       if (blades) {
         gsap.killTweensOf(blades);
@@ -748,9 +746,10 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
           onComplete: () => gsap.set(blades, { clearProps: "x" }),
         });
       }
+      */
       setActive(idx);
     },
-    [active]
+    [active],
   );
 
   /* Auto-scroll timer: cycles through events automatically */
@@ -759,6 +758,7 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
     const interval = setInterval(() => {
       setActive((curr) => {
         const next = (curr + 1) % events.length;
+        /* chromatic jitter on auto-scroll (disabled per request, code retained)
         const blades = stageRef.current?.querySelectorAll<HTMLElement>("[data-blade]");
         if (blades) {
           gsap.killTweensOf(blades);
@@ -772,6 +772,7 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
             onComplete: () => gsap.set(blades, { clearProps: "x" }),
           });
         }
+        */
         return next;
       });
     }, AUTO_SCROLL_INTERVAL);
@@ -783,7 +784,8 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") switchBlade((active + 1) % events.length);
-      if (e.key === "ArrowLeft")  switchBlade((active - 1 + events.length) % events.length);
+      if (e.key === "ArrowLeft")
+        switchBlade((active - 1 + events.length) % events.length);
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
@@ -810,7 +812,9 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
             style={{
               width: isPaused ? "100%" : "0%",
               opacity: isPaused ? 0.35 : 1,
-              animation: isPaused ? "none" : `autoscrollProgress ${AUTO_SCROLL_INTERVAL}ms linear forwards`,
+              animation: isPaused
+                ? "none"
+                : `autoscrollProgress ${AUTO_SCROLL_INTERVAL}ms linear forwards`,
             }}
           />
         </div>
@@ -821,7 +825,7 @@ export function AccordionStage({ events }: { events: EventItem[] }) {
             event={ev}
             index={i}
             isActive={i === active}
-            isGlitching={glitchingIndex === i}
+            isGlitching={false /* glitchingIndex === i - glitch disabled */}
             activeWidth={activeW}
             inactiveWidth={inactiveW}
             onClick={() => {

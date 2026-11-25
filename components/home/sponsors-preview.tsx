@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { sponsors, publicOnly } from "@/lib/content";
 import type { Sponsor } from "@/types";
 
@@ -99,6 +98,8 @@ function SponsorCard({ s }: { s: Sponsor }) {
               ? "#000000"
               : s.id === "sponsor-studio-one"
               ? "#eb5e0b"
+              : s.id === "sponsor-unstop"
+              ? "#ffffff"
               : cfg.logoBg,
         }}
       >
@@ -245,7 +246,7 @@ export function SponsorsPreview() {
             <TierDivider label="Official Partners" color="#e40908" />
             <div className="flex flex-wrap justify-center gap-6">
               {partner.map((s) => (
-                <div key={s.id} className="w-full max-w-xs sm:max-w-[20rem]">
+                <div key={s.id} className="w-full max-w-xs sm:max-w-[18rem] lg:max-w-[19rem]">
                   <SponsorCard s={s} />
                 </div>
               ))}

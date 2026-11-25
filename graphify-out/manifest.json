@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "app/events/page.tsx": {
-    "mtime": 1795514092.8277385,
-    "seen": 1795514133.27149,
+    "mtime": 1795597873.2404704,
+    "seen": 1795598742.7325819,
     "ast_hash": "284a61ab2aec012b5d7c63748e82891b",
     "semantic_hash": ""
   },
@@ -84,10 +84,10 @@
     "semantic_hash": "1165b9da39791b860427bc67578a655a"
   },
   "app/sponsors/page.tsx": {
-    "mtime": 1794593744.879222,
-    "seen": 1794594283.8564138,
-    "ast_hash": "fe17670bed7af2781481ce6b13fad45c",
-    "semantic_hash": "fe17670bed7af2781481ce6b13fad45c"
+    "mtime": 1795597873.2407348,
+    "seen": 1795598742.7325902,
+    "ast_hash": "f752f39f7a23276b5d4296b2ade80bf0",
+    "semantic_hash": ""
   },
   "app/twitter-image.tsx": {
     "mtime": 1794593744.8793178,
@@ -258,9 +258,9 @@
     "semantic_hash": "30041c8fdb2f3ccca6dcdfe828fe906f"
   },
   "components/home/events-timeline.tsx": {
-    "mtime": 1794661306.9812975,
-    "seen": 1794661453.52578,
-    "ast_hash": "f2f4597bba748e0b3fd25ddd76443c6f",
+    "mtime": 1795597873.2420778,
+    "seen": 1795598742.732616,
+    "ast_hash": "363715c8b38e6c8f02479ff33e7a3ef0",
     "semantic_hash": ""
   },
   "components/home/hero-section.tsx": {
@@ -288,9 +288,9 @@
     "semantic_hash": ""
   },
   "components/home/sponsors-preview.tsx": {
-    "mtime": 1794694300.5700808,
-    "seen": 1794697493.5091681,
-    "ast_hash": "63d0f56912fa179ea4bb45a943db88ef",
+    "mtime": 1795598879.4363854,
+    "seen": 1795599584.5992699,
+    "ast_hash": "16fd3d0c0bd9367c036e427d87f5b756",
     "semantic_hash": ""
   },
   "components/home/video-section.tsx": {
@@ -432,8 +432,8 @@
     "semantic_hash": ""
   },
   "data/events.json": {
-    "mtime": 1795514013.187776,
-    "seen": 1795514133.271539,
+    "mtime": 1795597873.2430315,
+    "seen": 1795598742.732634,
     "ast_hash": "05a529d8d621c6f0439e8b708a9c6d1c",
     "semantic_hash": ""
   },
@@ -462,10 +462,10 @@
     "semantic_hash": "05c2431d321ec88a5c5cb7056424f5ff"
   },
   "data/sponsors.json": {
-    "mtime": 1794593744.8864017,
-    "seen": 1794594283.8564422,
-    "ast_hash": "63e03ff3f99feeebe13520bc28206af8",
-    "semantic_hash": "63e03ff3f99feeebe13520bc28206af8"
+    "mtime": 1795598661.5743253,
+    "seen": 1795598742.732638,
+    "ast_hash": "d4ef969a7f48983ca693d2421220833b",
+    "semantic_hash": ""
   },
   "eslint.config.mjs": {
     "mtime": 1795246827.1215556,
@@ -474,9 +474,9 @@
     "semantic_hash": ""
   },
   "lib/content.ts": {
-    "mtime": 1794659776.9654443,
-    "seen": 1794661066.745549,
-    "ast_hash": "c396945681e37b0722669af53cebf752",
+    "mtime": 1795597873.2538655,
+    "seen": 1795598742.732639,
+    "ast_hash": "29e495d124750bf19cbbadfd116f3490",
     "semantic_hash": ""
   },
   "lib/gsap.ts": {
@@ -534,9 +534,9 @@
     "semantic_hash": "507ed64944a7e9cd047a4b4b3309b9dc"
   },
   "types/index.ts": {
-    "mtime": 1794659776.9998925,
-    "seen": 1794661066.7455559,
-    "ast_hash": "bfb36126bbdf91a0762c748be290789f",
+    "mtime": 1795597873.259731,
+    "seen": 1795598742.732647,
+    "ast_hash": "66798102bd6245a807562055ca271354",
     "semantic_hash": ""
   },
   "README.md": {
@@ -624,9 +624,9 @@
     "semantic_hash": "e3c5ca2d777096dfee5caf7cace51bc6"
   },
   "components/events/accordion-stage.tsx": {
-    "mtime": 1795514072.3858783,
-    "seen": 1795514133.271515,
-    "ast_hash": "e8f12306e074b2526e68d5692b2bdf84",
+    "mtime": 1795600635.411175,
+    "seen": 1795600674.792597,
+    "ast_hash": "ffcb281fc91031fced15eafcd845ab40",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -702,8 +702,8 @@
     "semantic_hash": "71d5f2379348f14effad9589fcfa848f"
   },
   "public/images/events/data-nilaam.jpg": {
-    "mtime": 1795513270.6958814,
-    "seen": 1795513292.956774,
+    "mtime": 1795597873.257678,
+    "seen": 1795598742.732708,
     "ast_hash": "a58cf04cd9bbea31b47aa0edbd916a1f",
     "semantic_hash": ""
   },
@@ -762,8 +762,8 @@
     "semantic_hash": ""
   },
   "components/event-orbital-stage.tsx": {
-    "mtime": 1795513030.4221213,
-    "seen": 1795513054.179307,
+    "mtime": 1795597873.2413995,
+    "seen": 1795598742.732609,
     "ast_hash": "cbcc593e3277c91f21c93e2a6b2d4fbf",
     "semantic_hash": ""
   },
@@ -1086,8 +1086,8 @@
     "semantic_hash": ""
   },
   "data/event-dossiers.ts": {
-    "mtime": 1795514037.42955,
-    "seen": 1795514133.271539,
+    "mtime": 1795597873.2427635,
+    "seen": 1795598742.732634,
     "ast_hash": "23420563234e2808691c4d620c70c573",
     "semantic_hash": ""
   },
@@ -1482,57 +1482,87 @@
     "semantic_hash": ""
   },
   "details/Hack Sangram \u2014 Official Event Information Brochure.pdf": {
-    "mtime": 1795510963.3058336,
-    "seen": 1795511796.155584,
+    "mtime": 1795597873.246045,
+    "seen": 1795598742.732652,
     "ast_hash": "68f8743d3ef580dbd2f813f7e9716e4c",
     "semantic_hash": ""
   },
   "details/Hojohborolo - Event Information Brochure.pdf": {
-    "mtime": 1795510965.2140691,
-    "seen": 1795511796.155585,
+    "mtime": 1795597873.2471797,
+    "seen": 1795598742.732652,
     "ast_hash": "cd36aca98fabe31c20bd52ae09d68815",
     "semantic_hash": ""
   },
   "details/Mogoj Dholai \u2014 Official Event Information Brochure.pdf": {
-    "mtime": 1795510972.0461662,
-    "seen": 1795511796.155586,
+    "mtime": 1795597873.2494113,
+    "seen": 1795598742.7326531,
     "ast_hash": "55ef35a0fb26ba67a6a6099e7a1fbc49",
     "semantic_hash": ""
   },
   "details/brochure.pdf": {
-    "mtime": 1795510969.1113484,
-    "seen": 1795511796.155586,
+    "mtime": 1795597873.2508464,
+    "seen": 1795598742.732654,
     "ast_hash": "b4cc95f7db8e2fb1e8ec055ab31906ce",
     "semantic_hash": ""
   },
   "public/details/data-nilaam.pdf": {
-    "mtime": 1795511397.8423142,
-    "seen": 1795511796.155587,
+    "mtime": 1795597873.2543333,
+    "seen": 1795598742.732654,
     "ast_hash": "b4cc95f7db8e2fb1e8ec055ab31906ce",
     "semantic_hash": ""
   },
   "public/details/hack-sangram.pdf": {
-    "mtime": 1795511397.8441317,
-    "seen": 1795511796.155587,
+    "mtime": 1795597873.2548292,
+    "seen": 1795598742.732655,
     "ast_hash": "68f8743d3ef580dbd2f813f7e9716e4c",
     "semantic_hash": ""
   },
   "public/details/hojohborolo.pdf": {
-    "mtime": 1795511397.8395617,
-    "seen": 1795511796.1555882,
+    "mtime": 1795597873.2552528,
+    "seen": 1795598742.7326562,
     "ast_hash": "cd36aca98fabe31c20bd52ae09d68815",
     "semantic_hash": ""
   },
   "public/details/mogoj-dholai.pdf": {
-    "mtime": 1795511397.8361714,
-    "seen": 1795511796.155589,
+    "mtime": 1795597873.2556872,
+    "seen": 1795598742.7326562,
     "ast_hash": "55ef35a0fb26ba67a6a6099e7a1fbc49",
     "semantic_hash": ""
   },
   "public/images/events/data-nilam.jpeg": {
-    "mtime": 1795512767.6999466,
-    "seen": 1795513054.179403,
+    "mtime": 1795597873.2584329,
+    "seen": 1795598742.7327092,
     "ast_hash": "a58cf04cd9bbea31b47aa0edbd916a1f",
+    "semantic_hash": ""
+  },
+  "public/images/sponsors/edugraph.jpg": {
+    "mtime": 1795597873.2587044,
+    "seen": 1795598742.732741,
+    "ast_hash": "5fefefc36c477ede72a1e3fb15dfb9e6",
+    "semantic_hash": ""
+  },
+  "public/images/sponsors/flutterflow.jpg": {
+    "mtime": 1795597873.25886,
+    "seen": 1795598742.7327418,
+    "ast_hash": "90353bd0652c0346135cd912b24993e1",
+    "semantic_hash": ""
+  },
+  "public/images/sponsors/krafton.jpg": {
+    "mtime": 1795597873.2590306,
+    "seen": 1795598742.732743,
+    "ast_hash": "c1c09ee81955c4fff7ea167544ee54e8",
+    "semantic_hash": ""
+  },
+  "public/images/sponsors/studio-one.jpg": {
+    "mtime": 1795597873.259326,
+    "seen": 1795598742.732743,
+    "ast_hash": "0af159ee8071f70f61c3afdc861844d9",
+    "semantic_hash": ""
+  },
+  "public/images/sponsors/unstop.jpg": {
+    "mtime": 1795598402.8940043,
+    "seen": 1795598742.732744,
+    "ast_hash": "553c4ee9254b307d0313f7c2394a6093",
     "semantic_hash": ""
   },
   "package-lock.json": {
