@@ -33,7 +33,7 @@ export function Navbar() {
   /* Track which section is in view when on the home page */
   useEffect(() => {
     if (pathname !== "/") return;
-    const sectionIds = ["about", "speakers", "sponsors", "contact"];
+    const sectionIds = ["about", "workshop", "sponsors", "contact"];
     const handleScroll = () => {
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i]);
