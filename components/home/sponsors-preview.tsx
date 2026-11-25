@@ -1,264 +1,261 @@
 "use client";
+
 import Image from "next/image";
-import { sponsors, publicOnly } from "@/lib/content";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { gsap, registerGsap } from "@/lib/gsap";
+import { sponsors, publicOnly, siteContent } from "@/lib/content";
 import type { Sponsor } from "@/types";
 
-/* ─── Sponsor tier config ─────────────────────────────────────────────── */
-const TIER_CONFIG: Record<
-  string,
-  {
-    label: string;
-    badge: string;
-    badgeBg: string;
-    badgeText: string;
-    glow: string;
-    border: string;
-    cardBg: string;
-    logoBg: string;
-    logoH: string;
-    logoP: string;
-    cols: string;
-    maxW: string;
-  }
-> = {
-  gold: {
-    label: "Gold Sponsor",
-    badge: "✦ GOLD",
-    badgeBg: "linear-gradient(135deg,#b8860b,#ffd700,#b8860b)",
-    badgeText: "#0a0800",
-    glow: "rgba(255,215,0,0.25)",
-    border: "rgba(255,215,0,0.5)",
-    cardBg: "rgba(255,215,0,0.04)",
-    logoBg: "rgba(255,255,255,0.97)",
-    logoH: "h-24 sm:h-32 md:h-36",
-    logoP: "p-6 sm:p-8",
-    cols: "grid-cols-1 sm:grid-cols-1 md:grid-cols-1",
-    maxW: "max-w-xs sm:max-w-sm md:max-w-md",
-  },
-  silver: {
-    label: "Silver Sponsor",
-    badge: "✦ SILVER",
-    badgeBg: "linear-gradient(135deg,#8c8c8c,#e8e8e8,#8c8c8c)",
-    badgeText: "#0a0a0a",
-    glow: "rgba(200,200,200,0.2)",
-    border: "rgba(200,200,200,0.45)",
-    cardBg: "rgba(200,200,200,0.04)",
-    logoBg: "rgba(255,255,255,0.95)",
-    logoH: "h-20 sm:h-24 md:h-28",
-    logoP: "p-5 sm:p-6",
-    cols: "grid-cols-1 sm:grid-cols-2",
-    maxW: "max-w-[26rem]",
-  },
-  partner: {
-    label: "Official Partner",
-    badge: "◈ PARTNER",
-    badgeBg: "rgba(228,9,8,0.15)",
-    badgeText: "#e40908",
-    glow: "rgba(228,9,8,0.1)",
-    border: "rgba(228,9,8,0.3)",
-    cardBg: "rgba(228,9,8,0.03)",
-    logoBg: "rgba(255,255,255,0.93)",
-    logoH: "h-16 sm:h-20 md:h-24",
-    logoP: "p-4 sm:p-5",
-    cols: "grid-cols-2 sm:grid-cols-3",
-    maxW: "",
-  },
-};
+function getLogoSurface(id: string) {
+  if (id === "sponsor-edugraph") return "#000000";
+  if (id === "sponsor-studio-one") return "#eb5e0b";
+  return "#ffffff";
+}
 
-/* ─── SponsorCard ─────────────────────────────────────────────────────── */
-function SponsorCard({ s }: { s: Sponsor }) {
-  const cfg = TIER_CONFIG[s.tier] ?? TIER_CONFIG.partner;
-  const inner = (
-    <div
-      className="group relative flex flex-col items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:scale-[1.03]"
-      style={{
-        background: cfg.cardBg,
-        border: `1px solid ${cfg.border}`,
-        boxShadow: `0 0 40px ${cfg.glow}, 0 4px 20px rgba(0,0,0,0.5)`,
-      }}
+function SponsorTile({
+  sponsor,
+  index,
+  featured = false,
+}: {
+  sponsor: Sponsor;
+  index: number;
+  featured?: boolean;
+}) {
+  const num = String(index + 1).padStart(2, "0");
+  const isGold = sponsor.tier === "gold";
+  const isSilver = sponsor.tier === "silver";
+
+  const content = (
+    <article
+      data-sponsor-tile
+      className="group relative flex h-full flex-col justify-between bg-forest/70 p-6 sm:p-8 transition-colors duration-300 hover:bg-forest-soft"
     >
-      {/* Tier badge */}
-      <span
-        className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-0.5 font-mono text-[9px] font-black tracking-[0.2em] uppercase"
-        style={{
-          background: cfg.badgeBg,
-          color: cfg.badgeText,
-          boxShadow: `0 2px 12px ${cfg.glow}`,
-        }}
-      >
-        {cfg.badge}
-      </span>
+      {/* Top index + tier bar */}
+      <div className="flex items-center justify-between gap-3 border-b border-sand/15 pb-4">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs font-bold tracking-widest text-signal">
+            {num}
+          </span>
+          <span aria-hidden className="h-3 w-px bg-sand/20" />
+          <span
+            className={
+              isGold
+                ? "bg-signal px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-void"
+                : isSilver
+                ? "border border-sand/40 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-sand"
+                : "font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-sand-dim"
+            }
+          >
+            {sponsor.category}
+          </span>
+        </div>
+        {sponsor.url && (
+          <span
+            aria-hidden
+            className="font-mono text-sm text-sand-dim transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-signal"
+          >
+            ↗
+          </span>
+        )}
+      </div>
 
-      {/* Logo box */}
+      {/* Logo stage */}
       <div
-        className={`relative w-full ${cfg.logoH} ${cfg.logoP} rounded-xl overflow-hidden flex items-center justify-center`}
-        style={{
-          background:
-            s.id === "sponsor-edugraph"
-              ? "#000000"
-              : s.id === "sponsor-studio-one"
-              ? "#eb5e0b"
-              : s.id === "sponsor-unstop"
-              ? "#ffffff"
-              : cfg.logoBg,
-        }}
+        className={`relative my-6 w-full overflow-hidden border border-sand/10 ${
+          featured ? "h-36 sm:h-44" : "h-24 sm:h-28"
+        }`}
+        style={{ background: getLogoSurface(sponsor.id) }}
       >
         <Image
-          src={s.logoPath}
-          alt={s.logoAlt}
+          src={sponsor.logoPath}
+          alt={sponsor.logoAlt}
           fill
-          className="object-contain p-2 sm:p-3 transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 25vw"
+          className="object-contain p-4 sm:p-6 transition-transform duration-500 ease-snap group-hover:scale-[1.04]"
+          sizes={
+            featured
+              ? "(max-width: 768px) 92vw, 48vw"
+              : "(max-width: 640px) 92vw, 30vw"
+          }
         />
       </div>
 
-      {/* Name & category */}
-      <div className="text-center">
-        <p
-          className="font-display font-black text-base uppercase tracking-wider"
-          style={{ color: "#e9dfc5" }}
+      {/* Bottom editorial metadata */}
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <h3
+            className={`display text-sand ${
+              featured ? "text-2xl sm:text-3xl" : "text-lg sm:text-xl"
+            }`}
+          >
+            {sponsor.name}
+          </h3>
+          {sponsor.tagline && (
+            <p className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-sand-dim/80">
+              {sponsor.tagline}
+            </p>
+          )}
+        </div>
+        <span
+          aria-hidden
+          className="condensed text-2xl leading-none text-sand/15 transition-colors duration-300 group-hover:text-signal/50"
         >
-          {s.name}
-        </p>
-        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest"
-          style={{ color: "rgba(233,223,197,0.5)" }}>
-          {s.category}
-        </p>
+          /{num}
+        </span>
       </div>
 
-      {/* Hover shimmer line */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 scale-x-0 rounded-full transition-transform duration-500 group-hover:scale-x-100"
-        style={{ background: cfg.border }}
+      {/* Bottom wipe rule */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-signal transition-transform duration-500 ease-snap group-hover:scale-x-100"
       />
-    </div>
+    </article>
   );
 
-  return s.url ? (
-    <a href={s.url} target="_blank" rel="noopener noreferrer" className="block">
-      {inner}
+  return sponsor.url ? (
+    <a
+      href={sponsor.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="Visit"
+      className="block h-full focus-visible:outline-none"
+    >
+      {content}
     </a>
   ) : (
-    <div>{inner}</div>
+    <div className="h-full">{content}</div>
   );
 }
 
-/* ─── Section divider ─────────────────────────────────────────────────── */
-function TierDivider({ label, color }: { label: string; color: string }) {
-  return (
-    <div className="flex items-center gap-4 my-10">
-      <div className="flex-1 h-px" style={{ background: `linear-gradient(to right, transparent, ${color})` }} />
-      <span
-        className="font-mono text-[10px] font-black tracking-[0.3em] uppercase px-4 py-1.5 rounded-full border"
-        style={{ color, borderColor: color, background: `${color}10` }}
-      >
-        {label}
-      </span>
-      <div className="flex-1 h-px" style={{ background: `linear-gradient(to left, transparent, ${color})` }} />
-    </div>
-  );
-}
-
-/* ─── Main component ──────────────────────────────────────────────────── */
 export function SponsorsPreview() {
+  const root = useRef<HTMLElement>(null);
   const real = publicOnly(sponsors);
 
-  const gold    = real.filter((s) => s.tier === "gold");
-  const silver  = real.filter((s) => s.tier === "silver");
-  const partner = real.filter((s) => s.tier === "partner");
+  const principal = real.filter((s) => s.tier === "gold" || s.tier === "silver");
+  const partners = real.filter((s) => s.tier !== "gold" && s.tier !== "silver");
+  const contactEmail = siteContent.contactEmail || "kerneljuit@gmail.com";
+
+  useEffect(() => {
+    registerGsap();
+    const el = root.current;
+    if (!el) return;
+    const mm = gsap.matchMedia();
+    mm.add({ motion: "(prefers-reduced-motion: no-preference)" }, (ctx) => {
+      const { motion } = ctx.conditions as { motion: boolean };
+      if (!motion) return;
+      gsap.fromTo(
+        "[data-sponsor-tile]",
+        { y: 28, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 80%", once: true },
+        }
+      );
+    });
+    return () => mm.revert();
+  }, []);
 
   return (
     <section
+      ref={root}
       id="sponsors"
       aria-labelledby="sponsors-title"
-      className="relative overflow-hidden py-24 bg-void"
+      className="relative overflow-hidden bg-void py-section border-t border-sand/10"
     >
-      {/* Background decorative grid */}
+      {/* Subtle halftone corner accent matching brochure aesthetic */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(233,223,197,1) 1px, transparent 1px), linear-gradient(90deg, rgba(233,223,197,1) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
+        aria-hidden
+        className="halftone pointer-events-none absolute right-0 top-0 h-72 w-72 opacity-20"
       />
 
-      {/* Radial glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full blur-[120px] opacity-10"
-        style={{ background: "radial-gradient(circle, #e40908 0%, #9a4dff 45%, transparent 70%)" }}
-      />
-
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-
-        {/* ── Heading ── */}
-        <div className="text-center mb-4">
-          <p className="font-mono text-xs text-signal uppercase tracking-[0.3em] mb-3">
-            ◈ Powered by
-          </p>
-          <h2
-            id="sponsors-title"
-            className="display text-[clamp(2.4rem,6vw,5rem)] uppercase leading-none text-sand"
-          >
-            Our <span className="text-signal">Partners</span>
-          </h2>
-          <p className="mt-4 font-sans text-sm text-sand/60 max-w-md mx-auto">
-            Brands and organisations making KERNEL&apos;26 possible. Click any logo to visit their official website.
+      <div className="container relative">
+        {/* Editorial section header */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-sand/15 pb-10">
+          <div>
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-sand-dim">
+              <span className="slashes" />
+              Backed by
+            </p>
+            <h2
+              id="sponsors-title"
+              className="display max-w-4xl text-[clamp(2.8rem,7vw,6.2rem)]"
+            >
+              Partners &amp; <span className="outline-text">Sponsors</span>
+            </h2>
+          </div>
+          <p className="max-w-sm font-mono text-xs leading-relaxed text-sand-dim">
+            Organisations and platforms powering KERNEL 1.0 at Jadavpur
+            University. Select any partner to visit their official site.
           </p>
         </div>
 
-        {/* ── Decorative top line ── */}
-        <div className="mt-8 mx-auto max-w-xs h-px"
-          style={{ background: "linear-gradient(to right, transparent, rgba(228,9,8,0.5), transparent)" }}
-        />
-
-        {/* ── Gold sponsors ── */}
-        {gold.length > 0 && (
-          <>
-            <TierDivider label="Gold Sponsor" color="#ffd700" />
-            <div className="flex flex-wrap justify-center gap-6">
-              {gold.map((s) => (
-                <div key={s.id} className="w-full max-w-sm">
-                  <SponsorCard s={s} />
+        {/* Row 1: Principal Sponsors (Gold & Silver) */}
+        {principal.length > 0 && (
+          <div className="mt-10">
+            <div className="mb-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-sand-dim">
+              <span>/// Title &amp; Principal Tiers</span>
+              <span>{String(principal.length).padStart(2, "0")} Featured</span>
+            </div>
+            <div className="grid grid-cols-1 gap-px bg-sand/15 border border-sand/15 md:grid-cols-12">
+              {principal.map((s, idx) => (
+                <div
+                  key={s.id}
+                  className={
+                    principal.length === 2
+                      ? idx === 0
+                        ? "md:col-span-7"
+                        : "md:col-span-5"
+                      : "md:col-span-6"
+                  }
+                >
+                  <SponsorTile sponsor={s} index={idx} featured />
                 </div>
               ))}
             </div>
-          </>
+          </div>
         )}
 
-        {/* ── Silver sponsors ── */}
-        {silver.length > 0 && (
-          <>
-            <TierDivider label="Silver Sponsor" color="#c0c0c0" />
-            <div className="flex flex-wrap justify-center gap-6">
-              {silver.map((s) => (
-                <div key={s.id} className="w-full max-w-xs sm:max-w-sm">
-                  <SponsorCard s={s} />
+        {/* Row 2: Official & Ecosystem Partners */}
+        {partners.length > 0 && (
+          <div className="mt-10">
+            <div className="mb-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-sand-dim">
+              <span>/// Ecosystem &amp; Media Partners</span>
+              <span>{String(partners.length).padStart(2, "0")} Partners</span>
+            </div>
+            <div className="grid grid-cols-1 gap-px bg-sand/15 border border-sand/15 sm:grid-cols-2 lg:grid-cols-3">
+              {partners.map((s, idx) => (
+                <div key={s.id}>
+                  <SponsorTile
+                    sponsor={s}
+                    index={principal.length + idx}
+                  />
                 </div>
               ))}
             </div>
-          </>
+          </div>
         )}
 
-        {/* ── Partners ── */}
-        {partner.length > 0 && (
-          <>
-            <TierDivider label="Official Partners" color="#e40908" />
-            <div className="flex flex-wrap justify-center gap-6">
-              {partner.map((s) => (
-                <div key={s.id} className="w-full max-w-xs sm:max-w-[18rem] lg:max-w-[19rem]">
-                  <SponsorCard s={s} />
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* ── Bottom tag ── */}
-        <div className="mt-16 text-center">
-          <p className="font-mono text-[10px] text-sand/30 uppercase tracking-widest">
-            KERNEL 1.0 &bull; Dept. of Information Technology &bull; Jadavpur University
+        {/* Bottom inquiry strip */}
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-sand/15 pt-6 sm:flex-row sm:items-center">
+          <p className="font-mono text-xs uppercase tracking-widest text-sand-dim">
+            Interested in partnering with KERNEL 1.0?
           </p>
+          <div className="flex flex-wrap items-center gap-6">
+            <a
+              href={`mailto:${contactEmail}`}
+              className="kbtn kbtn-text font-mono text-xs"
+            >
+              <span className="kbtn-label">{contactEmail}</span>
+            </a>
+            <Link href="/#contact" className="kbtn kbtn-secondary">
+              <span className="kbtn-label">Become a sponsor</span>
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
