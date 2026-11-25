@@ -250,7 +250,7 @@ export function ContactSection({
           {/* ── RIGHT COLUMN (6 cols): Direct Architectural Message Form ─ */}
           <div className="relative lg:col-span-6 flex flex-col justify-center lg:pl-6 xl:pl-10">
             <div className="mb-6 sm:mb-8">
-              <h3 className="font-serif italic font-normal text-[clamp(2.75rem,5.5vw,4.75rem)] text-sand leading-none tracking-wide">
+              <h3 className="display text-[clamp(2.2rem,4.2vw,3.8rem)] italic font-black uppercase text-sand leading-none tracking-tight">
                 SEND A MESSAGE
               </h3>
             </div>
