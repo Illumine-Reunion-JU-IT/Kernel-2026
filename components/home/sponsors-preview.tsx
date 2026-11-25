@@ -15,6 +15,7 @@ const TIERS = [
 function getPlateBg(id: string): string {
   if (id === "sponsor-edugraph") return "#000000";
   if (id === "sponsor-studio-one") return "#eb5e0b";
+  if (id === "sponsor-unstop") return "#ffffff";
   return "#ffffff";
 }
 

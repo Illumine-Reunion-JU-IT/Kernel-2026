@@ -30,6 +30,7 @@ export interface EventDossier {
   mode: string;
   teamSize: string;
   prizePool: string;
+  brochureUrl?: string;
   timeline: TimelineDetail;
   overviewSummary: RuleItem[];
   rules: RuleItem[];
