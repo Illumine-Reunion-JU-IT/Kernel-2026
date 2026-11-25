@@ -1,264 +1,151 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { gsap, registerGsap } from "@/lib/gsap";
 import { sponsors, publicOnly } from "@/lib/content";
+import { CROPS, cropStyle } from "@/lib/poster";
 import type { Sponsor } from "@/types";
 
-/* ─── Sponsor tier config ─────────────────────────────────────────────── */
-const TIER_CONFIG: Record<
-  string,
-  {
-    label: string;
-    badge: string;
-    badgeBg: string;
-    badgeText: string;
-    glow: string;
-    border: string;
-    cardBg: string;
-    logoBg: string;
-    logoH: string;
-    logoP: string;
-    cols: string;
-    maxW: string;
-  }
-> = {
-  gold: {
-    label: "Gold Sponsor",
-    badge: "✦ GOLD",
-    badgeBg: "linear-gradient(135deg,#b8860b,#ffd700,#b8860b)",
-    badgeText: "#0a0800",
-    glow: "rgba(255,215,0,0.25)",
-    border: "rgba(255,215,0,0.5)",
-    cardBg: "rgba(255,215,0,0.04)",
-    logoBg: "rgba(255,255,255,0.97)",
-    logoH: "h-24 sm:h-32 md:h-36",
-    logoP: "p-6 sm:p-8",
-    cols: "grid-cols-1 sm:grid-cols-1 md:grid-cols-1",
-    maxW: "max-w-xs sm:max-w-sm md:max-w-md",
-  },
-  silver: {
-    label: "Silver Sponsor",
-    badge: "✦ SILVER",
-    badgeBg: "linear-gradient(135deg,#8c8c8c,#e8e8e8,#8c8c8c)",
-    badgeText: "#0a0a0a",
-    glow: "rgba(200,200,200,0.2)",
-    border: "rgba(200,200,200,0.45)",
-    cardBg: "rgba(200,200,200,0.04)",
-    logoBg: "rgba(255,255,255,0.95)",
-    logoH: "h-20 sm:h-24 md:h-28",
-    logoP: "p-5 sm:p-6",
-    cols: "grid-cols-1 sm:grid-cols-2",
-    maxW: "max-w-[26rem]",
-  },
-  partner: {
-    label: "Official Partner",
-    badge: "◈ PARTNER",
-    badgeBg: "rgba(228,9,8,0.15)",
-    badgeText: "#e40908",
-    glow: "rgba(228,9,8,0.1)",
-    border: "rgba(228,9,8,0.3)",
-    cardBg: "rgba(228,9,8,0.03)",
-    logoBg: "rgba(255,255,255,0.93)",
-    logoH: "h-16 sm:h-20 md:h-24",
-    logoP: "p-4 sm:p-5",
-    cols: "grid-cols-2 sm:grid-cols-3",
-    maxW: "",
-  },
-};
+const TIERS = [
+  { key: "gold", index: "01", label: "Gold Sponsor", cols: "grid-cols-1 max-w-md mx-auto", plateH: "h-36 sm:h-44" },
+  { key: "silver", index: "02", label: "Silver Sponsor", cols: "grid-cols-1 max-w-sm mx-auto", plateH: "h-28 sm:h-36" },
+  { key: "partner", index: "03", label: "Official Partners", cols: "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto", plateH: "h-24 sm:h-32" },
+] as const;
 
-/* ─── SponsorCard ─────────────────────────────────────────────────────── */
-function SponsorCard({ s }: { s: Sponsor }) {
-  const cfg = TIER_CONFIG[s.tier] ?? TIER_CONFIG.partner;
-  const inner = (
-    <div
-      className="group relative flex flex-col items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:scale-[1.03]"
-      style={{
-        background: cfg.cardBg,
-        border: `1px solid ${cfg.border}`,
-        boxShadow: `0 0 40px ${cfg.glow}, 0 4px 20px rgba(0,0,0,0.5)`,
-      }}
+function getPlateBg(id: string): string {
+  if (id === "sponsor-edugraph") return "#000000";
+  if (id === "sponsor-studio-one") return "#eb5e0b";
+  return "#ffffff";
+}
+
+function SponsorTile({ s, plateH, index }: { s: Sponsor; plateH: string; index: number }) {
+  const card = (
+    <article
+      data-sp
+      className={`group relative border border-sand/15 bg-forest/70 backdrop-blur-sm transition-colors duration-300 hover:border-signal/70 ${index % 2 ? "shard-b" : "shard-a"}`}
     >
-      {/* Tier badge */}
+      {/* Top signal accent strip */}
       <span
-        className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-0.5 font-mono text-[9px] font-black tracking-[0.2em] uppercase"
-        style={{
-          background: cfg.badgeBg,
-          color: cfg.badgeText,
-          boxShadow: `0 2px 12px ${cfg.glow}`,
-        }}
-      >
-        {cfg.badge}
-      </span>
+        aria-hidden
+        className="absolute left-0 top-0 h-full w-1 bg-sand/20 transition-colors duration-300 group-hover:bg-signal"
+      />
 
-      {/* Logo box */}
+      {/* Logo plate */}
       <div
-        className={`relative w-full ${cfg.logoH} ${cfg.logoP} rounded-xl overflow-hidden flex items-center justify-center`}
-        style={{
-          background:
-            s.id === "sponsor-edugraph"
-              ? "#000000"
-              : s.id === "sponsor-studio-one"
-              ? "#eb5e0b"
-              : s.id === "sponsor-unstop"
-              ? "#ffffff"
-              : cfg.logoBg,
-        }}
+        className={`relative w-full ${plateH} overflow-hidden border-b border-sand/10`}
+        style={{ background: getPlateBg(s.id) }}
       >
         <Image
           src={s.logoPath}
           alt={s.logoAlt}
           fill
-          className="object-contain p-2 sm:p-3 transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 25vw"
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 32vw"
+          className="object-contain p-5 sm:p-6 transition-transform duration-500 group-hover:scale-[1.04]"
         />
       </div>
 
-      {/* Name & category */}
-      <div className="text-center">
-        <p
-          className="font-display font-black text-base uppercase tracking-wider"
-          style={{ color: "#e9dfc5" }}
-        >
-          {s.name}
-        </p>
-        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest"
-          style={{ color: "rgba(233,223,197,0.5)" }}>
-          {s.category}
-        </p>
+      {/* Metadata footer */}
+      <div className="flex items-center justify-between gap-3 px-5 py-3.5">
+        <div className="min-w-0">
+          <p className="display truncate text-base sm:text-lg text-sand group-hover:text-white transition-colors">
+            {s.name}
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sand-dim">
+            {s.category}
+          </p>
+        </div>
+        {s.url && (
+          <span
+            aria-hidden
+            className="flex h-8 w-8 shrink-0 items-center justify-center border border-sand/20 font-mono text-xs text-sand transition-all duration-300 group-hover:border-signal group-hover:bg-signal group-hover:text-void"
+          >
+            ↗
+          </span>
+        )}
       </div>
-
-      {/* Hover shimmer line */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 scale-x-0 rounded-full transition-transform duration-500 group-hover:scale-x-100"
-        style={{ background: cfg.border }}
-      />
-    </div>
+    </article>
   );
 
   return s.url ? (
-    <a href={s.url} target="_blank" rel="noopener noreferrer" className="block">
-      {inner}
+    <a href={s.url} target="_blank" rel="noopener noreferrer" className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal">
+      {card}
     </a>
   ) : (
-    <div>{inner}</div>
+    card
   );
 }
 
-/* ─── Section divider ─────────────────────────────────────────────────── */
-function TierDivider({ label, color }: { label: string; color: string }) {
-  return (
-    <div className="flex items-center gap-4 my-10">
-      <div className="flex-1 h-px" style={{ background: `linear-gradient(to right, transparent, ${color})` }} />
-      <span
-        className="font-mono text-[10px] font-black tracking-[0.3em] uppercase px-4 py-1.5 rounded-full border"
-        style={{ color, borderColor: color, background: `${color}10` }}
-      >
-        {label}
-      </span>
-      <div className="flex-1 h-px" style={{ background: `linear-gradient(to left, transparent, ${color})` }} />
-    </div>
-  );
-}
-
-/* ─── Main component ──────────────────────────────────────────────────── */
 export function SponsorsPreview() {
+  const root = useRef<HTMLElement>(null);
   const real = publicOnly(sponsors);
 
-  const gold    = real.filter((s) => s.tier === "gold");
-  const silver  = real.filter((s) => s.tier === "silver");
-  const partner = real.filter((s) => s.tier === "partner");
+  useEffect(() => {
+    registerGsap();
+    const el = root.current;
+    if (!el) return;
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo("[data-bld]", { yPercent: 14 }, { yPercent: -12, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true } });
+      gsap.fromTo("[data-crowd]", { yPercent: -20 }, { yPercent: 22, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true } });
+      gsap.utils.toArray<HTMLElement>("[data-tier]").forEach((t) => {
+        gsap.from(t.querySelectorAll("[data-sp]"), {
+          y: 28,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.75,
+          ease: "power3.out",
+          scrollTrigger: { trigger: t, start: "top 88%", once: true },
+        });
+        gsap.fromTo(
+          t.querySelector("[data-tier-line]"),
+          { scaleX: 0 },
+          { scaleX: 1, transformOrigin: "left", ease: "none", scrollTrigger: { trigger: t, start: "top 92%", end: "top 60%", scrub: true } }
+        );
+      });
+    });
+    return () => mm.revert();
+  }, []);
 
   return (
-    <section
-      id="sponsors"
-      aria-labelledby="sponsors-title"
-      className="relative overflow-hidden py-24 bg-void"
-    >
-      {/* Background decorative grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(233,223,197,1) 1px, transparent 1px), linear-gradient(90deg, rgba(233,223,197,1) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
+    <section ref={root} id="sponsors" aria-labelledby="sponsors-title" className="relative overflow-hidden bg-void py-section">
+      {/* Subtle architectural poster shards matching rest of homepage */}
+      <div aria-hidden data-bld className="absolute -left-[5vw] top-[4%] w-[26vw] min-w-40 rotate-[-4deg] opacity-55 grayscale shard-b" style={cropStyle(CROPS.building)} />
+      <div aria-hidden data-crowd className="absolute -right-[4vw] bottom-[2%] w-[30vw] min-w-48 rotate-[3deg] opacity-40 grayscale shard-a" style={cropStyle(CROPS.crowd)} />
 
-      {/* Radial glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full blur-[120px] opacity-10"
-        style={{ background: "radial-gradient(circle, #e40908 0%, #9a4dff 45%, transparent 70%)" }}
-      />
-
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-
-        {/* ── Heading ── */}
-        <div className="text-center mb-4">
-          <p className="font-mono text-xs text-signal uppercase tracking-[0.3em] mb-3">
-            ◈ Powered by
+      <div className="container relative mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="mb-4 font-mono text-xs text-sand-dim">
+            <span className="slashes" />Backed by
           </p>
-          <h2
-            id="sponsors-title"
-            className="display text-[clamp(2.4rem,6vw,5rem)] uppercase leading-none text-sand"
-          >
-            Our <span className="text-signal">Partners</span>
+          <h2 id="sponsors-title" className="display text-[clamp(2.8rem,7vw,6.4rem)]">
+            Built with <span className="text-signal">our partners</span>
           </h2>
-          <p className="mt-4 font-sans text-sm text-sand/60 max-w-md mx-auto">
-            Brands and organisations making KERNEL&apos;26 possible. Click any logo to visit their official website.
+          <p className="mt-4 max-w-lg mx-auto text-sm sm:text-base text-sand-dim">
+            Organisations powering KERNEL 1.0 at Jadavpur University. Select any partner to visit their official site.
           </p>
         </div>
 
-        {/* ── Decorative top line ── */}
-        <div className="mt-8 mx-auto max-w-xs h-px"
-          style={{ background: "linear-gradient(to right, transparent, rgba(228,9,8,0.5), transparent)" }}
-        />
-
-        {/* ── Gold sponsors ── */}
-        {gold.length > 0 && (
-          <>
-            <TierDivider label="Gold Sponsor" color="#ffd700" />
-            <div className="flex flex-wrap justify-center gap-6">
-              {gold.map((s) => (
-                <div key={s.id} className="w-full max-w-sm">
-                  <SponsorCard s={s} />
+        <div className="mt-16 max-w-4xl mx-auto space-y-14">
+          {TIERS.map((tier) => {
+            const list = real.filter((s) => s.tier === tier.key);
+            if (list.length === 0) return null;
+            return (
+              <div key={tier.key} data-tier>
+                <div className="mb-6 flex items-center gap-4">
+                  <span className="font-mono text-[11px] font-bold text-signal">{tier.index}</span>
+                  <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-sand">
+                    {tier.label}
+                  </h3>
+                  <span data-tier-line className="h-px flex-1 bg-sand/20" />
                 </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* ── Silver sponsors ── */}
-        {silver.length > 0 && (
-          <>
-            <TierDivider label="Silver Sponsor" color="#c0c0c0" />
-            <div className="flex flex-wrap justify-center gap-6">
-              {silver.map((s) => (
-                <div key={s.id} className="w-full max-w-xs sm:max-w-sm">
-                  <SponsorCard s={s} />
+                <div className={`grid gap-5 ${tier.cols}`}>
+                  {list.map((s, i) => (
+                    <SponsorTile key={s.id} s={s} plateH={tier.plateH} index={i} />
+                  ))}
                 </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* ── Partners ── */}
-        {partner.length > 0 && (
-          <>
-            <TierDivider label="Official Partners" color="#e40908" />
-            <div className="flex flex-wrap justify-center gap-6">
-              {partner.map((s) => (
-                <div key={s.id} className="w-full max-w-xs sm:max-w-[18rem] lg:max-w-[19rem]">
-                  <SponsorCard s={s} />
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* ── Bottom tag ── */}
-        <div className="mt-16 text-center">
-          <p className="font-mono text-[10px] text-sand/30 uppercase tracking-widest">
-            KERNEL 1.0 &bull; Dept. of Information Technology &bull; Jadavpur University
-          </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

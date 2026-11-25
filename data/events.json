@@ -5,43 +5,41 @@
     "slug": "mogoj-dholai",
     "category": "Competitive programming",
     "tagline": "Our traditional CP flagship",
-    "summary": "An elite algorithmic problem-solving contest hosted under Kernel 1.0 by the Department of IT, Jadavpur University, challenging individual competitors under standard ICPC scoring.",
+    "summary": "Our traditional CP flagship event, designed to test the analytical limits, algorithmic thinking and data structure mastery of the participants.",
     "facts": [
-      { "label": "Team Size", "value": "Individual (1 Member)" },
-      { "label": "Duration", "value": "2 Hours (Finale)" },
-      { "label": "Format", "value": "ICPC-Style Contest" },
+      { "label": "Team Size", "value": "Individual (Solo)" },
+      { "label": "Duration", "value": "1H Prelims · 2H Finale" },
+      { "label": "Format", "value": "ICPC-Style Hybrid" },
       { "label": "Prize Pool", "value": "₹6,000" }
     ],
-    "date": "11 Dec (Prelims) & 19 Dec 2026 (Finale)",
+    "date": "11 Dec (Prelims) · 19 Dec 2026 (Finale)",
     "venue": "SMCC Building, JU Salt Lake Campus",
     "imagePath": "/images/events/mogoj-dholai.jpg",
     "imageAlt": "Mogoj Dholai poster: a neo-expressionist black figure with binary tree diagrams and complexity notations on a coral-red background",
     "registrationUrl": "https://unstop.com/hackathons/mogoj-dholai-kernel-10-department-of-information-technology-jadavpur-university-1822588",
-    "brochureUrl": "/details/mogoj-dholai.pdf",
     "isPlaceholder": false,
-    "organiserNote": "Brochure confirmed. Contacts: Soumyadeep Roy Chowdhury +91 9163746705, Ayush Bhakta +91 9903752006. Prelims 11 Dec 8-9 PM, Finale 19 Dec 12-2 PM."
+    "organiserNote": "Updated from official MOGOJ DHOLAI brochure. Contacts: Soumyadeep Roy Chowdhury +91 9163746705, Ayush Bhakta +91 9903752006."
   },
   {
     "id": "event-002",
     "title": "Hojohborolo",
     "slug": "hojohborolo",
     "category": "Software challenge",
-    "tagline": "Where Logic Takes a Backseat and Absurdity Compiles.",
-    "summary": "A fast-paced creative software challenge where teams build quirky, unusual, and wildly entertaining software, prioritizing joy, humor, and creative UI over conventional hackathon metrics.",
+    "tagline": "Where logic takes a backseat",
+    "summary": "A fast-paced, non-stop creative software challenge where teams build quirky, unusual, and wildly entertaining software rather than traditional corporate utilities.",
     "facts": [
       { "label": "Team Size", "value": "2 to 3 Members" },
-      { "label": "Duration", "value": "3 Hours (Sprint)" },
-      { "label": "Format", "value": "Quirky Prototyping & Live Showcase" },
+      { "label": "Duration", "value": "2.5 Hours Sprint" },
+      { "label": "Format", "value": "Any Tech Stack" },
       { "label": "Prize Pool", "value": "₹6,000" }
     ],
-    "date": "11 Dec (Prelims) & 19 Dec 2026 (Main Event)",
+    "date": "11 Dec (Prelims) · 19 Dec 2026 (Sprint)",
     "venue": "SMCC Building, JU Salt Lake Campus",
     "imagePath": "/images/events/hojohborolo.jpg",
     "imageAlt": "Hojohborolo poster: an ink-drawn crow typing on a mechanical keyboard against a golden-yellow wave background with Bengali title হযবরল",
     "registrationUrl": "https://unstop.com/hackathons/hojohborolo-kernel-10-department-of-information-technology-jadavpur-university-1822587",
-    "brochureUrl": "/details/hojohborolo.pdf",
     "isPlaceholder": false,
-    "organiserNote": "Brochure confirmed. Contacts: Ankit Roy +91 9433481219, Rajdeep Dhar +91 8670825911. Prelims 11 Dec 7-10 PM, Main Event 19 Dec 2-5 PM."
+    "organiserNote": "Updated from official HOJOHBOROLO brochure. Contacts: Ankit Roy +91 9433481219, Rajdeep Dhar +91 8670825911."
   },
   {
     "id": "event-003",
@@ -49,46 +47,65 @@
     "slug": "data-nilaam",
     "category": "Machine learning",
     "tagline": "Build the bank, buy the data",
-    "summary": "A machine learning competition about the value of data where teams run NovaCredit, a digital lender, deciding which credit cards to offer to 10,000 applicants, bidding on exclusive datasets in live auctions.",
+    "summary": "A machine learning competition about the value of data. Teams run NovaCredit, a new digital lender, buy exclusive datasets in live auctions, and train models on Kaggle.",
     "facts": [
       { "label": "Team Size", "value": "2 to 4 Members" },
-      { "label": "Duration", "value": "3 Hours (Finale)" },
-      { "label": "Format", "value": "ML & Live Data Auction" },
+      { "label": "Duration", "value": "3 Hours Finale" },
+      { "label": "Format", "value": "Kaggle & Live Auction" },
       { "label": "Prize Pool", "value": "₹6,000" }
     ],
-    "date": "12 Dec (Prelims) & 19 Dec 2026 (Finale)",
+    "date": "12 Dec (MCQ) · 19 Dec 2026 (Finale)",
     "venue": "SMCC Building, JU Salt Lake Campus",
-    "imagePath": "/images/events/data-nilam.jpeg",
+    "imagePath": "/images/events/data-nilaam.jpg",
     "imageAlt": "Data Nilaam poster: electric cobalt-blue background with a white auction gavel, binary rings 0100101, and hot-pink geometric shapes, with Devanagari title नीलाम",
     "registrationUrl": "https://unstop.com/hackathons/data-nilaam-kernel-10-department-of-information-technology-jadavpur-university-1822546",
-    "brochureUrl": "/details/data-nilaam.pdf",
     "isPlaceholder": false,
-    "organiserNote": "Brochure confirmed. Contacts: Debarun Patra +91 8582922525, Naireet Sadhukhan +91 9875625835. Prelims 12 Dec 6-9 PM, Finale 19 Dec 5-8 PM."
+    "organiserNote": "Updated from official DATA NILAAM brochure. Contacts: Debarun Patra +91 8582922525, Naireet Sadhukhan +91 9875625835."
   },
   {
     "id": "event-004",
-    "title": "Hack Sangram",
-    "slug": "hack-sangram",
-    "category": "Hackathon",
-    "tagline": "Think. Build. Innovate. — 12-Hour Hackathon",
-    "summary": "An inter-college 12-hour open-innovation hackathon challenging teams to build working prototypes across 5 problem statements: 60-Second Chaos Engine, Uncooperative AI, Proof of Follow-Through, Death to Dashboards, and Bot-Only Economy.",
+    "title": "Speaker Session",
+    "slug": "speaker-session",
+    "category": "Industry talks",
+    "tagline": "Voices from the field",
+    "summary": "An engaging session featuring industry experts, researchers and alumni, sharing real-world experiences, emerging technologies and insights into the future of computing and innovation.",
     "facts": [
-      { "label": "Team Size", "value": "2 to 4 Members (Min. 1 Female)" },
-      { "label": "Duration", "value": "12 Hours (Sprint)" },
-      { "label": "Format", "value": "Idea Screening & 12h Prototype Build" },
-      { "label": "Prize Pool", "value": "₹10,000" }
+      { "label": "Format", "value": "Talk with interactive Q&A" },
+      { "label": "Speakers", "value": "Industry Experts & Alumni" },
+      { "label": "Entry", "value": "Open to All" },
+      { "label": "Venue", "value": "Jadavpur University" }
     ],
-    "date": "25 Nov – 16 Dec (IDEATE) & 20 Dec 2026 (Finale)",
-    "venue": "SMCC Building, JU Salt Lake Campus",
-    "imagePath": "/images/events/hack-sangram.jpg",
-    "imageAlt": "Hack Sangram poster: a split black-and-white classical bust with the ₹10,000 censor bar across the eyes and CONQUER typography on deep crimson",
-    "registrationUrl": "https://unstop.com/o/4aodEFI?lb=HIE3YJuf",
-    "brochureUrl": "/details/hack-sangram.pdf",
+    "date": "TBD: official event date and time",
+    "venue": "TBD: confirmed event venue",
+    "imagePath": "/images/events/speaker-session.jpg",
+    "imageAlt": "Speaker Session poster: a glitching classical sculpture head overlaid with red pixel artefacts against Jadavpur University campus, with microphone and OPEN TO ALL starburst badge",
+    "registrationUrl": null,
     "isPlaceholder": false,
-    "organiserNote": "Brochure confirmed. Contacts: Prama Ray +91 8293331677, Kaustav Mondal +91 8918221701. Ideation closes 16 Dec 11:59 PM, Finale 20 Dec 8 AM - 8 PM."
+    "organiserNote": "Poster confirmed. No prize pool — open to all. Replace date, venue and registrationUrl once confirmed."
   },
   {
     "id": "event-005",
+    "title": "Hack Sangram",
+    "slug": "hack-sangram",
+    "category": "Hackathon",
+    "tagline": "Think. Build. Innovate.",
+    "summary": "An inter-college, 12-hour open-innovation hackathon with an online IDEATE screening across 5 official problem statements followed by an intense 12-hour on-campus Grand Finale.",
+    "facts": [
+      { "label": "Team Size", "value": "2–4 (Min. 1 Female)" },
+      { "label": "Duration", "value": "12 Hours Finale" },
+      { "label": "Format", "value": "Ideate + Offline Build" },
+      { "label": "Prize Pool", "value": "₹10,000" }
+    ],
+    "date": "25 Nov – 16 Dec (Ideate) · 20 Dec 2026 (Finale)",
+    "venue": "SMCC Building, JU Salt Lake Campus",
+    "imagePath": "/images/events/hack-sangram.jpg",
+    "imageAlt": "Hack Sangram poster: a split black-and-white classical bust with the ₹20,000 censor bar across the eyes and CONQUER typography on deep crimson",
+    "registrationUrl": "https://unstop.com/p/hack-sangram-kernel-10-department-of-information-technology-jadavpur-university-1823424",
+    "isPlaceholder": false,
+    "organiserNote": "Updated from official HACK SANGRAM brochure. Contacts: Prama Ray +91 8293331677, Kaustav Mondal +91 8918221701. Prize pool ₹10,000 Cash + Certificates."
+  },
+  {
+    "id": "event-006",
     "title": "BGMI",
     "slug": "bgmi",
     "category": "Esports",
@@ -109,7 +126,7 @@
     "organiserNote": "KRAFTON India Esports College Campus Tour. Open for all with ₹30,000 prize pool. Contacts: Organizing Committee."
   },
   {
-    "id": "event-006",
+    "id": "event-007",
     "title": "Real Cricket",
     "slug": "real-cricket",
     "category": "Esports",

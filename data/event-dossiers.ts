@@ -30,7 +30,6 @@ export interface EventDossier {
   mode: string;
   teamSize: string;
   prizePool: string;
-  brochureUrl?: string;
   timeline: TimelineDetail;
   overviewSummary: RuleItem[];
   rules: RuleItem[];
@@ -40,44 +39,44 @@ export interface EventDossier {
 
 export const EVENT_DOSSIERS: Record<string, EventDossier> = {
   "mogoj-dholai": {
-    edition: "KERNEL '26",
+    edition: "KERNEL 1.0",
     categoryBadge: "COMPETITIVE PROGRAMMING",
-    lastRegistrationDate: "10TH DECEMBER",
-    mode: "Hybrid (Online Qualifier + Onsite Finale)",
-    teamSize: "Individual (1 Member)",
-    prizePool: "6,000",
-    brochureUrl: "/details/mogoj-dholai.pdf",
+    lastRegistrationDate: "10TH DEC 2026",
+    mode: "Hybrid (Online + Onsite)",
+    teamSize: "Individual (Solo Entry)",
+    prizePool: "6,000 + Certificates",
     timeline: {
-      prelims: "11 Dec 2026 (8:00 PM – 9:00 PM IST, Online)",
-      finals: "19 Dec 2026 (12:00 PM – 2:00 PM IST, Onsite)",
-      time: "12:00 pm - 2:00 pm IST (2-Hour Onsite Finale)",
-      venue: "SMCC Building, JU Salt Lake Campus",
+      prelims: "11 Dec 2026 · 8:00 PM – 9:00 PM IST (Online)",
+      finals: "19 Dec 2026 (Onsite Finale)",
+      time: "12:00 PM – 2:00 PM IST (2 Hours)",
+      venue: "SMCC Building, Jadavpur University, Salt Lake Campus",
     },
     overviewSummary: [
-      { prefix: "An elite ", highlight: "algorithmic problem-solving contest", suffix: " hosted under Kernel 1.0 by the Department of IT, Jadavpur University." },
-      { prefix: "Designed to test analytical limits, data structure mastery, and computational complexity optimization under strict time constraints, evaluated strictly under ", highlight: "standard ICPC scoring rules", suffix: "." },
+      { prefix: "An elite ", highlight: "algorithmic problem-solving contest", suffix: " hosted under Kernel 1.0 by the Dept. of IT, Jadavpur University. " },
+      { prefix: "Designed to test analytical limits, data structure mastery, and ", highlight: "computational complexity optimization", suffix: " across problems from DP to graph theory " },
+      { prefix: "under ", highlight: "standard ICPC scoring rules", suffix: "." },
     ],
     rules: [
-      { prefix: "Open to undergraduate and postgraduate students from any recognized university across ", highlight: "all streams", suffix: "." },
-      { prefix: "Participation format is ", highlight: "strictly individual (1 member)", suffix: "; team entries are not permitted." },
-      { prefix: "Standard ICPC-style scoring rules apply: rankings determined by ", highlight: "total problems solved and cumulative penalty time", suffix: "." },
-      { prefix: "Permitted programming languages: ", highlight: "C++, C, Java, and Python 3", suffix: "." },
-      { prefix: "Participants must connect to the official contest server; ", highlight: "plagiarism and AI-assisted code generation are strictly prohibited", suffix: " and result in immediate disqualification." },
-      { prefix: "Finalists must bring their own laptops and carry ", highlight: "valid student ID cards", suffix: " for onsite verification." },
+      { prefix: "Strictly ", highlight: "individual participation (Solo Entry)", suffix: "; open to UG & PG students across all streams. Register on Unstop by 10 Dec 2026, 11:59 PM IST." },
+      { prefix: "Every registered participant must join the ", highlight: "official Discord channel (discord.gg/XTCetvVU5Y)", suffix: " for contest announcements and updates." },
+      { prefix: "Standard ICPC-style rules apply in both rounds: rankings are determined by ", highlight: "total problems solved and cumulative penalty time", suffix: "." },
+      { prefix: "Permitted languages: ", highlight: "C++, C, Java, and Python 3", suffix: ". Plagiarism and AI-assisted code generation lead to immediate disqualification." },
+      { prefix: "Qualified finalists must bring their ", highlight: "own laptops and valid student ID cards", suffix: " for onsite verification." },
+      { prefix: "Prize Pool (₹6,000 + Certificates): ", highlight: "Winner ₹3,000 · 1st Runner-Up ₹2,000 · 2nd Runner-Up ₹1,000", suffix: "." },
     ],
     format: [
       {
-        roundTitle: "Round 1: Online Preliminary Qualifier (11 Dec 2026 • 8:00–9:00 PM IST)",
+        roundTitle: "Round 1: Online Preliminary Qualifier (11 Dec 2026)",
         points: [
-          { prefix: "A 1-hour standard competitive programming coding challenge featuring standard CP problems of varying difficulty in unsorted order.", highlight: "", suffix: "" },
-          { prefix: "Hosted on the live contest platform (official link sent via email); the ", highlight: "top 75 participants", suffix: " advance to the On-Campus Grand Finale." },
+          { prefix: "1-hour standard CP contest (", highlight: "8:00 PM – 9:00 PM IST", suffix: ") featuring problems of varying difficulty in unsorted order; link sent via email." },
+          { prefix: "Top 75 participants from Round 1 advance to the ", highlight: "On-Campus Grand Finale", suffix: "." },
         ],
       },
       {
-        roundTitle: "Round 2: On-Campus Grand Finale (19 Dec 2026 • 12:00–2:00 PM IST)",
+        roundTitle: "Round 2: On-Campus Grand Finale (19 Dec 2026)",
         points: [
-          { prefix: "A high-intensity 2-hour onsite ICPC-style showdown at SMCC Building, JU Salt Lake Campus with hidden test cases.", highlight: "", suffix: "" },
-          { prefix: "Live scoreboard is ", highlight: "frozen during the final 60 minutes", suffix: " of the contest to heighten suspense." },
+          { prefix: "High-intensity ", highlight: "2-hour onsite ICPC-style showdown (12:00 PM – 2:00 PM IST)", suffix: " at SMCC Building, JU Salt Lake Campus with hidden test cases." },
+          { prefix: "Live scoreboard will be ", highlight: "frozen during the final 60 minutes", suffix: " to heighten suspense." },
         ],
       },
     ],
@@ -88,44 +87,42 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
   },
 
   hojohborolo: {
-    edition: "KERNEL '26",
-    categoryBadge: "SOFTWARE CHALLENGE",
-    lastRegistrationDate: "10TH DECEMBER",
-    mode: "Hybrid (Online OA + Onsite Sprint)",
-    teamSize: "2-3 Members",
-    prizePool: "6,000",
-    brochureUrl: "/details/hojohborolo.pdf",
+    edition: "KERNEL 1.0",
+    categoryBadge: "CREATIVE SOFTWARE CHALLENGE",
+    lastRegistrationDate: "11TH DEC 2026",
+    mode: "Hybrid (Online OA + On-Campus)",
+    teamSize: "2–3 Members",
+    prizePool: "6,000 + Certificates",
     timeline: {
-      prelims: "11 Dec 2026 (7:00 PM – 10:00 PM, Online OA)",
-      finals: "19 Dec 2026 (2:00 PM – 5:00 PM, Onsite Sprint)",
-      time: "2:00 pm - 5:00 pm IST (3-Hour Sprint)",
-      venue: "SMCC Building, JU Salt Lake Campus",
+      prelims: "11 Dec 2026 · 7:00 PM – 10:00 PM IST (Online OA)",
+      finals: "19 Dec 2026 (Rapid Prototyping Sprint)",
+      time: "2:30 PM – 5:00 PM IST (2.5 Hours)",
+      venue: "SMCC Building, Jadavpur University, Salt Lake Campus",
     },
     overviewSummary: [
-      { prefix: "A fast-paced, non-stop creative software challenge where teams build ", highlight: "quirky, unusual, and wildly entertaining software", suffix: " rather than traditional corporate utilities." },
-      { prefix: "Inspired by internet experiments and digital absurdity, participants combine unconventional UX with creative engineering, prioritizing ", highlight: "joy, humor, and creative UI over conventional hackathon metrics", suffix: "." },
+      { prefix: "Where Logic Takes a Backseat and Absurdity Compiles — a fast-paced, non-stop creative software challenge to build ", highlight: "quirky, unusual, and wildly entertaining software", suffix: ". " },
+      { prefix: "Inspired by playful internet experiments and digital absurdity, teams combine ", highlight: "unconventional UX and creative engineering", suffix: " prioritizing joy and humor over corporate metrics." },
     ],
     rules: [
-      { prefix: "Teams must consist of ", highlight: "2 to 3 members", suffix: " (minimum 2, maximum 3)." },
-      { prefix: "Projects must prioritize creative UI, absurdity, and humor; evaluated strictly on ", highlight: "entertainment value rather than system scalability", suffix: "." },
-      { prefix: "All core logic must be authored during the official 3-hour hack window; ", highlight: "frequent, small commits", suffix: " to a public repository throughout the sprint are strongly encouraged." },
-      { prefix: "Round 1 (Prelims): The use of Large Language Models (LLMs) is ", highlight: "strictly discouraged", suffix: "." },
-      { prefix: "Round 2 (Finale): Given the fast 3-hour build window, the use of LLMs is ", highlight: "welcomed and credited", suffix: "; leveraging AI tools is not penalized." },
-      { prefix: "Any tech stack is welcome: ", highlight: "Web, Mobile, CLI, IoT, Browser Extensions, or Game Engines", suffix: "." },
+      { prefix: "Teams must consist of ", highlight: "2 to 3 members", suffix: "; compulsory registration on Unstop for team verification and eligibility." },
+      { prefix: "Entertainment over utility: submissions are evaluated strictly on ", highlight: "creative UI, absurdity, humor, and entertainment value", suffix: "." },
+      { prefix: "Fresh code & incremental commits: all core logic must be authored during Round 2 with ", highlight: "frequent small commits to a public GitHub repo", suffix: " (pre-built/forked templates prohibited)." },
+      { prefix: "Round-wise LLM policy: ", highlight: "Round 1 strictly discourages LLMs", suffix: "; Round 2 welcomes and credits AI/LLM tools." },
+      { prefix: "Any tech stack welcome (Web, Mobile, CLI, IoT, Browser Extensions, Game Engines). ", highlight: "Winners declared 20 Dec 2026", suffix: " (₹3,000 / ₹2,000 / ₹1,000)." },
     ],
     format: [
       {
-        roundTitle: "Round 1 (Prelims): Online Dev Qualifier (11 Dec 2026 • 7:00–10:00 PM IST)",
+        roundTitle: "Round 1 (Prelims): Online Dev Qualifier (11 Dec 2026)",
         points: [
-          { prefix: "A 30-minute online MCQ assessment taken in one continuous sitting within the 3-hour flexible window.", highlight: "", suffix: "" },
-          { prefix: "Strictly one attempt per team exclusively from the ", highlight: "team leader's account", suffix: " (+4 marks correct, -1 mark incorrect). Top 20 teams advance." },
+          { prefix: "30-minute MCQ assessment taken in one sitting within the ", highlight: "7:00 PM – 10:00 PM IST", suffix: " window (+4 / -1 marking)." },
+          { prefix: "Strictly ", highlight: "one attempt per team exclusively from the team leader's account", suffix: "." },
         ],
       },
       {
-        roundTitle: "Round 2: Non-Stop Rapid Prototyping Sprint & Live Showcase (19 Dec 2026 • 2:00–5:00 PM IST)",
+        roundTitle: "Round 2: Non-Stop Rapid Prototyping Sprint (19 Dec 2026)",
         points: [
-          { prefix: "Secret thematic constraints revealed at opening bell; teams build their quirky prototype from scratch during the ", highlight: "official 3-hour window", suffix: "." },
-          { prefix: "Delivered via a ", highlight: "5-minute live stage demo", suffix: " followed by a 2-minute interactive Q&A session with the jury." },
+          { prefix: "Secret thematic creative constraints revealed at opening bell; ", highlight: "2.5-hour non-stop sprint (2:30 PM – 5:00 PM IST)", suffix: " at SMCC Building." },
+          { prefix: "Submit a short ", highlight: "recorded demo video and public GitHub repository link", suffix: " before the window closes." },
         ],
       },
     ],
@@ -136,44 +133,42 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
   },
 
   "data-nilaam": {
-    edition: "KERNEL '26",
+    edition: "KERNEL 1.0",
     categoryBadge: "MACHINE LEARNING",
-    lastRegistrationDate: "11TH DECEMBER",
-    mode: "Hybrid (Online Prelim + Onsite Finale)",
-    teamSize: "2-4 Members",
-    prizePool: "6,000",
-    brochureUrl: "/details/data-nilaam.pdf",
+    lastRegistrationDate: "11TH DEC 2026",
+    mode: "Hybrid (Online MCQ + Onsite Finale)",
+    teamSize: "2–4 Members (Free Entry)",
+    prizePool: "6,000 + Certificates",
     timeline: {
-      prelims: "12 Dec 2026 (6:00 PM – 9:00 PM IST, Online)",
-      finals: "19 Dec 2026 (5:00 PM – 8:00 PM IST, Onsite)",
-      time: "5:00 pm - 8:00 pm IST (3-Hour Onsite Finale)",
-      venue: "SMCC Building, JU Salt Lake Campus",
+      prelims: "12 Dec 2026 · 6:00 PM – 9:00 PM IST (Online MCQ)",
+      finals: "19 Dec 2026 (Onsite Finale)",
+      time: "5:00 PM – 8:00 PM IST (3 Hours · Results ≈ 8:30 PM)",
+      venue: "SMCC Building, Jadavpur University, Salt Lake Campus",
     },
     overviewSummary: [
-      { prefix: "A machine learning competition about the value of data where teams run ", highlight: "NovaCredit, a simulated digital lender", suffix: ", deciding for 10,000 applicants which of four credit cards to offer or decline." },
-      { prefix: "Every finalist team starts with a basic dataset, free previews, and 1,000 coins; ", highlight: "exclusive datasets are sold in live auctions", suffix: " during the finale to boost predictive profit." },
+      { prefix: "Build the bank. Buy the data. Teams run ", highlight: "NovaCredit, a new digital lender", suffix: ", deciding which of four credit cards (or decline) to offer 10,000 applicants. " },
+      { prefix: "Starting with 1,000 coins, teams buy exclusive datasets in ", highlight: "live auctions (datanilam-kernel.illumine-ju-it.in)", suffix: " and train models on Kaggle CPU notebooks where unspent coins boost final scores." },
     ],
     rules: [
-      { prefix: "Teams must consist of ", highlight: "2 to 4 members", suffix: "." },
-      { prefix: "For the finale, at least one team member needs a ", highlight: "Kaggle account ready by 17 December 2026", suffix: " to receive purchased private datasets." },
-      { prefix: "Modeling runs on ", highlight: "free Kaggle CPU notebooks", suffix: " (no GPU, no installs); any library available on Kaggle and any AI assistant is allowed." },
-      { prefix: "Final notebook must start with the standard checksum cell, run under 10 minutes with internet off, print the fairness table, and be declared before the lock.", highlight: "", suffix: "" },
-      { prefix: "Strict fair play: no outside data or cross-team sharing; using ", highlight: "sex in the model results in immediate disqualification", suffix: "." },
-      { prefix: "Finale scoring is a published formula: ", highlight: "1000 × (profit / best profit) + 0.1 × coins left − 20 × (default rate penalty over 14.5%)", suffix: "." },
+      { prefix: "Teams of ", highlight: "2 to 4 members (Free Entry)", suffix: " across all UG/PG streams; register on Unstop by 11 Dec 2026, 11:59 PM IST. At least one member needs a Kaggle account by 17 Dec." },
+      { prefix: "Bring your own charged laptops logged into Kaggle; train on ", highlight: "free Kaggle CPU notebooks (no GPU, no installs, internet off, <10 mins)", suffix: "; AI assistants allowed." },
+      { prefix: "To bid in auctions, your best Kaggle leaderboard score must reach ", highlight: "1,190 (build a real model first)", suffix: "." },
+      { prefix: "Fair play: no outside data or file sharing between teams; ", highlight: "using sex in the model disqualifies", suffix: " (notebooks are re-run)." },
+      { prefix: "Published scoring formula (no judges): ", highlight: "1000 × (profit ÷ best profit) + 0.1 × coins left − 20 × (default rate % > 14.5%)", suffix: ". Prizes: ₹3,000 / ₹2,000 / ₹1,000." },
     ],
     format: [
       {
-        roundTitle: "Round 1: Online Preliminary MCQ (12 Dec 2026 • 6:00–9:00 PM IST)",
+        roundTitle: "Round 1: Online Preliminary MCQ (12 Dec 2026)",
         points: [
-          { prefix: "A 30-minute online MCQ assessment taken on Unstop with flexible start between 6:00 PM and 8:30 PM.", highlight: "", suffix: "" },
-          { prefix: "Attempted once by the team leader on behalf of the team; the ", highlight: "Top 25 teams", suffix: " advance to the onsite finale." },
+          { prefix: "30-minute MCQ assessment on Unstop (", highlight: "6:00 PM – 9:00 PM IST flexible start", suffix: "); attempted once by the team leader only." },
+          { prefix: "Top ", highlight: "25 teams advance", suffix: " to the onsite finale." },
         ],
       },
       {
-        roundTitle: "Round 2: Onsite Finale & Live Data Auctions (19 Dec 2026 • 5:00–8:00 PM IST)",
+        roundTitle: "Round 2: Onsite Finale & Live Data Auction (19 Dec 2026)",
         points: [
-          { prefix: "5:00 PM briefing, 5:15 PM market opens with live data auctions and open shop on the event portal.", highlight: "", suffix: "" },
-          { prefix: "8:00 PM prediction lock and notebook declaration; results revealed at ≈8:30 PM after official notebook verification.", highlight: "", suffix: "" },
+          { prefix: "5:00 PM briefing & starter notebook; ", highlight: "5:15 PM market & live auctions open", suffix: " on the portal; datasets delivered privately to your Kaggle account." },
+          { prefix: "8:00 PM prediction lock (checksum cell + fairness table required); ", highlight: "≈ 8:30 PM results & reveal", suffix: "." },
         ],
       },
     ],
@@ -183,45 +178,88 @@ export const EVENT_DOSSIERS: Record<string, EventDossier> = {
     ],
   },
 
-  "hack-sangram": {
+  "speaker-session": {
     edition: "KERNEL '26",
-    categoryBadge: "HACKATHON",
-    lastRegistrationDate: "16TH DECEMBER",
-    mode: "Hybrid (Online IDEATE + Onsite Finale)",
-    teamSize: "2-4 (Min. 1 Female)",
-    prizePool: "10,000",
-    brochureUrl: "/details/hack-sangram.pdf",
+    categoryBadge: "INDUSTRY TALKS",
+    lastRegistrationDate: "10TH APRIL",
+    mode: "In-Person",
+    teamSize: "Individual / Open",
+    prizePool: "Swag & Access",
     timeline: {
-      prelims: "25 Nov – 16 Dec 2026 (IDEATE PPT, Online)",
-      finals: "20 Dec 2026 (8:00 AM – 8:00 PM IST, 12 Hours)",
-      time: "8:00 am - 8:00 pm IST (12-Hour Sprint)",
-      venue: "SMCC Building, JU Salt Lake Campus",
+      date: "TBA",
+      time: "11:00 am - 1:00 pm (Talks) · 2:00 pm - 4:00 pm (Fireside)",
+      venue: "University Auditorium, Salt Lake Campus",
     },
     overviewSummary: [
-      { prefix: "An inter-college, 12-hour open-innovation hackathon hosted under Kernel 1.0 by the Department of IT, Jadavpur University, challenging teams to build ", highlight: "working prototypes for bold, real-world challenges", suffix: "." },
-      { prefix: "Features 5 official problem statements: ", highlight: "The 60-Second Chaos Engine, Uncooperative AI, Proof of Follow-Through, Death to Dashboards, and The Bot-Only Economy", suffix: "." },
+      { prefix: "An engaging high-level symposium featuring ", highlight: "seasoned industry experts, tech leaders, and alumni", suffix: ", sharing real-world engineering experiences. " },
+      { prefix: "Delving into ", highlight: "distributed systems, AI frontiers, and architectural paradigms", suffix: " shaping the modern technology landscape." },
     ],
     rules: [
-      { prefix: "Teams must consist of 2–4 members, including ", highlight: "at least one female candidate", suffix: "; cross-college teams are permitted." },
-      { prefix: "Compulsory dual registration: Every participant must register through Unstop and complete the ", highlight: "fee verification Google Form (₹50 per person)", suffix: "." },
-      { prefix: "Original work: All solutions must be developed during the allotted 12-hour hackathon duration; ", highlight: "previously developed projects cannot be presented", suffix: "." },
-      { prefix: "Open-source libraries, APIs, and AI-assisted development tools are permitted, provided ", highlight: "any pre-existing code or templates are declared", suffix: "." },
-      { prefix: "Working prototype mandatory: Teams must demonstrate their live working prototype to the judging panel; ", highlight: "slide-only pitches are disqualified", suffix: "." },
-      { prefix: "Official evaluation parameters: Technical Implementation (25%), Functionality (25%), Innovation (20%), Practical Impact (15%), Presentation & Q&A (10%), Surprise Challenge (5%).", highlight: "", suffix: "" },
+      { prefix: "Open to ", highlight: "all registered students, engineers, and campus visitors", suffix: "." },
+      { prefix: "Attendees must present their digital registration pass at the ", highlight: "auditorium entrance", suffix: "." },
+      { prefix: "Interactive audience Q&A is encouraged; please follow ", highlight: "session moderator cues", suffix: "." },
+      { prefix: "Exclusive ", highlight: "1-on-1 networking opportunities", suffix: " available in the post-session lounge." },
     ],
     format: [
       {
-        roundTitle: "Round 1: IDEATE — Online Screening Round (25 Nov – 16 Dec 2026)",
+        roundTitle: "Segment 1: Keynote Engineering Discourses",
         points: [
-          { prefix: "Registered teams submit a 5–7 slide idea deck on Unstop covering problem statement, solution, tech stack, and impact plan.", highlight: "", suffix: "" },
-          { prefix: "The ", highlight: "top 25–30 teams", suffix: " advance to the Offline Grand Finale; results declared 17 Dec 2026 at 8:00 PM IST." },
+          { prefix: "Deep-dive technical talks delivered by ", highlight: "distinguished engineering directors and researchers", suffix: "." },
+          { prefix: "Covering real-world scale, performance bottlenecks, and systems design.", highlight: "", suffix: "" },
         ],
       },
       {
-        roundTitle: "Round 2: INNOVATE — Offline Grand Finale (20 Dec 2026 • 8:00 AM – 8:00 PM IST)",
+        roundTitle: "Segment 2: Alumni Fireside & Open Q&A",
         points: [
-          { prefix: "A 12-hour continuous prototype sprint at SMCC Building, JU Salt Lake Campus with mid-point mentor checkpoints.", highlight: "", suffix: "" },
-          { prefix: "Final live working demonstration to the judging panel followed by award ceremony (Winner: ₹5,000, 1st Runner-Up: ₹3,000, 2nd Runner-Up: ₹2,000).", highlight: "", suffix: "" },
+          { prefix: "An unscripted conversational panel followed by ", highlight: "direct microphone access for audience questions", suffix: "." },
+          { prefix: "Informal networking and mentorship exchange.", highlight: "", suffix: "" },
+        ],
+      },
+    ],
+    contacts: [
+      { name: "Swarnendu Bannerjee", phone: "+91 9564027954" },
+      { name: "Debarun Patra", phone: "+91 8582922525" },
+    ],
+  },
+
+  "hack-sangram": {
+    edition: "KERNEL 1.0",
+    categoryBadge: "12-HOUR HACKATHON",
+    lastRegistrationDate: "16TH DEC 2026",
+    mode: "Hybrid (Online IDEATE + Offline Finale)",
+    teamSize: "2–4 Members (Min. 1 Female)",
+    prizePool: "10,000 Cash + Certificates",
+    timeline: {
+      prelims: "25 Nov – 16 Dec 2026 (Online IDEATE · Closes 11:59 PM IST)",
+      finals: "20 Dec 2026 (Results 17 Dec, 8:00 PM IST)",
+      time: "8:00 AM – 8:00 PM IST (12 Hours)",
+      venue: "SMCC Building, Jadavpur University, Salt Lake Campus",
+    },
+    overviewSummary: [
+      { prefix: "Think. Build. Innovate. — an inter-college, ", highlight: "12-hour open-innovation hackathon", suffix: " hosted under Kernel 1.0 by the Dept. of IT, Jadavpur University. " },
+      { prefix: "Two-stage arena: an online ideation screening across ", highlight: "5 official problem statements", suffix: " followed by an intense 12-hour on-campus Grand Finale." },
+    ],
+    rules: [
+      { prefix: "Teams of ", highlight: "2–4 members (minimum 1 female candidate)", suffix: "; cross-college teams permitted. Register via Unstop by 16 Dec 2026, 11:59 PM IST." },
+      { prefix: "Every registered participant must join the ", highlight: "official Discord channel (discord.gg/XTCetvVU5Y)", suffix: " for announcements and coordination." },
+      { prefix: "All code developed during the 12-hour finale; ", highlight: "open-source libraries, APIs, and AI-assisted tools", suffix: " allowed if explicitly declared." },
+      { prefix: "5 Problem Statements: ", highlight: "60-Second Chaos Engine · Uncooperative AI · Proof of Follow-Through · Death to Dashboards · The Bot-Only Economy", suffix: "." },
+      { prefix: "Judging Criteria: ", highlight: "Innovation (20%) · Technical (25%) · Prototype (25%) · Impact (15%) · Presentation (10%) · Surprise Challenge (5%)", suffix: "." },
+      { prefix: "Prize Pool (₹10,000 Cash + Certificates): ", highlight: "Winner ₹5,000 · 1st Runner-Up ₹3,000 · 2nd Runner-Up ₹2,000", suffix: "." },
+    ],
+    format: [
+      {
+        roundTitle: "Round 1: IDEATE — Online Screening (25 Nov – 16 Dec 2026)",
+        points: [
+          { prefix: "Select 1 of the 5 problem statements and submit a ", highlight: "5–7 slide PDF/PPT deck on Unstop", suffix: " (problem, solution, innovation, tech stack, plan, impact)." },
+          { prefix: "Top 25–30 teams shortlisted; ", highlight: "results declared on 17 Dec 2026 at 8:00 PM IST", suffix: "." },
+        ],
+      },
+      {
+        roundTitle: "Round 2: INNOVATE — Offline Grand Finale (20 Dec 2026)",
+        points: [
+          { prefix: "12-hour on-campus sprint (", highlight: "8:00 AM – 8:00 PM IST", suffix: ") at SMCC Building, JU Salt Lake Campus; all registered team members must attend." },
+          { prefix: "Submit source code, documentation, and final presentation, followed by a ", highlight: "live working demo to the judging panel", suffix: "." },
         ],
       },
     ],
