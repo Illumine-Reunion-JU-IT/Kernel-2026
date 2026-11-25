@@ -46,5 +46,17 @@
     "url": "https://www.telegraphindia.com/edugraph",
     "isPlaceholder": false,
     "organiserNote": "Digital Media Partner - The Telegraph Online Edugraph. Official."
+  },
+  {
+    "id": "sponsor-unstop",
+    "name": "Unstop",
+    "tier": "partner",
+    "category": "Official Partner",
+    "tagline": "Connecting talent with opportunity",
+    "logoPath": "/images/sponsors/unstop.jpg",
+    "logoAlt": "Unstop logo",
+    "url": "https://unstop.com",
+    "isPlaceholder": false,
+    "organiserNote": "Official Partner - Unstop. Official."
   }
 ]
