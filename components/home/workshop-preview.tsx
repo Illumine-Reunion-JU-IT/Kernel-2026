@@ -213,7 +213,7 @@ export function WorkshopPreview() {
               <span className="font-mono text-[11px] uppercase tracking-widest text-sand-dim">
                 Open to registered participants · Limited seats
               </span>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-volt">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-signal">
                 Status: Placeholder
               </span>
             </div>
