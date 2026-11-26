@@ -253,7 +253,7 @@ export function SponsorsPreview() {
               id="sponsors-title"
               className="display section-title max-w-4xl"
             >
-              Partners &amp; <span className="outline-text">Sponsors</span>
+              Partners &amp; <span className="text-signal">Sponsors</span>
             </h2>
           </div>
           <p className="section-subtitle max-w-sm text-sand-dim">

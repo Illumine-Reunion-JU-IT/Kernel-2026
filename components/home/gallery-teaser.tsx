@@ -39,7 +39,7 @@ export function GalleryTeaser() {
       <div className="container relative grid items-center gap-10 md:grid-cols-12">
         <div className="md:col-span-7">
           <p className="section-kicker text-sand-dim"><span className="slashes" />A little after the credits</p>
-          <h2 id="gallery-teaser-title" className="display section-title mt-3 max-w-3xl">The moments <span className="outline-text text-sand/80">between.</span></h2>
+          <h2 id="gallery-teaser-title" className="display section-title mt-3 max-w-3xl">The moments <span className="text-signal">between.</span></h2>
           <p className="section-subtitle mt-4 max-w-lg text-sand-dim">Three clubs. A lot of things worth remembering. Step into the hand-picked frames from campus events.</p>
           <Link href="/gallery" className="kbtn kbtn-secondary mt-7 !px-5 !py-3 !text-xs" data-cursor="Gallery">
             <span className="kbtn-label">Visit the club gallery <span aria-hidden>↗</span></span>

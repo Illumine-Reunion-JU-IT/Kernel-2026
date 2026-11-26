@@ -263,7 +263,7 @@ export function CommitteeShowcase() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
               <h1 className="display section-title text-sand tracking-tight">
-                <span className="outline-text text-sand/30">THE PEOPLE OF</span>{" "}
+                <span className="text-sand">THE PEOPLE OF</span>{" "}
                 <span className="text-signal drop-shadow-[0_4px_35px_rgba(228,9,8,0.5)]">
                   KERNEL
                 </span>

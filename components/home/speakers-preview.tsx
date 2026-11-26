@@ -43,7 +43,7 @@ export function SpeakersPreview() {
 
       <div className="container relative">
         <p className="mb-6 font-mono text-xs text-sand-dim"><span className="slashes" />On stage</p>
-        <h2 id="speakers-title" className="display section-title max-w-3xl">Voices from <span className="outline-text">the field</span></h2>
+        <h2 id="speakers-title" className="display section-title max-w-3xl">Voices from <span className="text-signal">the field</span></h2>
         <p className="mt-6 max-w-md text-sand-dim">Industry experts, researchers and alumni sharing what they have built and where computing is heading.</p>
 
         <ul className="mt-16 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 md:gap-x-7">

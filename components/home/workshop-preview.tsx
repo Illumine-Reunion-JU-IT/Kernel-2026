@@ -131,7 +131,7 @@ export function WorkshopPreview() {
             id="workshop-title"
             className="display section-title max-w-4xl"
           >
-            Build in <span className="outline-text">the lab</span>
+            Build in <span className="text-signal">the lab</span>
           </h2>
           <p className="section-subtitle max-w-md text-sand-dim">
             An intensive, practitioner-led technical workshop at KERNEL 1.0.
@@ -182,7 +182,7 @@ export function WorkshopPreview() {
                 /// Featured Session
               </p>
               <h3 className="display mt-3 text-[clamp(1.6rem,3.2vw,2.75rem)] text-sand">
-                Technical <span className="outline-text">Workshop</span>
+                Technical <span className="text-signal">Workshop</span>
               </h3>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-sand-dim sm:text-base">
                 Bring your laptop, ship real code, and learn directly from
