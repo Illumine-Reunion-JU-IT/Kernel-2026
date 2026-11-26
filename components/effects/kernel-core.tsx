@@ -25,7 +25,7 @@ export function KernelCore({ className }: { className?: string }) {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 50);
-    camera.position.set(0, 0, 7.2);
+    camera.position.set(0, 0, 9.2);
 
     const group = new THREE.Group();
     scene.add(group);
@@ -52,7 +52,7 @@ export function KernelCore({ className }: { className?: string }) {
     const n = 140;
     const pos = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
-      const r = 2.2 + Math.random() * 1.3;
+      const r = 2.0 + Math.random() * 0.9;
       const a = Math.random() * Math.PI * 2;
       const b = Math.acos(2 * Math.random() - 1);
       pos.set([r * Math.sin(b) * Math.cos(a), r * Math.sin(b) * Math.sin(a), r * Math.cos(b)], i * 3);

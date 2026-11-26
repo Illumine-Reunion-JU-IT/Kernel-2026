@@ -22,10 +22,11 @@ const config: Config = {
         display: ["var(--font-display)", "Impact", "sans-serif"],
         condensed: ["var(--font-condensed)", "Impact", "sans-serif"],
         serif: ["var(--font-serif)", "Georgia", "serif"],
+        sans: ["var(--font-body)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"]
       },
-      spacing: { section: "clamp(5rem, 12vw, 11rem)" },
+      spacing: { section: "clamp(3rem, 6vw, 5.5rem)" },
       screens: { xs: "420px" },
       keyframes: {
         hint: { "0%": { transform: "translateY(-100%)", opacity: "0" }, "40%": { opacity: "1" }, "100%": { transform: "translateY(300%)", opacity: "0" } },

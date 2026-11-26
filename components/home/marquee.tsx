@@ -23,15 +23,15 @@ export function Marquee({ items }: { items: string[] }) {
     <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
       {items.map((t, i) => (
         <li key={t + i} className="flex items-center">
-          <span className={`display px-6 text-[clamp(2.4rem,7vw,6rem)] ${i % 2 ? "outline-text text-sand" : "text-void"}`}>{t}</span>
-          <span aria-hidden className="h-[0.9em] w-3 -skew-x-[20deg] bg-void/80 text-[clamp(2.4rem,7vw,6rem)]" />
+          <span className={`display px-5 text-[clamp(1.6rem,3.8vw,3.2rem)] ${i % 2 ? "outline-text text-sand" : "text-void"}`}>{t}</span>
+          <span aria-hidden className="h-[0.9em] w-2.5 -skew-x-[20deg] bg-void/80 text-[clamp(1.6rem,3.8vw,3.2rem)]" />
         </li>
       ))}
     </ul>
   );
 
   return (
-    <div className="relative -my-[1px] overflow-hidden bg-signal py-5 [clip-path:polygon(0_12%,100%_0,100%_88%,0_100%)]">
+    <div className="relative -my-[1px] overflow-hidden bg-signal py-2.5 md:py-3 [clip-path:polygon(0_12%,100%_0,100%_88%,0_100%)]">
       <div ref={wrap} className="flex w-max animate-[marquee_28s_linear_infinite] motion-reduce:animate-none">
         {row(false)}{row(true)}
       </div>

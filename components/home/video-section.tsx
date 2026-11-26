@@ -98,7 +98,17 @@ export function VideoSection() {
       const sc = { trigger: "[data-stage]", start: "top 85%", end: "center 55%", scrub: 0.7 };
       const full = { trigger: "[data-stage]", start: "top bottom", end: "bottom top", scrub: true };
       gsap.fromTo("[data-vslab]", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", ease: "none", scrollTrigger: sc });
-      gsap.fromTo("[data-vbox]", { scale: 0.82, opacity: 0.3 }, { scale: 1, opacity: 1, ease: "none", scrollTrigger: sc });
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: "[data-stage]",
+          start: "top 88%",
+          end: "bottom 12%",
+          scrub: 0.6,
+        },
+      })
+        .fromTo("[data-vbox]", { scale: 0.72, opacity: 0 }, { scale: 1.04, opacity: 1, duration: 0.35, ease: "power2.out" })
+        .to("[data-vbox]", { scale: 1.14, opacity: 1, duration: 0.35, ease: "none" })
+        .to("[data-vbox]", { scale: 1.22, opacity: 0, duration: 0.3, ease: "power2.in" });
       gsap.fromTo("[data-vtitle]", { xPercent: -30, opacity: 0 }, { xPercent: 0, opacity: 1, ease: "none", scrollTrigger: sc });
       const pieces: Array<[string, number, number]> = [["[data-p-statue]", -70, 90], ["[data-p-building]", 80, -50], ["[data-p-crowd]", -80, 70], ["[data-p-rock]", 70, 90]];
       pieces.forEach(([sel, x, y]) => {
@@ -181,9 +191,9 @@ export function VideoSection() {
       <div aria-hidden className="halftone absolute -left-10 top-1/3 h-2/3 w-[55vw] opacity-40" />
       <div className="container relative">
         <div data-vhead className="max-w-xl">
-          <p className="mono-label mb-5 overflow-hidden text-sand"><span className="slashes block">Aftermovie</span></p>
-          <h2 id="video-title" className="display overflow-hidden pb-[0.08em] text-[clamp(3rem,9vw,7.4rem)]">See it move</h2>
-          <p className="mt-6 overflow-hidden text-lg text-sand md:text-xl">Fifty-plus events, one campus, thousands of people. A minute of what KERNEL feels like from the floor.</p>
+          <p className="section-kicker mb-3 overflow-hidden text-sand"><span className="slashes block">Aftermovie</span></p>
+          <h2 id="video-title" className="display section-title overflow-hidden pb-[0.08em]">See it move</h2>
+          <p className="section-subtitle mt-4 overflow-hidden text-sand">Fifty-plus events, one campus, thousands of people. A minute of what KERNEL feels like from the floor.</p>
         </div>
       </div>
 
@@ -254,7 +264,7 @@ export function VideoSection() {
           </div>
 
           {/* Title crossing the column, like the poster wordmark */}
-          <p data-vtitle aria-hidden className="display pointer-events-none absolute left-1/2 z-30 -translate-x-1/2 -rotate-[5deg] whitespace-nowrap text-[11.5cqw] text-sand [text-shadow:0_0_0_#050308,3px_3px_0_#050308] max-md:text-[13cqw]" style={{ top: "calc(var(--top) - 9cqw)" }}>Aftermovie</p>
+          <p data-vtitle aria-hidden className="display pointer-events-none absolute left-1/2 z-30 -translate-x-1/2 -rotate-[5deg] whitespace-nowrap text-[6.5cqw] text-sand [text-shadow:0_0_0_#050308,3px_3px_0_#050308] max-md:text-[8cqw]" style={{ top: "calc(var(--top) - 5.5cqw)" }}>Aftermovie</p>
 
           {/* Gramophone Vinyl Record Disk */}
           <div

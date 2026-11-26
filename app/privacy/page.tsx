@@ -6,7 +6,7 @@ export default function Page() {
       <p className="font-mono text-sm tracking-widest text-purple-400">
         KERNEL 1.0
       </p>
-      <h1 className="mt-5 text-5xl font-bold">Privacy Policy</h1>
+      <h1 className="mt-5 text-3xl md:text-4xl font-bold">Privacy Policy</h1>
       <p className="mt-4 max-w-xl text-gray-400">
         This section is being prepared by the organising team.
         Official information will be published here.

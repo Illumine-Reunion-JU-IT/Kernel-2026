@@ -140,14 +140,14 @@ export function ClubGallery() {
 
   return (
     <section ref={root} aria-labelledby="gallery-title" className="relative isolate overflow-hidden bg-void pb-20 pt-[calc(var(--nav-h)+2rem)] md:pb-28 md:pt-[calc(var(--nav-h)+3rem)]">
-      <div aria-hidden data-gallery-ghost className="display outline-text pointer-events-none absolute left-[16vw] top-16 -z-10 select-none whitespace-nowrap text-[25vw] text-sand/[0.055]">AFTERIMAGE / AFTERIMAGE</div>
+      <div aria-hidden data-gallery-ghost className="display outline-text pointer-events-none absolute left-[16vw] top-12 -z-10 select-none whitespace-nowrap text-[15vw] text-sand/[0.055]">AFTERIMAGE / AFTERIMAGE</div>
       <div className="container relative">
-        <div className="grid items-end gap-5 pb-7 md:grid-cols-[1fr_auto] md:gap-10 md:pb-9" data-gallery-reveal>
+        <div className="grid items-end gap-5 pb-6 md:grid-cols-[1fr_auto] md:gap-10 md:pb-8" data-gallery-reveal>
           <div>
-            <p className="mono-label text-[10px] text-sand-dim"><span className="slashes" />KERNEL / club archive / 2026</p>
-            <h1 id="gallery-title" className="display mt-5 text-[clamp(3.2rem,8.4vw,7.7rem)] leading-[0.82]">Still in <span className="text-signal">the frame.</span></h1>
+            <p className="section-kicker text-sand-dim"><span className="slashes" />KERNEL / club archive / 2026</p>
+            <h1 id="gallery-title" className="display section-title mt-3">Still in <span className="text-signal">the frame.</span></h1>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-sand-dim md:pb-1 md:text-base">Forty-five selected moments from the clubs that make campus move. Drag, swipe, or use the arrows to move through the archive.</p>
+          <p className="section-subtitle max-w-sm text-sand-dim md:pb-1">Forty-five selected moments from the clubs that make campus move. Drag, swipe, or use the arrows to move through the archive.</p>
         </div>
 
         <div className="sticky top-[var(--nav-h)] z-30 -mx-3 border-y border-sand/15 bg-void/90 px-3 backdrop-blur-xl md:mx-0 md:px-0">

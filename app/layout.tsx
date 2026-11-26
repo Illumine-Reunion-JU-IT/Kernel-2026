@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Archivo, Instrument_Serif, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/navigation/footer";
@@ -17,7 +18,7 @@ const display = Archivo({
   variable: "--font-display",
   display: "swap"
 });
-const body = Archivo({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const body = localFont({ src: "../Mograph.ttf", variable: "--font-body", display: "swap" });
 const condensed = Anton({ subsets: ["latin"], weight: "400", variable: "--font-condensed", display: "swap" });
 const mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-mono", display: "swap" });
 const serif = Instrument_Serif({

@@ -139,47 +139,51 @@ export function ContactSection({
           {/* ── LEFT COLUMN (6 cols): Crimson Editorial Monolith ────── */}
           <div className="relative lg:col-span-6 flex flex-col">
             <div
-              className="relative flex-1 bg-signal text-void p-6 sm:p-8 md:p-9 pb-12 flex flex-col justify-between overflow-hidden shadow-[0_20px_50px_rgba(228,9,8,0.25)]"
+              className="relative flex-1 bg-[#c80807] text-void p-6 sm:p-8 md:p-9 pb-10 flex flex-col justify-between overflow-hidden shadow-[0_20px_50px_rgba(180,8,8,0.28)]"
               style={{
                 clipPath:
                   "polygon(0 0, 75% 0, 79% 22px, 94% 22px, 100% 80px, 100% calc(100% - 44px), calc(100% - 44px) 100%, 0 100%)",
               }}
             >
-              {/* Layer 1 (Bottom): Halftone texture overlay on red bg */}
+              {/* Layer 1 (Bottom): Subtle halftone + dark vignette so red isn't glaring */}
               <div
                 aria-hidden="true"
-                className="halftone-dark pointer-events-none absolute inset-0 opacity-90 z-0"
+                className="halftone-dark pointer-events-none absolute inset-0 opacity-65 z-0"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_85%_85%,rgba(5,3,8,0.28),transparent_60%)]"
               />
 
-              {/* Layer 2 (Middle): Classical marble bust statue PNG */}
+              {/* Layer 2 (Middle): Prominent, solid classical marble bust statue */}
               {statueImagePath && (
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none select-none absolute -bottom-6 sm:-bottom-8 right-0 sm:right-1 w-28 sm:w-32 md:w-36 lg:w-40 z-10 opacity-35"
+                  className="pointer-events-none select-none absolute -bottom-2 right-2 sm:right-4 w-32 sm:w-36 md:w-40 lg:w-44 z-20 opacity-100"
                 >
                   <Image
                     src={statueImagePath}
                     alt=""
                     width={629}
                     height={848}
-                    className="w-full h-auto grayscale contrast-125 drop-shadow-[0_16px_36px_rgba(5,3,8,0.5)]"
+                    className="w-full h-auto grayscale contrast-125 brightness-105 drop-shadow-[0_14px_30px_rgba(5,3,8,0.75)]"
                     priority
                   />
                 </div>
               )}
 
               {/* Layer 3 (Top): Writings, Ledger Table & Metadata */}
-              <div className="relative z-20 flex flex-col justify-between h-full">
-                <div>
+              <div className="relative z-30 flex flex-col justify-between h-full">
+                <div className="pb-28 sm:pb-32">
                   <h2
                     id="contact-heading"
-                    className="display text-[clamp(1.9rem,3.2vw,3.4rem)] max-w-[72%] italic font-black uppercase text-void leading-none tracking-tight mb-7 sm:mb-9 drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
+                    className="display section-title max-w-[72%] italic font-black uppercase text-void tracking-tight mb-5 sm:mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
                   >
                     CONTACT US
                   </h2>
 
                   {/* Structured contact ledger */}
-                  <dl className="border-2 border-void divide-y-2 divide-void bg-signal/25 backdrop-blur-[0.5px]">
+                  <dl className="border-2 border-void divide-y-2 divide-void bg-[#b00606]/30">
                     {/* Row 1: Located At */}
                     <div className="grid grid-cols-1 sm:grid-cols-[105px_1fr] md:grid-cols-[115px_1fr] sm:divide-x-2 sm:divide-void">
                       <dt className="p-3 sm:p-3.5 font-mono text-xs sm:text-[13px] md:text-sm font-black uppercase tracking-wider text-void flex items-center">
@@ -237,7 +241,7 @@ export function ContactSection({
                 </div>
 
                 {/* Bottom footer text inside the monolith */}
-                <div className="mt-8 sm:mt-12 pt-4 flex items-end justify-start">
+                <div className="mt-10 sm:mt-14 pt-4 pr-32 sm:pr-44 flex items-end justify-start">
                   <p className="font-mono text-[10px] sm:text-[11px] font-black tracking-wider text-void/90 uppercase whitespace-nowrap mr-auto">
                     KERNEL &apos;26 <span className="mx-1.5">|</span> DEPT. OF
                     IT, JADAVPUR UNIVERSITY
@@ -250,7 +254,7 @@ export function ContactSection({
           {/* ── RIGHT COLUMN (6 cols): Direct Architectural Message Form ─ */}
           <div className="relative lg:col-span-6 flex flex-col justify-center lg:pl-6 xl:pl-10">
             <div className="mb-6 sm:mb-8">
-              <h3 className="display text-[clamp(2.2rem,4.2vw,3.8rem)] italic font-black uppercase text-sand leading-none tracking-tight">
+              <h3 className="display section-title italic font-black uppercase text-sand tracking-tight">
                 SEND A MESSAGE
               </h3>
             </div>
@@ -319,7 +323,7 @@ export function ContactSection({
                     setForm({ ...form, message: e.target.value })
                   }
                   placeholder="Write your message here..."
-                  className="w-full resize-y rounded-md bg-[#0c0a10] border border-[#26242c] px-4 py-3 text-sm text-sand placeholder:text-sand/30 focus:outline-none focus:border-signal focus:ring-1 focus:ring-signal transition-colors"
+                  className="w-full resize-none rounded-md bg-[#0c0a10] border border-[#26242c] px-4 py-3 text-sm text-sand placeholder:text-sand/30 focus:outline-none focus:border-signal focus:ring-1 focus:ring-signal transition-colors"
                 />
               </label>
 
@@ -338,31 +342,70 @@ export function ContactSection({
                   )}
                 </div>
 
-                {/* Circular Glowing SEND Sphere Button */}
+                {/* Shard SEND Button matching site primary Register button */}
                 <button
                   ref={buttonRef}
                   type="submit"
                   disabled={status === "submitting"}
-                  className="group relative ml-auto flex h-20 w-20 sm:h-24 sm:w-24 shrink-0 items-center justify-center rounded-full text-void font-display italic font-black text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 select-none cursor-pointer"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 35% 35%, #ff3b30, #e40908 60%, #8b0000 100%)",
-                    boxShadow:
-                      "0 0 35px rgba(228, 9, 8, 0.65), 0 0 12px rgba(228, 9, 8, 0.4), inset 0 2px 6px rgba(255,255,255,0.4)",
-                  }}
+                  className="kbtn kbtn-primary ml-auto cursor-pointer disabled:opacity-50"
                 >
-                  <span className="flex items-center gap-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
-                    {status === "submitting" ? "WAIT" : "SEND"}
-                    <span
-                      aria-hidden="true"
-                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
+                  <span className="kbtn-label flex items-center gap-2">
+                    {status === "submitting" ? "Sending..." : "Send"}
+                    <span aria-hidden="true">→</span>
                   </span>
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+
+        {/* ── CAMPUS MAP UI/UX ──────────────────────────────────────── */}
+        <div className="mt-10 lg:mt-12 overflow-hidden rounded-xl border border-sand/15 bg-forest/70 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.85)]">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-sand/10 bg-void/70 px-5 py-4 sm:px-6">
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-signal" />
+              </span>
+              <div>
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-sand">
+                  {"/// Campus Location"}
+                </p>
+                <p className="mt-0.5 text-sm text-sand-dim">
+                  Jadavpur University, Salt Lake Campus · Sector III, Block LB, Kolkata 700106
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <span className="hidden rounded-full border border-sand/15 bg-void/80 px-3 py-1 font-mono text-xs text-sand-dim sm:inline-block">
+                22.5615° N · 88.4115° E
+              </span>
+              <a
+                href="https://maps.google.com/?q=Jadavpur+University+Salt+Lake+Campus+Kolkata"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="kbtn kbtn-secondary !px-4 !py-2 !text-xs"
+              >
+                <span className="kbtn-label flex items-center gap-1.5">
+                  Open in Maps <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div className="relative h-64 w-full sm:h-72 lg:h-80 bg-void">
+            <iframe
+              title="Jadavpur University Salt Lake Campus Map"
+              src="https://maps.google.com/maps?q=Jadavpur%20University%20Salt%20Lake%20Campus&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full w-full border-0 [filter:invert(92%)_hue-rotate(180deg)_contrast(1.06)_saturate(0.75)]"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 shadow-[inset_0_0_40px_rgba(5,3,8,0.65)]"
+            />
           </div>
         </div>
       </div>

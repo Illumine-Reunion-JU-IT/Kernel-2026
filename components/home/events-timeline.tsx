@@ -216,16 +216,16 @@ export function EventsTimeline() {
 
   return (
     <section ref={root} id="events" aria-labelledby="events-title" className="relative overflow-hidden bg-void py-section">
-      <div aria-hidden data-bg-word className="display outline-text pointer-events-none absolute left-0 top-12 select-none whitespace-nowrap text-[24vw] text-sand/[0.1]">EVENTS EVENTS</div>
+      <div aria-hidden data-bg-word className="display outline-text pointer-events-none absolute left-0 top-6 select-none whitespace-nowrap text-[15vw] text-sand/[0.1]">EVENTS EVENTS</div>
 
       <div className="container relative">
-        <p className="mb-6 font-mono text-xs text-sand-dim"><span className="slashes" />The lineup</p>
-        <h2 id="events-title" className="display max-w-4xl text-[clamp(2.6rem,7vw,6.4rem)]">Six ways to <span className="text-signal">compete</span></h2>
+        <p className="section-kicker mb-3 text-sand-dim"><span className="slashes" />The lineup</p>
+        <h2 id="events-title" className="display section-title max-w-4xl">Six ways to <span className="text-signal">compete</span></h2>
 
         {list.length === 0 ? (
-          <EmptyState className="mt-14" title="Events to be announced" message="The full lineup will appear here once the organising team confirms it." action={<Button href="/events">Events page</Button>} />
+          <EmptyState className="mt-10" title="Events to be announced" message="The full lineup will appear here once the organising team confirms it." action={<Button href="/events">Events page</Button>} />
         ) : (
-          <div ref={trackRef} data-track className="relative mt-20 md:mt-28">
+          <div ref={trackRef} data-track className="relative mt-10 md:mt-14">
             {/* SVG Curving Timeline Backbone */}
             <svg
               aria-hidden="true"
@@ -279,7 +279,7 @@ export function EventsTimeline() {
               )}
             </svg>
 
-            <ol className="space-y-12 md:space-y-20 relative z-10">
+            <ol className="space-y-8 md:space-y-12 relative z-10">
               {list.map((ev, i) => {
                 const right = i % 2 === 0;
                 return (
@@ -299,7 +299,7 @@ export function EventsTimeline() {
                     </div>
 
                     <div className={`relative hidden items-center md:flex ${right ? "md:order-1 md:justify-end" : "md:order-2"}`}>
-                      <span data-num aria-hidden className={`condensed select-none text-[clamp(5.5rem,10vw,9.5rem)] leading-none text-transparent [-webkit-text-stroke:1.5px_rgba(233,223,197,0.35)] transition-[-webkit-text-stroke-color] group-[.is-live]/row:[-webkit-text-stroke-color:var(--signal)]`}>{pad(i + 1)}</span>
+                      <span data-num aria-hidden className={`condensed select-none text-[clamp(4rem,7vw,6.5rem)] leading-none text-transparent [-webkit-text-stroke:1.5px_rgba(233,223,197,0.35)] transition-[-webkit-text-stroke-color] group-[.is-live]/row:[-webkit-text-stroke-color:var(--signal)]`}>{pad(i + 1)}</span>
                     </div>
 
                     <Link
@@ -316,9 +316,9 @@ export function EventsTimeline() {
                         <span className="outline-text block text-sand/80">{ev.title}</span>
                         <span aria-hidden data-fill className="absolute inset-0 block text-signal">{ev.title}</span>
                       </h3>
-                      <p className="mt-2 font-mono text-xs font-bold text-sand">{ev.tagline}</p>
-                      <p className="mt-2.5 max-w-sm text-xs sm:text-sm text-sand-dim leading-relaxed">{ev.summary}</p>
-                      <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-sand/15 pt-3.5 font-mono text-[10.5px] sm:text-[11px]">
+                      <p className="mt-2 font-mono text-sm font-bold text-sand">{ev.tagline}</p>
+                      <p className="mt-2.5 max-w-sm text-sm sm:text-[15px] text-sand-dim leading-relaxed">{ev.summary}</p>
+                      <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-sand/15 pt-3.5 font-mono text-xs">
                         {ev.facts.slice(0, 4).map((f) => (
                           <li key={f.label} data-fact>
                             <span className="text-sand-dim">{f.label}</span>
@@ -334,7 +334,7 @@ export function EventsTimeline() {
             </ol>
 
             {/* All Events CTA Button: line docks precisely at top border; button is solid void black so inside is 100% clean */}
-            <div ref={buttonWrapRef} className="mt-16 md:mt-20 text-center relative z-20">
+            <div ref={buttonWrapRef} className="mt-10 md:mt-12 text-center relative z-20">
               <Button
                 href="/events"
                 variant="secondary"

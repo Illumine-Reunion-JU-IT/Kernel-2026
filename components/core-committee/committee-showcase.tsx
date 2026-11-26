@@ -262,7 +262,7 @@ export function CommitteeShowcase() {
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
-              <h1 className="display text-[clamp(2.5rem,7vw,5.5rem)] text-sand leading-[0.88] tracking-tight">
+              <h1 className="display section-title text-sand tracking-tight">
                 <span className="outline-text text-sand/30">THE PEOPLE OF</span>{" "}
                 <span className="text-signal drop-shadow-[0_4px_35px_rgba(228,9,8,0.5)]">
                   KERNEL
@@ -387,7 +387,7 @@ export function CommitteeShowcase() {
                       {"/// ACTIVE DIRECTIVE"}
                     </span>
                   </div>
-                  <h2 className="display text-[clamp(2rem,5vw,3.8rem)] text-sand leading-none tracking-tight">
+                  <h2 className="display text-[clamp(1.6rem,3.5vw,2.75rem)] text-sand leading-none tracking-tight">
                     {effectiveSection.title}
                   </h2>
                   <div className="mt-2 font-mono text-xs tracking-wider text-signal/90 uppercase font-semibold">

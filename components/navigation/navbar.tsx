@@ -72,9 +72,9 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-snap",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-snap",
         hidden ? "-translate-y-full" : "translate-y-0",
-        solid ? "bg-void/80 backdrop-blur-md" : "bg-transparent"
+        solid ? "bg-void/85 backdrop-blur-md" : "bg-transparent"
       )}
       style={{ height: "var(--nav-h)" }}
     >
@@ -85,7 +85,7 @@ export function Navbar() {
           <KernelLogo priority className="h-11" />
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-1 rounded-full border border-sand/15 bg-forest/75 px-2.5 py-1.5 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.06)] lg:flex">
           {navLinks.slice(1).map((link) => {
             const isSectionLink = link.href.includes("#");
             const sectionHash = isSectionLink ? link.href.split("#")[1] : null;
@@ -100,10 +100,14 @@ export function Navbar() {
                 scroll={!isSectionLink}
                 onClick={(e) => handleNavClick(e, link.href)}
                 aria-current={active ? "page" : undefined}
-                className="group relative py-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-sand"
+                className={cn(
+                  "group relative rounded-full px-3.5 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-signal/80",
+                  active
+                    ? "bg-signal text-white shadow-[0_0_18px_rgba(228,9,8,0.45)]"
+                    : "text-sand/85 hover:bg-white/[0.08] hover:text-white"
+                )}
               >
                 {link.label}
-                <span className={cn("absolute inset-x-0 bottom-0 h-[2px] origin-left bg-signal transition-transform duration-500 ease-snap", active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100")} />
               </Link>
             );
           })}
@@ -112,11 +116,11 @@ export function Navbar() {
         <div className="flex items-center gap-2.5 sm:gap-4">
           <div>
             {hasRegistration ? (
-              <Button href={siteContent.registrationUrl!} external className="!px-3.5 !py-2 !text-[10px] sm:!px-5 sm:!py-3 sm:!text-[11px]">
+              <Button href={siteContent.registrationUrl!} external className="!px-4 !py-2 !text-xs sm:!px-5 sm:!py-2.5 sm:!text-[13px]">
                 Register
               </Button>
             ) : (
-              <Button disabled className="!px-3.5 !py-2 !text-[10px] sm:!px-5 sm:!py-3 sm:!text-[11px]">
+              <Button disabled className="!px-4 !py-2 !text-xs sm:!px-5 sm:!py-2.5 sm:!text-[13px]">
                 Register
               </Button>
             )}

@@ -122,25 +122,25 @@ export function WorkshopPreview() {
 
       <div className="container relative">
         {/* Editorial header */}
-        <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-sand-dim">
+        <p className="section-kicker mb-3 text-sand-dim">
           <span className="slashes" />
           Hands-on lab
         </p>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <h2
             id="workshop-title"
-            className="display max-w-4xl text-[clamp(2.8rem,7vw,6.4rem)]"
+            className="display section-title max-w-4xl"
           >
             Build in <span className="outline-text">the lab</span>
           </h2>
-          <p className="max-w-md font-mono text-xs leading-relaxed text-sand-dim">
+          <p className="section-subtitle max-w-md text-sand-dim">
             An intensive, practitioner-led technical workshop at KERNEL 1.0.
             Full topic, mentor lineup, and registration schedule dropping soon.
           </p>
         </div>
 
         {/* 12-column asymmetric poster layout */}
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-12">
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* Left 7 cols: Hero Workshop Dossier */}
           <div
             data-ws-panel
@@ -177,11 +177,11 @@ export function WorkshopPreview() {
             </div>
 
             {/* Centerpiece */}
-            <div className="relative my-8 sm:my-10">
+            <div className="relative my-5 sm:my-6">
               <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal">
                 /// Featured Session
               </p>
-              <h3 className="display mt-3 text-[clamp(2.1rem,4.5vw,3.8rem)] text-sand">
+              <h3 className="display mt-3 text-[clamp(1.6rem,3.2vw,2.75rem)] text-sand">
                 Technical <span className="outline-text">Workshop</span>
               </h3>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-sand-dim sm:text-base">
@@ -197,10 +197,10 @@ export function WorkshopPreview() {
                     key={spec.label}
                     className="bg-void/90 px-4 py-3.5 transition-colors group-hover:bg-void"
                   >
-                    <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-sand-dim/70">
+                    <dt className="font-mono text-xs uppercase tracking-[0.18em] text-sand-dim/75">
                       {spec.label}
                     </dt>
-                    <dd className="mt-1 font-mono text-xs font-bold uppercase tracking-wider text-sand">
+                    <dd className="mt-1 font-mono text-sm font-bold uppercase tracking-wider text-sand">
                       {spec.value}
                     </dd>
                   </div>
@@ -243,10 +243,10 @@ export function WorkshopPreview() {
                         {item.num}
                       </span>
                       <div>
-                        <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-sand">
+                        <h4 className="font-mono text-sm font-bold uppercase tracking-wider text-sand">
                           {item.title}
                         </h4>
-                        <p className="mt-1 text-xs leading-relaxed text-sand-dim">
+                        <p className="mt-1 text-sm leading-relaxed text-sand-dim">
                           {item.detail}
                         </p>
                       </div>
@@ -270,7 +270,7 @@ export function WorkshopPreview() {
                   TBA // 2026
                 </span>
               </div>
-              <p className="mt-3 text-xs leading-relaxed text-sand-dim">
+              <p className="mt-3 text-sm leading-relaxed text-sand-dim">
                 Workshop registration and curriculum drops first on our official
                 Discord server and events page.
               </p>

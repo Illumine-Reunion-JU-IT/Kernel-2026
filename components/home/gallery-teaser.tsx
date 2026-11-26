@@ -38,10 +38,10 @@ export function GalleryTeaser() {
       <div aria-hidden className="halftone absolute inset-y-0 left-0 w-1/2 opacity-20" />
       <div className="container relative grid items-center gap-10 md:grid-cols-12">
         <div className="md:col-span-7">
-          <p className="mono-label text-[10px] text-sand-dim"><span className="slashes" />A little after the credits</p>
-          <h2 id="gallery-teaser-title" className="display mt-5 max-w-3xl text-[clamp(2.5rem,6.4vw,5.7rem)]">The moments <span className="outline-text text-sand/80">between.</span></h2>
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-sand-dim md:text-base">Three clubs. A lot of things worth remembering. Step into the hand-picked frames from campus events.</p>
-          <Link href="/gallery" className="kbtn kbtn-secondary mt-7 !px-5 !py-4 !text-[10px]" data-cursor="Gallery">
+          <p className="section-kicker text-sand-dim"><span className="slashes" />A little after the credits</p>
+          <h2 id="gallery-teaser-title" className="display section-title mt-3 max-w-3xl">The moments <span className="outline-text text-sand/80">between.</span></h2>
+          <p className="section-subtitle mt-4 max-w-lg text-sand-dim">Three clubs. A lot of things worth remembering. Step into the hand-picked frames from campus events.</p>
+          <Link href="/gallery" className="kbtn kbtn-secondary mt-7 !px-5 !py-3 !text-xs" data-cursor="Gallery">
             <span className="kbtn-label">Visit the club gallery <span aria-hidden>↗</span></span>
           </Link>
         </div>

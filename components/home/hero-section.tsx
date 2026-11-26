@@ -172,14 +172,14 @@ export function HeroSection() {
       <div data-copy className="absolute inset-x-5 bottom-[max(1.5rem,env(safe-area-inset-bottom))] z-10 md:inset-x-[4vw] md:bottom-[8vh] md:flex md:items-end md:justify-between">
         <div className="md:max-w-[38vw]">
           <p data-fade className="mono-label text-sand max-md:text-[0.7rem]"><span className="slashes" />{siteContent.department}</p>
-          <h1 id="hero-title" className="display mt-3 text-[clamp(1.9rem,8.4vw,2.6rem)] text-sand md:mt-4 md:text-[clamp(2rem,3.7vw,3.6rem)]">
+          <h1 id="hero-title" className="display mt-3 text-[clamp(1.75rem,7.2vw,2.4rem)] text-sand md:mt-4 md:text-[clamp(1.85rem,3.2vw,3.1rem)]">
             <span className="sr-only">KERNEL 1.0. </span>
             {["The event that", "powers ideas"].map((r) => (<span key={r} className="block overflow-hidden pb-[0.08em]"><span data-line className="block">{r}</span></span>))}
           </h1>
         </div>
         <div data-fade className="mt-4 space-y-4 md:mt-0 md:flex md:flex-col md:items-end md:text-right">
           <Details />
-          <div className="flex flex-wrap gap-3 md:justify-end max-md:[&_.kbtn]:!px-4 max-md:[&_.kbtn]:!py-3 max-md:[&_.kbtn]:!text-[0.7rem]">
+          <div className="flex flex-wrap gap-3 md:justify-end max-md:[&_.kbtn]:!px-4 max-md:[&_.kbtn]:!py-2.5 max-md:[&_.kbtn]:!text-xs">
             {url ? <Button href={url} external>Registration has started</Button> : <Button disabled>Registration opens soon</Button>}
             <Button href="/events" variant="secondary">See the events</Button>
           </div>

@@ -2,42 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type PointerEvent as ReactPointerEvent } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { sponsors, publicOnly, siteContent } from "@/lib/content";
 import type { Sponsor } from "@/types";
 
 function getLogoSurface(id: string) {
-  if (id === "sponsor-edugraph") return "#000000";
   if (id === "sponsor-studio-one") return "#eb5e0b";
   return "#ffffff";
-}
-
-function CornerBrackets({ color }: { color: string }) {
-  return (
-    <>
-      <span
-        aria-hidden
-        className="pointer-events-none absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 transition-all duration-300 group-hover:h-6 group-hover:w-6"
-        style={{ borderColor: color }}
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 transition-all duration-300 group-hover:h-6 group-hover:w-6"
-        style={{ borderColor: color }}
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2 transition-all duration-300 group-hover:h-6 group-hover:w-6"
-        style={{ borderColor: color }}
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b-2 border-r-2 transition-all duration-300 group-hover:h-6 group-hover:w-6"
-        style={{ borderColor: color }}
-      />
-    </>
-  );
 }
 
 function TierCard({
@@ -50,117 +22,163 @@ function TierCard({
   variant: "gold" | "silver" | "partner";
 }) {
   const num = String(index + 1).padStart(2, "0");
+  const cardRef = useRef<HTMLElement>(null);
 
   const palette = {
     gold: {
       accent: "#E5C158",
-      border: "rgba(229, 193, 88, 0.35)",
-      hoverGlow: "0 18px 50px -18px rgba(229, 193, 88, 0.25)",
-      logoHeight: "h-36 sm:h-44",
-      padding: "p-7 sm:p-9",
-      titleSize: "text-2xl sm:text-3xl",
-    },
-    silver: {
-      accent: "#C8D0DA",
-      border: "rgba(200, 208, 218, 0.32)",
-      hoverGlow: "0 18px 50px -18px rgba(200, 208, 218, 0.2)",
-      logoHeight: "h-28 sm:h-36",
+      spotlight: "rgba(229, 193, 88, 0.18)",
+      rim: "rgba(229, 193, 88, 0.32)",
+      logoHeight: "h-36 sm:h-40",
       padding: "p-6 sm:p-8",
       titleSize: "text-xl sm:text-2xl",
     },
+    silver: {
+      accent: "#C8D0DA",
+      spotlight: "rgba(200, 208, 218, 0.16)",
+      rim: "rgba(200, 208, 218, 0.26)",
+      logoHeight: "h-28 sm:h-32",
+      padding: "p-5 sm:p-7",
+      titleSize: "text-lg sm:text-xl",
+    },
     partner: {
       accent: "#e40908",
-      border: "rgba(233, 223, 197, 0.16)",
-      hoverGlow: "0 14px 36px -18px rgba(228, 9, 8, 0.22)",
+      spotlight: "rgba(228, 9, 8, 0.18)",
+      rim: "rgba(228, 9, 8, 0.28)",
       logoHeight: "h-24 sm:h-28",
       padding: "p-5 sm:p-6",
-      titleSize: "text-lg sm:text-xl",
+      titleSize: "text-base sm:text-lg",
     },
   }[variant];
 
+  const handlePointerMove = (e: ReactPointerEvent<HTMLElement>) => {
+    const el = cardRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const px = x / rect.width - 0.5;
+    const py = y / rect.height - 0.5;
+    el.style.setProperty("--rx", `${(-py * 10).toFixed(2)}deg`);
+    el.style.setProperty("--ry", `${(px * 12).toFixed(2)}deg`);
+    el.style.setProperty("--mx", `${x.toFixed(0)}px`);
+    el.style.setProperty("--my", `${y.toFixed(0)}px`);
+    el.style.setProperty("--spot-opacity", "1");
+  };
+
+  const handlePointerLeave = () => {
+    const el = cardRef.current;
+    if (!el) return;
+    el.style.setProperty("--rx", "0deg");
+    el.style.setProperty("--ry", "0deg");
+    el.style.setProperty("--spot-opacity", "0");
+  };
+
   const card = (
-    <article
-      data-sponsor-tile
-      className={`group relative flex h-full flex-col justify-between bg-forest/75 transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest ${palette.padding}`}
-      style={{
-        border: `1px solid ${palette.border}`,
-        boxShadow: palette.hoverGlow,
-      }}
-    >
-      <CornerBrackets color={palette.accent} />
-
-      {/* Top metadata row */}
-      <div className="flex items-center justify-between gap-3 border-b border-sand/10 pb-3.5">
-        <div className="flex items-center gap-2.5">
-          <span
-            className="font-mono text-xs font-bold tracking-widest"
-            style={{ color: palette.accent }}
-          >
-            {num}
-          </span>
-          <span aria-hidden className="h-3 w-px bg-sand/20" />
-          <span
-            className="font-mono text-[10px] font-bold uppercase tracking-[0.22em]"
-            style={{
-              color: variant === "partner" ? "#d2ccb6" : palette.accent,
-            }}
-          >
-            {sponsor.category}
-          </span>
-        </div>
-
-        {sponsor.url && (
-          <span
-            aria-hidden
-            className="font-mono text-sm text-sand-dim transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            style={{ color: palette.accent }}
-          >
-            ↗
-          </span>
-        )}
-      </div>
-
-      {/* Logo frame */}
-      <div
-        className={`relative my-6 w-full overflow-hidden border border-sand/15 ${palette.logoHeight}`}
-        style={{ background: getLogoSurface(sponsor.id) }}
+    <div className="h-full [perspective:1100px]">
+      <article
+        ref={cardRef}
+        data-sponsor-tile
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+        className={`group relative flex h-full flex-col justify-between rounded-xl bg-gradient-to-br from-[#1b1b24] via-[#111117] to-[#08080c] transition-[transform,box-shadow,border-color] duration-300 ease-out [transform-style:preserve-3d] [transform:rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.9)] ${palette.padding}`}
+        style={{
+          border: `1px solid ${palette.rim}`,
+          boxShadow:
+            "0 22px 45px -16px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -2px 0 rgba(0, 0, 0, 0.65)",
+        }}
       >
-        <Image
-          src={sponsor.logoPath}
-          alt={sponsor.logoAlt}
-          fill
-          className="object-contain p-4 sm:p-6 transition-transform duration-500 ease-snap group-hover:scale-[1.03]"
-          sizes={
-            variant === "gold"
-              ? "(max-width: 768px) 92vw, 640px"
-              : variant === "silver"
-              ? "(max-width: 768px) 92vw, 520px"
-              : "(max-width: 640px) 92vw, 30vw"
-          }
+        {/* Dynamic 3D cursor spotlight */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-xl opacity-[var(--spot-opacity,0)] transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), ${palette.spotlight}, transparent 68%)`,
+          }}
         />
-      </div>
 
-      {/* Bottom title & tagline */}
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <h3 className={`display text-sand ${palette.titleSize}`}>
-            {sponsor.name}
-          </h3>
-          {sponsor.tagline && (
-            <p className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-sand-dim/80">
-              {sponsor.tagline}
-            </p>
+        {/* Top bevel gloss */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+        />
+
+        {/* Top metadata row — elevated in Z */}
+        <div className="relative flex items-center justify-between gap-3 [transform:translateZ(18px)]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <span
+              className="font-mono text-[11px] font-bold tracking-widest"
+              style={{ color: palette.accent }}
+            >
+              {num}
+            </span>
+            <span aria-hidden className="h-2.5 w-px bg-sand/20" />
+            <span
+              className="font-mono text-[10px] font-bold uppercase tracking-[0.18em]"
+              style={{
+                color: variant === "partner" ? "#d2ccb6" : palette.accent,
+              }}
+            >
+              {sponsor.category}
+            </span>
+          </div>
+
+          {sponsor.url && (
+            <span
+              aria-hidden
+              className="grid h-7 w-7 place-items-center rounded-full border border-white/15 bg-black/50 font-mono text-xs shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:bg-signal group-hover:text-void group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              style={{ color: palette.accent }}
+            >
+              ↗
+            </span>
           )}
         </div>
-        <span
-          aria-hidden
-          className="condensed text-2xl leading-none opacity-25 transition-opacity duration-300 group-hover:opacity-60"
-          style={{ color: palette.accent }}
-        >
-          /{num}
-        </span>
-      </div>
-    </article>
+
+        {/* Floating 3D Logo Pedestal */}
+        <div className="relative my-5 [transform:translateZ(28px)]">
+          <div
+            className={`relative w-full overflow-hidden rounded-lg border border-white/20 shadow-[0_14px_28px_-10px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.6)] transition-all duration-300 group-hover:shadow-[0_22px_40px_-10px_rgba(0,0,0,0.9)] ${palette.logoHeight}`}
+            style={{ background: getLogoSurface(sponsor.id) }}
+          >
+            <Image
+              src={sponsor.logoPath}
+              alt={sponsor.logoAlt}
+              fill
+              className="object-contain p-4 sm:p-5 transition-transform duration-500 ease-snap group-hover:scale-[1.06]"
+              sizes={
+                variant === "gold"
+                  ? "(max-width: 768px) 92vw, 640px"
+                  : variant === "silver"
+                  ? "(max-width: 768px) 92vw, 520px"
+                  : "(max-width: 640px) 92vw, 30vw"
+              }
+            />
+          </div>
+        </div>
+
+        {/* Bottom title & tagline — elevated in Z */}
+        <div className="relative flex items-end justify-between gap-4 pt-1 [transform:translateZ(18px)]">
+          <div>
+            <h3 className={`display text-sand transition-colors duration-300 group-hover:text-white ${palette.titleSize}`}>
+              {sponsor.name}
+            </h3>
+            {sponsor.tagline && (
+              <p className="mt-1 font-mono text-xs uppercase tracking-wider text-sand-dim/80 transition-colors duration-300 group-hover:text-sand-dim">
+                {sponsor.tagline}
+              </p>
+            )}
+          </div>
+          <span
+            aria-hidden
+            className="condensed text-2xl leading-none opacity-30 transition-all duration-300 group-hover:-translate-x-0.5 group-hover:opacity-80"
+            style={{ color: palette.accent }}
+          >
+            /{num}
+          </span>
+        </div>
+      </article>
+    </div>
   );
 
   return sponsor.url ? (
@@ -225,20 +243,20 @@ export function SponsorsPreview() {
 
       <div className="container relative">
         {/* Section header */}
-        <div className="flex flex-col gap-6 border-b border-sand/15 pb-10 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-6 border-b border-sand/15 pb-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-sand-dim">
+            <p className="section-kicker mb-3 text-sand-dim">
               <span className="slashes" />
               Backed by
             </p>
             <h2
               id="sponsors-title"
-              className="display max-w-4xl text-[clamp(2.8rem,7vw,6.2rem)]"
+              className="display section-title max-w-4xl"
             >
               Partners &amp; <span className="outline-text">Sponsors</span>
             </h2>
           </div>
-          <p className="max-w-sm font-mono text-xs leading-relaxed text-sand-dim">
+          <p className="section-subtitle max-w-sm text-sand-dim">
             Organisations and platforms powering KERNEL 1.0 at Jadavpur
             University. Select any partner to visit their official site.
           </p>
@@ -249,7 +267,7 @@ export function SponsorsPreview() {
           <div className="mt-12">
             <div className="mb-4 flex items-center gap-4">
               <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#E5C158]">
-                /// Gold Sponsor
+                {"/// Gold Sponsor"}
               </span>
               <span className="h-px flex-1 bg-[#E5C158]/25" />
             </div>
@@ -266,7 +284,7 @@ export function SponsorsPreview() {
           <div className="mt-12">
             <div className="mb-4 flex items-center gap-4">
               <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#C8D0DA]">
-                /// Silver Sponsor
+                {"/// Silver Sponsor"}
               </span>
               <span className="h-px flex-1 bg-[#C8D0DA]/25" />
             </div>
@@ -294,7 +312,7 @@ export function SponsorsPreview() {
           <div className="mt-14">
             <div className="mb-4 flex items-center gap-4">
               <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-sand-dim">
-                /// Official &amp; Media Partners
+                {"/// Official & Media Partners"}
               </span>
               <span className="h-px flex-1 bg-sand/15" />
             </div>

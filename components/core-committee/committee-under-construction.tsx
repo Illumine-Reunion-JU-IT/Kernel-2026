@@ -50,7 +50,7 @@ export function CommitteeUnderConstruction() {
         {/* Hero Brutalist Title */}
         <div className="max-w-4xl">
           <h1
-            className="display text-[clamp(2.9rem,8vw,6.8rem)] font-black uppercase leading-[0.9] tracking-tight drop-shadow-[0_0_35px_rgba(228,9,8,0.45)]"
+            className="display section-title font-black uppercase tracking-tight drop-shadow-[0_0_35px_rgba(228,9,8,0.45)]"
             style={{
               background:
                 "linear-gradient(180deg, #ffffff 0%, #ffd0d0 45%, #e40908 100%)",
