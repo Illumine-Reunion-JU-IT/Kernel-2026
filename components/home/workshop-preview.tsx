@@ -179,7 +179,7 @@ export function WorkshopPreview() {
             {/* Centerpiece */}
             <div className="relative my-5 sm:my-6">
               <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal">
-                /// Featured Session
+                {"/// Featured Session"}
               </p>
               <h3 className="display mt-3 text-[clamp(1.6rem,3.2vw,2.75rem)] text-sand">
                 Technical <span className="text-signal">Workshop</span>

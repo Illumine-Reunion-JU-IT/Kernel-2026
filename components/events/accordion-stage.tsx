@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 import type { EventItem } from "@/types";
 
 /* ─── layout constants ──────────────────────────────────────────────── */
-const SKEW = 8; // diagonal accordion blade architecture tilt on lg+
+const SKEW = 0; // rectangular straight blade architecture (no diagonal slant)
 
 function computeBladeWidths(totalCount: number) {
   if (totalCount <= 1) {
@@ -256,11 +256,11 @@ function Blade({
   const idx = String(index + 1).padStart(2, "0");
 
   /*
-   * The diagonal accordion stage architecture: outer container = skewX(-8deg), overflow:hidden.
-   * The inner content counter-skews back by +8deg so all text, the 4 details section, and action buttons render as clean rectangles.
+   * Rectangular straight blade architecture (SKEW = 0).
+   * For SKEW > 0, diagonal overshoot and counter-skew values are retained below.
    */
-  const LEFT_OVERSHOOT = "-8%"; // extends inner div past the blade's left edge
-  const INNER_WIDTH = "116%"; // compensates for the overshoot on both sides
+  const LEFT_OVERSHOOT = SKEW === 0 ? "0%" : "-8%"; // extends inner div past the blade's left edge
+  const INNER_WIDTH = SKEW === 0 ? "100%" : "116%"; // compensates for the overshoot on both sides
 
   return (
     <div
@@ -390,10 +390,15 @@ function Blade({
         >
           {/*
            * Left copy column.
-           * SKEW === 0 uses standard pl-8 xl:pl-12.
-           * Skewed mode previously used pl-[14%] to clear the diagonal cut.
+           * SKEW === 0 uses clean padding (pl-8 xl:pl-12).
+           * When skewed, pl-[14%] was used to clear the diagonal cut.
            */}
-          <div className="flex h-full w-[52%] flex-col justify-end pb-10 pr-4 pl-[14%]">
+          <div
+            className={cn(
+              "flex h-full w-[52%] flex-col justify-end pb-10 pr-4",
+              SKEW === 0 ? "pl-8 xl:pl-12" : "pl-[14%]"
+            )}
+          >
             <div className="mb-4">
               <Link
                 href={`/events/${event.slug}`}
